@@ -1,9 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import { Code2, Smartphone, Bot, Search, Database, Workflow } from "lucide-react";
-
-const pssdcLogo = "/pssdc-logo.png";
-const tidyscotLogo = "/tidyscot-logo.png";
-const citicareLogo = "/citicare-logo.png";
+import { pssdcLogo, tidyscotLogo, citicareLogo } from "./images-base64";
 
 export const SERVICES: {
   icon: LucideIcon;

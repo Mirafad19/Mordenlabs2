@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import { mordenLogo } from "../lib/images-base64";
 
-const logoAsset = "/morden-logo.png";
+const logoAsset = mordenLogo;
 
 const NAV = [
   { label: "Work", to: "/work" as const },

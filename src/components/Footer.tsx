@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Twitter, Instagram, Linkedin, Github } from "lucide-react";
+import { mordenLogo } from "../lib/images-base64";
 
-const logoAsset = "/morden-logo.png";
+const logoAsset = mordenLogo;
 
 export function Footer() {
   return (
