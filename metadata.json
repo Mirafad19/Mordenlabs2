@@ -1,0 +1,6 @@
+{
+  "name": "MORDEN LABS | Premium Digital Studio",
+  "description": "A high-end digital studio specializing in premium websites, AI agents, and custom software systems.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
