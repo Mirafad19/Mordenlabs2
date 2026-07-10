@@ -157,8 +157,8 @@ export function ProjectVault() {
                   {/* Left Column: Rich Typography & Guiding Context */}
                   <div className="lg:col-span-7 flex flex-col items-start text-left gap-6">
                     <div className="inline-flex items-center gap-2 rounded-full bg-amber-500/10 border border-amber-500/20 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-amber-500 font-mono">
-                      <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
-                      SECURE VAULT
+                      <span className="h-2 w-2 rounded-full bg-amber-500" />
+                      PROJECT VAULT
                     </div>
                     <h2 className="font-display text-4xl font-bold leading-[1.05] sm:text-5xl lg:text-6xl text-white">
                       Selected{" "}
@@ -316,7 +316,7 @@ export function ProjectVault() {
                               </span>
                               {isCardActive && (
                                 <span
-                                  className="w-2 h-2 rounded-full animate-ping"
+                                  className="w-2 h-2 rounded-full"
                                   style={{ backgroundColor: p.accent }}
                                 />
                               )}

@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { STATS } from "@/lib/site-data";
+import { motion } from "motion/react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -50,29 +51,59 @@ function AboutPage() {
         <section className="border-b-2 border-ink py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <div className="max-w-3xl">
-              <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+              >
                 About us
-              </div>
-              <h1 className="font-display text-5xl font-bold leading-[1.02] md:text-6xl lg:text-7xl">
+              </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="font-display text-5xl font-bold leading-[1.02] md:text-6xl lg:text-7xl"
+              >
                 A small team. <span className="text-accent-brand">Serious work.</span>
-              </h1>
-              <p className="mt-8 text-lg text-muted-foreground md:text-xl">
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="mt-8 text-lg text-muted-foreground md:text-xl"
+              >
                 We're designers, engineers, and strategists working together as one team. We build
                 for founders, marketing leads, product teams, and government partners — anyone
                 shipping things that need to actually work.
-              </p>
+              </motion.p>
             </div>
           </div>
         </section>
 
         <section className="border-b-2 border-ink bg-card py-20 lg:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-12 lg:gap-16 lg:px-8">
-            <div className="lg:col-span-5">
-              <h2 className="font-display text-3xl font-bold leading-[1.05] md:text-5xl">
-                Our story.
-              </h2>
+            <div className="lg:col-span-5 flex flex-col justify-between gap-8">
+              <div>
+                <h2 className="font-display text-3xl font-bold leading-[1.05] md:text-5xl">
+                  Our story.
+                </h2>
+              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="relative overflow-hidden rounded-[2rem] border-2 border-ink bg-background p-6 shadow-xl"
+              >
+                <img
+                  src="/whiteboard-collaboration.png"
+                  alt="Team collaboration and process sketch"
+                  className="w-full h-auto object-contain"
+                />
+              </motion.div>
             </div>
-            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground lg:col-span-7">
+            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground lg:col-span-7 flex flex-col justify-center">
               <p>
                 Morden Labs started as late-night side projects between friends who kept meeting the
                 same problem: most software gets shipped tired.
@@ -92,15 +123,27 @@ function AboutPage() {
 
         <section className="border-b-2 border-ink py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <div className="mb-14 max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="mb-14 max-w-2xl"
+            >
               <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 What we believe
               </div>
               <h2 className="font-display text-4xl font-bold leading-[1.05] md:text-5xl">
                 Four things that shape our work.
               </h2>
-            </div>
-            <div className="grid gap-0 brutal-border md:grid-cols-2">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="grid gap-0 brutal-border md:grid-cols-2"
+            >
               {VALUES.map((v, i) => (
                 <div
                   key={v.title}
@@ -113,7 +156,7 @@ function AboutPage() {
                   <p className="mt-3 text-base leading-relaxed text-muted-foreground">{v.body}</p>
                 </div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 

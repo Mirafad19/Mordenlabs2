@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SERVICES } from "@/lib/site-data";
+import { motion } from "motion/react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -32,23 +33,44 @@ function ServicesPage() {
         <section className="border-b-2 border-ink py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <div className="max-w-3xl">
-              <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+              >
                 Services
-              </div>
-              <h1 className="font-display text-5xl font-bold leading-[1.02] md:text-6xl lg:text-7xl">
+              </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="font-display text-5xl font-bold leading-[1.02] md:text-6xl lg:text-7xl"
+              >
                 What we <span className="text-accent-brand">build</span>.
-              </h1>
-              <p className="mt-8 text-lg text-muted-foreground md:text-xl">
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="mt-8 text-lg text-muted-foreground md:text-xl"
+              >
                 Six focused disciplines. We keep our lanes narrow on purpose — deep expertise in a
                 handful of things beats a buffet of mediocre.
-              </p>
+              </motion.p>
             </div>
           </div>
         </section>
 
         <section className="border-b-2 border-ink py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <div className="grid gap-0 brutal-border md:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="grid gap-0 brutal-border md:grid-cols-2"
+            >
               {SERVICES.map((s, i) => {
                 const Icon = s.icon;
                 return (
@@ -69,7 +91,7 @@ function ServicesPage() {
                   </div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
         </section>
 

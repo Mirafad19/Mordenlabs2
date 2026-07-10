@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { PROJECTS } from "@/lib/site-data";
+import { motion } from "motion/react";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
@@ -32,16 +33,31 @@ function WorkPage() {
         <section className="border-b-2 border-ink py-20 lg:py-28">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <div className="max-w-3xl">
-              <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+              >
                 Featured Projects
-              </div>
-              <h1 className="font-display text-5xl font-bold leading-[1.02] md:text-6xl lg:text-7xl">
+              </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="font-display text-5xl font-bold leading-[1.02] md:text-6xl lg:text-7xl"
+              >
                 Real work. <span className="text-accent-brand">Real outcomes.</span>
-              </h1>
-              <p className="mt-8 text-lg text-muted-foreground md:text-xl">
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="mt-8 text-lg text-muted-foreground md:text-xl"
+              >
                 Real solutions we've designed and delivered for government agencies and growing
                 businesses.
-              </p>
+              </motion.p>
             </div>
           </div>
         </section>
@@ -49,8 +65,12 @@ function WorkPage() {
         <section className="border-b-2 border-ink py-20 lg:py-28">
           <div className="mx-auto max-w-7xl space-y-16 px-5 lg:px-8">
             {PROJECTS.map((p, i) => (
-              <article
+              <motion.article
                 key={p.slug}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="grid gap-0 overflow-hidden brutal-border brutal-shadow-lg bg-card md:grid-cols-5"
               >
                 <div
@@ -98,7 +118,7 @@ function WorkPage() {
                     </div>
                   </div>
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
         </section>

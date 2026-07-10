@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SERVICES, PROJECTS, STATS } from "@/lib/site-data";
 import { ProjectVault } from "@/components/ProjectVault";
+import { motion } from "motion/react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,20 +46,40 @@ function Hero() {
     <section className="relative overflow-hidden border-b-2 border-ink">
       <div className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-36">
         <div className="max-w-4xl">
-          <div className="mb-8 inline-flex items-center gap-2 brutal-border bg-card px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-8 inline-flex items-center gap-2 brutal-border bg-card px-3 py-1.5 text-xs font-semibold uppercase tracking-wider"
+          >
             <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" />A digital studio · est.
             2021
-          </div>
-          <h1 className="font-display text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[6rem]">
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="font-display text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[6rem]"
+          >
             We build the software behind{" "}
             <span className="text-accent-brand">modern businesses.</span>
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg text-muted-foreground md:text-xl">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-8 max-w-2xl text-lg text-muted-foreground md:text-xl"
+          >
             Morden Labs is a small, senior team designing and shipping web, mobile, and AI products
             for growing companies and government partners. We build things worth signing our name
             to.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-10 flex flex-wrap gap-4"
+          >
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 brutal-border brutal-shadow bg-ink px-6 py-3.5 font-semibold text-cream transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px]"
@@ -71,7 +92,7 @@ function Hero() {
             >
               See our work <ArrowRight className="h-5 w-5" />
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -99,7 +120,13 @@ function ServicesPreview() {
   return (
     <section className="border-b-2 border-ink py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end"
+        >
           <div>
             <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               What we do
@@ -114,9 +141,15 @@ function ServicesPreview() {
           >
             View all services <ArrowUpRight className="h-4 w-4" />
           </Link>
-        </div>
+        </motion.div>
 
-        <div className="grid gap-0 brutal-border md:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="grid gap-0 brutal-border md:grid-cols-2 lg:grid-cols-3"
+        >
           {SERVICES.map((s, i) => {
             const Icon = s.icon;
             return (
@@ -134,7 +167,7 @@ function ServicesPreview() {
               </div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -144,14 +177,32 @@ function CTA() {
   return (
     <section className="border-b-2 border-ink py-20 lg:py-28">
       <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
-        <h2 className="font-display text-4xl font-bold leading-[1.05] md:text-6xl">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="font-display text-4xl font-bold leading-[1.05] md:text-6xl"
+        >
           Have something to build?
-        </h2>
-        <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground"
+        >
           We take on a limited number of projects each quarter to keep the work at a high standard.
           If it sounds like a fit, we'd love to hear from you.
-        </p>
-        <ul className="mx-auto mt-8 grid max-w-2xl gap-3 text-left sm:grid-cols-2">
+        </motion.p>
+        <motion.ul
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="mx-auto mt-8 grid max-w-2xl gap-3 text-left sm:grid-cols-2"
+        >
           {[
             "Free 30-minute discovery call",
             "Fixed-scope proposals",
@@ -165,13 +216,21 @@ function CTA() {
               {f}
             </li>
           ))}
-        </ul>
-        <Link
-          to="/contact"
-          className="mt-10 inline-flex items-center gap-2 brutal-border brutal-shadow bg-ink px-8 py-4 font-semibold text-cream transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px]"
+        </motion.ul>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-10"
         >
-          Start a conversation <ArrowUpRight className="h-5 w-5" />
-        </Link>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 brutal-border brutal-shadow bg-ink px-8 py-4 font-semibold text-cream transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px]"
+          >
+            Start a conversation <ArrowUpRight className="h-5 w-5" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
