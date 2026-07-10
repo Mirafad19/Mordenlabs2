@@ -17,11 +17,11 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b-2 border-ink bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 lg:px-8">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-3">
           <img
             src={logoAsset}
             alt="Morden Labs"
-            className="h-12 md:h-16 w-auto object-contain mix-blend-multiply transition-all hover:scale-[1.02]"
+            className="h-16 md:h-24 w-auto object-contain transition-all hover:scale-[1.02] filter drop-shadow-sm font-bold"
           />
         </Link>
         <nav className="hidden items-center gap-8 lg:flex">

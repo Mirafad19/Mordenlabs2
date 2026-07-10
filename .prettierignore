@@ -6,3 +6,10 @@ pnpm-lock.yaml
 package-lock.json
 bun.lock
 routeTree.gen.ts
+src/lib/morden-logo.ts
+src/lib/pssdc-logo.ts
+src/lib/tidyscot-logo.ts
+src/lib/citicare-logo.ts
+src/lib/favicon.ts
+src/lib/whiteboard-collaboration.ts
+

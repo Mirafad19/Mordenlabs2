@@ -83,27 +83,12 @@ function AboutPage() {
 
         <section className="border-b-2 border-ink bg-card py-20 lg:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-12 lg:gap-16 lg:px-8">
-            <div className="lg:col-span-5 flex flex-col justify-between gap-8">
-              <div>
-                <h2 className="font-display text-3xl font-bold leading-[1.05] md:text-5xl">
-                  Our story.
-                </h2>
-              </div>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative overflow-hidden rounded-[2rem] border-2 border-ink bg-background p-6 shadow-xl"
-              >
-                <img
-                  src="/whiteboard-collaboration.png"
-                  alt="Team collaboration and process sketch"
-                  className="w-full h-auto object-contain"
-                />
-              </motion.div>
+            <div className="lg:col-span-5">
+              <h2 className="font-display text-3xl font-bold leading-[1.05] md:text-5xl">
+                Our story.
+              </h2>
             </div>
-            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground lg:col-span-7 flex flex-col justify-center">
+            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground lg:col-span-7">
               <p>
                 Morden Labs started as late-night side projects between friends who kept meeting the
                 same problem: most software gets shipped tired.

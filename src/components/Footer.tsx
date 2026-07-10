@@ -13,7 +13,7 @@ export function Footer() {
             <img
               src={logoAsset}
               alt="Morden Labs"
-              className="h-20 md:h-24 w-auto object-contain mix-blend-multiply transition-all hover:scale-[1.02]"
+              className="h-28 md:h-36 w-auto object-contain transition-all hover:scale-[1.02] filter drop-shadow-sm font-bold"
             />
             <p className="mt-6 max-w-md text-base text-muted-foreground">
               A digital studio building web, mobile, AI solutions, and SEO that actually moves the
