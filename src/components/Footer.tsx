@@ -28,9 +28,7 @@ export function Footer() {
               </div>
               <p className="text-xs font-medium text-muted-foreground">
                 Trusted by organizations in{" "}
-                <span className="font-bold text-neutral-900">
-                  UK · Nigeria
-                </span>
+                <span className="font-bold text-neutral-900">UK · Nigeria</span>
               </p>
             </div>
           </div>

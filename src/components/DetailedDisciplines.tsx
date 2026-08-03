@@ -175,7 +175,8 @@ export function DetailedDisciplines() {
             Engineering capability. <br /> Built for production.
           </h2>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Every service we offer is executed in-house with senior focus. Select a discipline below to explore full technical deliverables and architectural specifications.
+            Every service we offer is executed in-house with senior focus. Select a discipline below
+            to explore full technical deliverables and architectural specifications.
           </p>
         </div>
 
@@ -208,7 +209,9 @@ export function DetailedDisciplines() {
                   <div>
                     <h3
                       className={`font-display text-base font-bold transition-colors ${
-                        isActive ? "text-neutral-900" : "text-neutral-700 group-hover:text-neutral-900"
+                        isActive
+                          ? "text-neutral-900"
+                          : "text-neutral-700 group-hover:text-neutral-900"
                       }`}
                     >
                       {d.title}
@@ -219,7 +222,9 @@ export function DetailedDisciplines() {
 
                 <div
                   className={`h-2 w-2 rounded-full transition-all ${
-                    isActive ? "bg-accent-brand scale-125" : "bg-neutral-300 opacity-0 group-hover:opacity-100"
+                    isActive
+                      ? "bg-accent-brand scale-125"
+                      : "bg-neutral-300 opacity-0 group-hover:opacity-100"
                   }`}
                 />
               </div>
@@ -254,7 +259,9 @@ export function DetailedDisciplines() {
               <h3 className="font-display text-2xl sm:text-3xl font-black text-neutral-900 leading-tight">
                 {activeDiscipline.title}
               </h3>
-              <p className="text-sm font-semibold text-accent-brand mt-1">{activeDiscipline.short}</p>
+              <p className="text-sm font-semibold text-accent-brand mt-1">
+                {activeDiscipline.short}
+              </p>
             </div>
 
             {/* Detailed Description */}
@@ -322,7 +329,9 @@ export function DetailedDisciplines() {
                   <span className="text-[9px] font-mono font-bold text-accent-brand uppercase block">
                     LIVE REFERENCE DEPLOYMENT
                   </span>
-                  <span className="text-xs font-bold text-white block">{activeDiscipline.proofPoint.name}</span>
+                  <span className="text-xs font-bold text-white block">
+                    {activeDiscipline.proofPoint.name}
+                  </span>
                   <p className="text-[11px] text-neutral-400 line-clamp-1">
                     {activeDiscipline.proofPoint.text}
                   </p>

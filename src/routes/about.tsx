@@ -98,8 +98,8 @@ function AboutPage() {
                 no. That's still the whole point.
               </p>
               <p>
-                Today we work across web, mobile, AI, and integrations for clients in the UK and Nigeria.
-                Some are early-stage founders. Some are government agencies. What they
+                Today we work across web, mobile, AI, and integrations for clients in the UK and
+                Nigeria. Some are early-stage founders. Some are government agencies. What they
                 share is a bias for doing things properly.
               </p>
             </div>

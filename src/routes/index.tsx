@@ -8,6 +8,7 @@ import { AIDashboardHero } from "@/components/AIDashboardHero";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { ProcessSection } from "@/components/ProcessSection";
+import { CapabilitiesScroll } from "@/components/CapabilitiesScroll";
 import { motion } from "motion/react";
 
 export const Route = createFileRoute("/")({
@@ -37,7 +38,7 @@ function HomePage() {
         <Hero />
         <LogoMarquee />
         <Highlights />
-        <ServicesPreview />
+        <CapabilitiesScroll />
         <ProjectVault />
         <ProcessSection />
         <CTA />
@@ -199,82 +200,6 @@ function Highlights() {
             </div>
           </motion.div>
         ))}
-      </div>
-    </section>
-  );
-}
-
-function ServicesPreview() {
-  return (
-    <section className="border-b-2 border-ink py-20 lg:py-28 bg-background">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end text-left"
-        >
-          <div>
-            <div className="mb-2 text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground">
-              OUR CAPABILITIES
-            </div>
-            <h2 className="max-w-2xl font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl text-neutral-900">
-              Digital products built to last.
-            </h2>
-          </div>
-          <Link to="/services">
-            <motion.button
-              whileHover="hover"
-              initial="initial"
-              className="inline-flex items-center gap-2 brutal-border bg-card px-5 py-3 font-bold transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:brutal-shadow-sm cursor-pointer"
-            >
-              View all capabilities{" "}
-              <motion.span
-                variants={{
-                  initial: { x: 0, y: 0 },
-                  hover: { x: 3, y: -3 },
-                }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <ArrowUpRight className="h-4 w-4" />
-              </motion.span>
-            </motion.button>
-          </Link>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="grid gap-0 brutal-border md:grid-cols-2 lg:grid-cols-3 text-left"
-        >
-          {SERVICES.map((s, i) => {
-            const Icon = s.icon;
-            return (
-              <motion.div
-                key={s.title}
-                whileHover={{ y: -6, zIndex: 10 }}
-                transition={{ type: "spring", stiffness: 350, damping: 25 }}
-                className={`p-8 lg:p-10 ${(i + 1) % 3 !== 0 ? "lg:border-r-2" : ""} ${
-                  i % 2 === 0 ? "md:border-r-2 lg:border-r-2" : ""
-                } ${i < SERVICES.length - 3 ? "border-b-2" : "md:border-b-2 lg:border-b-0"} border-ink bg-card hover:bg-neutral-50/60 hover:shadow-2xl hover:border-accent-brand transition-all duration-300 relative group cursor-pointer`}
-              >
-                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center brutal-border bg-background transition-all duration-300 group-hover:scale-110 group-hover:bg-accent-brand group-hover:text-white">
-                  <Icon
-                    className="h-5 w-5 transition-transform duration-300 group-hover:rotate-6"
-                    strokeWidth={2}
-                  />
-                </div>
-                <h3 className="font-display text-xl font-bold transition-colors duration-300 group-hover:text-accent-brand">
-                  {s.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.short}</p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
       </div>
     </section>
   );
