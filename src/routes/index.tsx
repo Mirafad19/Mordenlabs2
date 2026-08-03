@@ -2,25 +2,27 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowRight, Check } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { SERVICES, PROJECTS, STATS } from "@/lib/site-data";
+import { SERVICES, STATS } from "@/lib/site-data";
 import { ProjectVault } from "@/components/ProjectVault";
 import { AIDashboardHero } from "@/components/AIDashboardHero";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
+import { LogoMarquee } from "@/components/LogoMarquee";
+import { ProcessSection } from "@/components/ProcessSection";
 import { motion } from "motion/react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Morden Labs — Digital studio building the modern web" },
+      { title: "Morden Labs — Digital studio building modern software" },
       {
         name: "description",
         content:
-          "Morden Labs is a digital studio building web, mobile, AI solutions, and SEO for teams that ship. Trusted by government agencies and growing businesses.",
+          "Morden Labs is a digital studio building web platforms, mobile apps, AI solutions, and automation for companies that move forward.",
       },
-      { property: "og:title", content: "Morden Labs — Digital studio building the modern web" },
+      { property: "og:title", content: "Morden Labs — Digital studio building modern software" },
       {
         property: "og:description",
-        content: "Web, mobile, AI solutions & SEO — built by a small, focused team.",
+        content: "Custom AI, Web platforms, Automation & Mobile apps.",
       },
     ],
   }),
@@ -33,9 +35,11 @@ function HomePage() {
       <Header />
       <main>
         <Hero />
+        <LogoMarquee />
         <Highlights />
         <ServicesPreview />
         <ProjectVault />
+        <ProcessSection />
         <CTA />
       </main>
       <Footer />
@@ -45,49 +49,63 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden border-b-2 border-ink bg-background">
-      {/* Background elegant grid pattern for the whole hero block */}
+    <section className="relative overflow-hidden border-b-2 border-ink bg-background py-20 lg:py-28">
+      {/* Background elegant grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 opacity-[0.025] pointer-events-none"
         style={{
           backgroundImage: "radial-gradient(circle, black 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
       />
-      <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28 relative z-10">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Copywriting & Actions */}
-          <div className="lg:col-span-7 flex flex-col items-start">
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-8 inline-flex items-center gap-2 brutal-border bg-card px-3 py-1.5 text-xs font-semibold uppercase tracking-wider"
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="mb-6 inline-flex items-center gap-2 brutal-border bg-card px-3 py-1.5 text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-accent-brand animate-pulse" />A digital
-              studio · est. 2021
+              <span className="h-2 w-2 rounded-full bg-accent-brand animate-pulse" />
+              DIGITAL ENGINEERING STUDIO
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem] text-left"
+              className="font-display text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.25rem] text-neutral-900"
             >
-              We build the software behind{" "}
-              <span className="text-accent-brand">modern businesses.</span>
+              We build software <br className="hidden sm:inline" />
+              that moves <br className="hidden sm:inline" />
+              <span className="text-accent-brand">businesses forward.</span>
             </motion.h1>
 
-            <motion.p
+            {/* Subheading Bullet Stack */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-8 max-w-2xl text-lg text-muted-foreground md:text-xl text-left"
+              className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-base md:text-lg font-medium text-muted-foreground"
             >
-              Morden Labs is a small, senior team designing and shipping web, mobile, and AI
-              products for growing companies and government partners. We build things worth signing
-              our name to.
-            </motion.p>
+              <span className="flex items-center gap-2 text-neutral-900 font-semibold">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Custom AI
+              </span>
+              <span className="text-neutral-300">•</span>
+              <span className="flex items-center gap-2 text-neutral-900 font-semibold">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Web Platforms
+              </span>
+              <span className="text-neutral-300">•</span>
+              <span className="flex items-center gap-2 text-neutral-900 font-semibold">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Automation
+              </span>
+              <span className="text-neutral-300">•</span>
+              <span className="flex items-center gap-2 text-neutral-900 font-semibold">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Mobile Apps
+              </span>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -99,7 +117,7 @@ function Hero() {
                 <motion.button
                   whileHover="hover"
                   initial="initial"
-                  className="inline-flex items-center gap-2.5 brutal-border brutal-shadow bg-ink px-6 py-3.5 font-semibold text-cream transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] cursor-pointer"
+                  className="inline-flex items-center gap-2.5 brutal-border brutal-shadow bg-ink px-7 py-4 font-bold text-cream transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] cursor-pointer"
                 >
                   Start a project
                   <motion.span
@@ -109,7 +127,7 @@ function Hero() {
                     }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
-                    <ArrowUpRight className="h-5 w-5" />
+                    <ArrowUpRight className="h-5 w-5 text-accent-brand" />
                   </motion.span>
                 </motion.button>
               </Link>
@@ -118,7 +136,7 @@ function Hero() {
                 <motion.button
                   whileHover="hover"
                   initial="initial"
-                  className="inline-flex items-center gap-2.5 brutal-border bg-card px-6 py-3.5 font-semibold transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:brutal-shadow cursor-pointer"
+                  className="inline-flex items-center gap-2.5 brutal-border bg-card px-7 py-4 font-bold transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:brutal-shadow cursor-pointer"
                 >
                   See our work
                   <motion.span
@@ -135,10 +153,10 @@ function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: Premium AI Console/Dashboard Panel */}
+          {/* Right Column: Clean AI Console/Dashboard Panel */}
           <div className="lg:col-span-5 w-full flex justify-center lg:justify-end">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 30 }}
+              initial={{ opacity: 0, scale: 0.96, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className="w-full"
@@ -154,8 +172,8 @@ function Hero() {
 
 function Highlights() {
   return (
-    <section className="border-b-2 border-ink bg-ink py-16 text-cream relative overflow-hidden">
-      {/* Subtle grid pattern inside Highlights too */}
+    <section className="border-b-2 border-ink bg-ink py-20 lg:py-28 text-cream relative overflow-hidden">
+      {/* Grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.015] pointer-events-none"
         style={{
@@ -163,19 +181,20 @@ function Highlights() {
           backgroundSize: "24px 24px",
         }}
       />
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-5 md:grid-cols-4 lg:px-8 relative z-10">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-5 md:grid-cols-4 lg:px-8 relative z-10 text-left">
         {STATS.map((s, idx) => (
           <motion.div
             key={s.label}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="p-4 rounded-xl bg-neutral-900/40 border border-neutral-800"
           >
-            <div className="font-display text-4xl font-bold md:text-5xl text-white">
+            <div className="font-display text-4xl font-extrabold md:text-5xl text-white">
               <AnimatedNumber value={s.value} />
             </div>
-            <div className="mt-2 text-xs font-semibold uppercase tracking-wider text-cream/60">
+            <div className="mt-2 text-xs font-mono font-bold uppercase tracking-wider text-accent-brand">
               {s.label}
             </div>
           </motion.div>
@@ -187,30 +206,30 @@ function Highlights() {
 
 function ServicesPreview() {
   return (
-    <section className="border-b-2 border-ink py-20 lg:py-28">
+    <section className="border-b-2 border-ink py-20 lg:py-28 bg-background">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end"
+          className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end text-left"
         >
           <div>
-            <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              What we do
+            <div className="mb-2 text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground">
+              OUR CAPABILITIES
             </div>
-            <h2 className="max-w-2xl font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl">
-              Six disciplines. All done properly.
+            <h2 className="max-w-2xl font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl text-neutral-900">
+              Digital products built to last.
             </h2>
           </div>
           <Link to="/services">
             <motion.button
               whileHover="hover"
               initial="initial"
-              className="inline-flex items-center gap-2 brutal-border bg-card px-5 py-3 font-semibold transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:brutal-shadow-sm cursor-pointer"
+              className="inline-flex items-center gap-2 brutal-border bg-card px-5 py-3 font-bold transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:brutal-shadow-sm cursor-pointer"
             >
-              View all services{" "}
+              View all capabilities{" "}
               <motion.span
                 variants={{
                   initial: { x: 0, y: 0 },
@@ -229,7 +248,7 @@ function ServicesPreview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="grid gap-0 brutal-border md:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-0 brutal-border md:grid-cols-2 lg:grid-cols-3 text-left"
         >
           {SERVICES.map((s, i) => {
             const Icon = s.icon;
@@ -240,11 +259,11 @@ function ServicesPreview() {
                 transition={{ type: "spring", stiffness: 350, damping: 25 }}
                 className={`p-8 lg:p-10 ${(i + 1) % 3 !== 0 ? "lg:border-r-2" : ""} ${
                   i % 2 === 0 ? "md:border-r-2 lg:border-r-2" : ""
-                } ${i < SERVICES.length - 3 ? "border-b-2" : "md:border-b-2 lg:border-b-0"} border-ink bg-card hover:bg-neutral-50/40 hover:shadow-[0_15px_40px_rgba(249,115,22,0.06)] hover:border-accent-brand/50 transition-colors duration-300 relative group cursor-pointer`}
+                } ${i < SERVICES.length - 3 ? "border-b-2" : "md:border-b-2 lg:border-b-0"} border-ink bg-card hover:bg-neutral-50/60 hover:shadow-2xl hover:border-accent-brand transition-all duration-300 relative group cursor-pointer`}
               >
-                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center brutal-border bg-background transition-transform duration-300 group-hover:scale-115 group-hover:bg-accent-brand/10 group-hover:border-accent-brand">
+                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center brutal-border bg-background transition-all duration-300 group-hover:scale-110 group-hover:bg-accent-brand group-hover:text-white">
                   <Icon
-                    className="h-5 w-5 transition-transform duration-300 group-hover:rotate-3 group-hover:text-accent-brand"
+                    className="h-5 w-5 transition-transform duration-300 group-hover:rotate-6"
                     strokeWidth={2}
                   />
                 </div>
@@ -263,27 +282,27 @@ function ServicesPreview() {
 
 function CTA() {
   return (
-    <section className="border-b-2 border-ink py-20 lg:py-28">
+    <section className="border-b-2 border-ink py-20 lg:py-28 bg-background">
       <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-4xl font-bold leading-[1.05] md:text-6xl"
+          className="font-display text-4xl font-black leading-[1.05] md:text-6xl text-neutral-900"
         >
-          Have something to build?
+          Ready to build something exceptional?
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground"
+          className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed"
         >
-          We take on a limited number of projects each quarter to keep the work at a high standard.
-          If it sounds like a fit, we'd love to hear from you.
+          Whether it's AI, mobile, automation, or a custom platform—let's discuss your project.
         </motion.p>
+
         <motion.ul
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -293,18 +312,19 @@ function CTA() {
         >
           {[
             "Free 30-minute discovery call",
-            "Fixed-scope proposals",
-            "Weekly demos & transparent updates",
-            "Long-term partnership optional",
+            "Fixed-scope transparent proposals",
+            "Weekly live demos & rapid iteration",
+            "Long-term engineering partnership",
           ].map((f) => (
-            <li key={f} className="flex items-center gap-3 text-sm font-medium">
+            <li key={f} className="flex items-center gap-3 text-sm font-semibold">
               <span className="grid h-6 w-6 shrink-0 place-items-center brutal-border bg-accent-brand text-cream">
-                <Check className="h-3.5 w-3.5" />
+                <Check className="h-3.5 w-3.5 stroke-[3px]" />
               </span>
               {f}
             </li>
           ))}
         </motion.ul>
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -316,9 +336,9 @@ function CTA() {
             <motion.button
               whileHover="hover"
               initial="initial"
-              className="inline-flex items-center gap-2.5 brutal-border brutal-shadow bg-ink px-8 py-4 font-semibold text-cream transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] cursor-pointer"
+              className="inline-flex items-center gap-2.5 brutal-border brutal-shadow bg-ink px-8 py-4 font-extrabold text-cream transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] cursor-pointer text-base"
             >
-              Start a conversation{" "}
+              Start a project
               <motion.span
                 variants={{
                   initial: { x: 0, y: 0 },
@@ -326,7 +346,7 @@ function CTA() {
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <ArrowUpRight className="h-5 w-5" />
+                <ArrowUpRight className="h-5 w-5 text-accent-brand" />
               </motion.span>
             </motion.button>
           </Link>

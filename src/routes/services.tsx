@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SERVICES } from "@/lib/site-data";
+import { DetailedDisciplines } from "@/components/DetailedDisciplines";
 import { motion } from "motion/react";
 
 export const Route = createFileRoute("/services")({
@@ -62,36 +63,17 @@ function ServicesPage() {
           </div>
         </section>
 
-        <section className="border-b-2 border-ink py-20 lg:py-28">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="grid gap-0 brutal-border md:grid-cols-2"
-            >
-              {SERVICES.map((s, i) => {
-                const Icon = s.icon;
-                return (
-                  <div
-                    key={s.title}
-                    className={`p-10 lg:p-12 ${i % 2 === 0 ? "md:border-r-2" : ""} ${
-                      i < SERVICES.length - 2 ? "border-b-2" : ""
-                    } border-ink bg-card`}
-                  >
-                    <div className="mb-6 inline-flex h-14 w-14 items-center justify-center brutal-border bg-background">
-                      <Icon className="h-6 w-6" strokeWidth={2} />
-                    </div>
-                    <h2 className="font-display text-2xl font-bold md:text-3xl">{s.title}</h2>
-                    <p className="mt-2 text-sm font-semibold uppercase tracking-wider text-accent-brand">
-                      {s.short}
-                    </p>
-                    <p className="mt-5 text-base leading-relaxed text-muted-foreground">{s.body}</p>
-                  </div>
-                );
-              })}
-            </motion.div>
+        <section className="border-b-2 border-ink py-20 lg:py-28 bg-background relative overflow-hidden">
+          {/* Subtle background visual grid to enhance aesthetic */}
+          <div
+            className="absolute inset-0 opacity-[0.02] pointer-events-none"
+            style={{
+              backgroundImage: "radial-gradient(circle, black 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
+          <div className="mx-auto max-w-7xl px-5 lg:px-8 relative z-10">
+            <DetailedDisciplines />
           </div>
         </section>
 

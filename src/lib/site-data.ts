@@ -83,8 +83,8 @@ export const PROJECTS = [
 ];
 
 export const STATS = [
-  { value: "50+", label: "Projects shipped" },
-  { value: "6", label: "Countries served" },
-  { value: "98%", label: "Client retention" },
-  { value: "24/7", label: "Eyes on prod" },
+  { value: "3", label: "Live deployments" },
+  { value: "UK & NG", label: "Active markets" },
+  { value: "100%", label: "On-time delivery" },
+  { value: "24/7", label: "Production support" },
 ];

@@ -2,446 +2,458 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ArrowUpRight,
-  ArrowRight,
-  Folder,
-  FolderOpen,
   ExternalLink,
-  Briefcase,
+  Smartphone,
+  Laptop,
+  CheckCircle2,
+  Calendar,
+  Sparkles,
+  Bot,
+  Stethoscope,
+  Building2,
+  Globe2,
+  TrendingUp,
+  ShieldCheck,
+  ChevronRight,
+  Search,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { PROJECTS } from "@/lib/site-data";
 
-// Custom detailed metadata for the vault showcase to perfectly match the user's high-end design
-const VAULT_PROJECTS = [
+export const SHOWCASE_PROJECTS = [
   {
-    slug: "pssdc",
-    name: "PSSDC",
-    fullName: "PSSDC AI Conversational Service Assistant",
-    url: "pssdc.gov.ng",
-    client: "Lagos State Public Service Staff Development Centre",
-    description:
-      "A public-sector digital presence designed to feel more structured, accessible, and trustworthy for a broad audience. Features voice and text conversational AI.",
-    badges: ["INSTITUTIONAL WEB", "INFORMATION DESIGN", "VOICE AI"],
-    gradient: "from-blue-500/10 via-indigo-500/5 to-transparent",
-    accent: "#6366f1",
-    logo: PROJECTS[0]?.logo,
-  },
-  {
-    slug: "tidyscot",
+    id: "tidyscot",
     name: "TidyScot",
-    fullName: "TidyScot Website & AI Assistant",
-    url: "tidyscot.co.uk",
-    client: "TidyScot Ltd, Scotland",
+    tagline: "Commercial Web & AI Booking Engine",
+    client: "TidyScot Ltd, Scotland (UK)",
+    url: "https://tidyscot.co.uk",
+    displayUrl: "tidyscot.co.uk",
+    category: "Commercial Web & AI",
+    metric: "Live Booking Engine",
     description:
-      "A polished business website coupled with an intelligent booking flow and a conversational assistant that answers customer questions instantly.",
-    badges: ["COMMERCIAL WEB", "AI CHATBOT", "AUTOMATION"],
-    gradient: "from-emerald-500/10 via-teal-500/5 to-transparent",
-    accent: "#10b981",
-    logo: PROJECTS[1]?.logo,
+      "A fast business platform with an integrated online booking calculator and a conversational AI assistant that handles customer quotes 24/7.",
+    badges: ["BOOKING ENGINE", "AI CHATBOT", "UK"],
+    color: "#10b981", // Emerald
+    accentBg: "bg-emerald-500/10 border-emerald-500/30 text-emerald-400",
+    desktopMockup:
+      "https://www.image2url.com/r2/default/files/1785761967417-335801c0-e331-4406-8d52-0f6af5f2b61c.png",
+    mobileMockup:
+      "https://www.image2url.com/r2/default/files/1785762007649-2973d059-284e-4928-a8c6-80f5f1fc9ba7.png",
+    phoneScreen: {
+      title: "TidyScot Assistant",
+      status: "AI ONLINE",
+      chat: [
+        { sender: "user", text: "Can I book a 3-bedroom deep clean for Tuesday in Edinburgh?" },
+        {
+          sender: "ai",
+          text: "Yes! Slot available at 10:00 AM. Estimated cost: £140. Should I reserve this for you?",
+        },
+      ],
+      actionText: "Confirm Booking",
+    },
+    laptopScreen: {
+      header: "TidyScot Commercial Platform",
+      stats: [
+        { label: "Weekly Bookings", val: "142" },
+        { label: "AI Response Time", val: "0.8s" },
+        { label: "Customer Satisfaction", val: "99.2%" },
+      ],
+      recent: [
+        { name: "Deep Clean — EH12 Edinburgh", price: "£140", status: "CONFIRMED" },
+        { name: "End of Tenancy — Leith", price: "£210", status: "SCHEDULED" },
+        { name: "Office Contract — Glasgow", price: "£450", status: "ACTIVE" },
+      ],
+    },
   },
   {
-    slug: "citicare",
-    name: "Citicare",
-    fullName: "Citicare Health Integrated Solutions",
-    url: "citicare.ng",
-    client: "Citicare Health Integrated Solutions, Nigeria",
+    id: "pssdc",
+    name: "PSSDC AI Conversational Service Assistant",
+    tagline: "Public Sector Portal & Voice AI Assistant",
+    client: "Lagos State Public Service Staff Development Centre",
+    url: "https://pssdc.gov.ng",
+    displayUrl: "pssdc.gov.ng",
+    category: "Government & AI",
+    metric: "Public Sector Voice & AI",
     description:
-      "A professional healthcare portal and integrated CRM platform that automates patient enquiries and simplifies internal scheduling workflows.",
-    badges: ["HEALTHCARE CRM", "PORTAL WEB", "BUSINESS AUTOMATION"],
-    gradient: "from-rose-500/10 via-amber-500/5 to-transparent",
-    accent: "#f43f5e",
-    logo: PROJECTS[2]?.logo,
+      "An official government digital portal featuring institutional course registration, voice-enabled AI support, and structured public service information architecture.",
+    badges: ["CIVIC TECH", "VOICE AI", "NIGERIA"],
+    color: "#6366f1", // Indigo
+    accentBg: "bg-indigo-500/10 border-indigo-500/30 text-indigo-400",
+    desktopMockup:
+      "https://www.image2url.com/r2/default/images/1785759868043-9b252c53-69fb-4dcf-be2e-145af1f3ed48.png",
+    mobileMockup:
+      "https://www.image2url.com/r2/default/images/1785759935249-3ae81f9f-d354-40a2-9761-d85e66c881ea.png",
+    phoneScreen: {
+      title: "PSSDC Voice Agent",
+      status: "LISTENING...",
+      chat: [
+        {
+          sender: "user",
+          text: "Where can I register for the Senior Executive Management Course?",
+        },
+        {
+          sender: "ai",
+          text: "Registration for Batch B is open until Aug 15. You can complete it online in 2 minutes.",
+        },
+      ],
+      actionText: "Open Registration Form",
+    },
+    laptopScreen: {
+      header: "Lagos State PSSDC Assistant",
+      stats: [
+        { label: "Active Courses", val: "48" },
+        { label: "Portal Uptime", val: "99.98%" },
+        { label: "Enquiries Automated", val: "88%" },
+      ],
+      recent: [
+        { name: "Executive Leadership Program", price: "Batch B", status: "ENROLLING" },
+        { name: "Digital Governance Workshop", price: "Batch A", status: "COMPLETED" },
+        { name: "Public Policy Analytics", price: "Batch C", status: "UPCOMING" },
+      ],
+    },
+  },
+  {
+    id: "citicare",
+    name: "Citicare Health",
+    tagline: "Healthcare Portal & Clinical CRM",
+    client: "Citicare Health Integrated Solutions, Nigeria",
+    url: "https://citicare.ng",
+    displayUrl: "citicare.ng",
+    category: "Healthcare & CRM",
+    metric: "Healthcare Portal & CRM",
+    description:
+      "Integrated healthcare portal and CRM platform that automates patient enquiries, appointment scheduling, and internal clinical notification workflows.",
+    badges: ["HEALTHCARE CRM", "PATIENT PORTAL", "AUTOMATION"],
+    color: "#f43f5e", // Rose
+    accentBg: "bg-rose-500/10 border-rose-500/30 text-rose-400",
+    desktopMockup:
+      "https://www.image2url.com/r2/default/files/1785761353465-1cc97d30-b41d-4150-8303-9c6a84264f5e.png",
+    mobileMockup:
+      "https://www.image2url.com/r2/default/files/1785761422623-3d338629-9348-4c6f-94b4-337089d6785e.png",
+    phoneScreen: {
+      title: "Citicare Health Direct",
+      status: "CRM DISPATCH",
+      chat: [
+        { sender: "user", text: "I'd like to schedule a specialist consultation for tomorrow." },
+        {
+          sender: "ai",
+          text: "Dr. Adebayo is available at 2:30 PM. I've sent a pre-screening form to your email.",
+        },
+      ],
+      actionText: "View Consultation Details",
+    },
+    laptopScreen: {
+      header: "Citicare Clinical Portal & Telemetry",
+      stats: [
+        { label: "Daily Consultations", val: "86" },
+        { label: "Avg Wait Time", val: "4 mins" },
+        { label: "Patient Retention", val: "96.5%" },
+      ],
+      recent: [
+        { name: "Specialist Consultation — Ikeja", price: "Priority", status: "CONFIRMED" },
+        { name: "Preventive Health Screening", price: "Standard", status: "SCHEDULED" },
+        { name: "Corporate Wellness Program", price: "Enterprise", status: "ACTIVE" },
+      ],
+    },
   },
 ];
 
-export function GoldenFolder({ isOpen }: { isOpen: boolean }) {
-  return (
-    <div className="relative w-48 h-36 [perspective:800px] flex items-center justify-center">
-      {/* Back tab and back flap with premium golden gradients */}
-      <div className="absolute top-0 left-6 w-16 h-4 bg-gradient-to-r from-amber-700 to-amber-800 rounded-t-md shadow-sm" />
-      <div className="absolute top-3 left-0 w-full h-[85%] bg-gradient-to-br from-amber-700 via-amber-800 to-amber-900 rounded-2xl shadow-md border border-amber-600/20" />
-
-      {/* Inserted papers (slide up when open) */}
-      <motion.div
-        animate={isOpen ? { y: -28, rotate: -4, scale: 1.02 } : { y: 0, rotate: 0, scale: 1 }}
-        transition={{ type: "spring", stiffness: 180, damping: 14 }}
-        className="absolute top-4 left-6 w-[80%] h-[75%] bg-white rounded-lg shadow-md border border-neutral-200 p-3 flex flex-col gap-1.5 overflow-hidden origin-bottom"
-      >
-        <div className="w-1/3 h-2 bg-neutral-300 rounded" />
-        <div className="w-full h-1 bg-neutral-100 rounded" />
-        <div className="w-full h-1 bg-neutral-100 rounded" />
-        <div className="w-[90%] h-1 bg-neutral-100 rounded" />
-        <div className="w-[95%] h-1 bg-neutral-100 rounded" />
-        <div className="mt-1 w-1/2 h-1.5 bg-indigo-500/40 rounded" />
-      </motion.div>
-
-      <motion.div
-        animate={isOpen ? { y: -18, rotate: 5, scale: 1.01 } : { y: 2, rotate: 0, scale: 1 }}
-        transition={{ type: "spring", stiffness: 180, damping: 14, delay: 0.04 }}
-        className="absolute top-4 left-10 w-[75%] h-[75%] bg-neutral-50 rounded-lg shadow-md border border-neutral-200 p-3 flex flex-col gap-1.5 overflow-hidden origin-bottom"
-      >
-        <div className="w-1/2 h-2 bg-neutral-400 rounded" />
-        <div className="w-full h-1 bg-neutral-200 rounded" />
-        <div className="w-4/5 h-1 bg-neutral-200 rounded" />
-        <div className="mt-1 w-1/3 h-1.5 bg-emerald-500/40 rounded" />
-      </motion.div>
-
-      {/* Front flap (tilts forward when open) */}
-      <motion.div
-        style={{ originY: "bottom" }}
-        animate={
-          isOpen
-            ? { rotateX: -28, skewX: -4, scaleY: 0.96, filter: "brightness(1.05)" }
-            : { rotateX: 0, skewX: 0, scaleY: 1, filter: "brightness(1)" }
-        }
-        transition={{ type: "spring", stiffness: 140, damping: 12 }}
-        className="absolute top-6 left-0 w-full h-[80%] bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl shadow-xl border-t border-amber-300/40 flex items-center justify-center overflow-hidden"
-      >
-        {/* Shiny surface highlight */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/15 to-transparent pointer-events-none" />
-
-        {/* Embossed style logo emblem */}
-        <div className="w-9 h-9 rounded-full bg-amber-950/20 shadow-inner border border-white/5 flex items-center justify-center">
-          <Briefcase className="w-4.5 h-4.5 text-amber-100" />
-        </div>
-      </motion.div>
-    </div>
-  );
-}
-
 export function ProjectVault() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-cycles project cards every 5 seconds if not hovered (adds highly polished interactive feel)
+  // Auto-cycle through the showcased projects every 6 seconds
   useEffect(() => {
-    if (!isOpen) return;
-    const interval = setInterval(() => {
-      if (!isHovered) {
-        setActiveIndex((prev) => (prev + 1) % VAULT_PROJECTS.length);
-      }
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % SHOWCASE_PROJECTS.length);
     }, 6000);
-    return () => clearInterval(interval);
-  }, [isOpen, isHovered]);
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
+  const activeProject = SHOWCASE_PROJECTS[activeIdx];
 
   return (
-    <section className="relative overflow-hidden border-b-2 border-ink bg-background py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        {/* Containerized Dark Capsule */}
-        <div className="relative overflow-hidden bg-neutral-950 text-cream rounded-[2.5rem] border-2 border-ink p-8 md:p-12 lg:p-16 shadow-2xl">
-          {/* Dynamic Background Grid Pattern inside the capsule */}
-          <div
-            className="absolute inset-0 opacity-15 pointer-events-none"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)",
-              backgroundSize: "24px 24px",
-            }}
-          />
-          {/* Sleek radial gradient glow inside the capsule */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(245,158,11,0.06),transparent_50%)] pointer-events-none" />
+    <section className="relative overflow-hidden border-b-2 border-ink bg-neutral-950 text-cream py-20 lg:py-28 select-none">
+      {/* Background Radial Grid */}
+      <div
+        className="absolute inset-0 opacity-15 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
+      {/* Glow highlight */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(249,115,22,0.06),transparent_60%)] pointer-events-none" />
 
-          <div className="relative z-10">
-            <AnimatePresence mode="wait">
-              {!isOpen ? (
-                /* CLOSED STATE: The elegant 2-column workspace layout */
-                <motion.div
-                  key="closed-vault"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -30 }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="grid gap-12 lg:grid-cols-12 items-center"
+      <div className="mx-auto max-w-7xl px-5 lg:px-8 relative z-10">
+        {/* Section Title Header */}
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-14 text-left">
+          <div>
+            <div className="mb-2 inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-[0.2em] text-accent-brand">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-brand animate-pulse" />
+              RECENT DELIVERIES
+            </div>
+            <h2 className="font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl text-white">
+              Products we've built.
+            </h2>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <span className="text-xs font-mono text-neutral-400 font-medium hidden sm:inline-block">
+              Auto-cycling apps (hover to pause)
+            </span>
+            <Link to="/work">
+              <button className="inline-flex items-center gap-2 brutal-border bg-neutral-900 px-4 py-2.5 text-xs font-bold text-white hover:bg-neutral-800 transition-colors cursor-pointer">
+                View all case studies
+                <ArrowUpRight className="h-4 w-4 text-accent-brand" />
+              </button>
+            </Link>
+          </div>
+        </div>
+
+        {/* 2-Column Showcase Grid */}
+        <div
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch"
+        >
+          {/* Left Column: Selector Cards */}
+          <div className="lg:col-span-5 flex flex-col gap-4 text-left justify-center">
+            {SHOWCASE_PROJECTS.map((proj, idx) => {
+              const isActive = idx === activeIdx;
+
+              return (
+                <div
+                  key={proj.id}
+                  onClick={() => setActiveIdx(idx)}
+                  className={`p-6 rounded-2xl border-2 transition-all duration-300 cursor-pointer relative overflow-hidden ${
+                    isActive
+                      ? "bg-neutral-900 border-accent-brand shadow-2xl scale-[1.02]"
+                      : "bg-neutral-950/60 border-neutral-800/80 hover:border-neutral-700 hover:bg-neutral-900/40 opacity-75 hover:opacity-100"
+                  }`}
                 >
-                  {/* Left Column: Rich Typography & Guiding Context */}
-                  <div className="lg:col-span-7 flex flex-col items-start text-left gap-6">
-                    <div className="inline-flex items-center gap-2 rounded-full bg-amber-500/10 border border-amber-500/20 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-amber-500 font-mono">
-                      <span className="h-2 w-2 rounded-full bg-amber-500" />
-                      PROJECT VAULT
-                    </div>
-                    <h2 className="font-display text-4xl font-bold leading-[1.05] sm:text-5xl lg:text-6xl text-white">
-                      Selected{" "}
-                      <span className="text-amber-500 italic font-serif font-medium">Work</span>{" "}
-                      Room
-                    </h2>
-                    <p className="text-base md:text-lg text-neutral-300 max-w-xl leading-relaxed">
-                      We secure and store our complex institutional portals, custom business
-                      automations, and clinical software solutions in our secure digital showroom.
-                      Click the interactive folder on the right to unlock live case studies and tech
-                      stacks.
-                    </p>
+                  {/* Active Indicator Line */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeGlowLine"
+                      className="absolute top-0 left-0 bottom-0 w-1.5 bg-accent-brand"
+                    />
+                  )}
 
-                    {/* Visual Checkpoints */}
-                    <div className="grid gap-3 sm:grid-cols-2 w-full mt-2">
-                      {[
-                        "Lagos State PSSDC AI Portal",
-                        "TidyScot Intelligent Booking",
-                        "Citicare Health Integrated CRM",
-                        "Custom Workflow Automation",
-                      ].map((item) => (
-                        <div
-                          key={item}
-                          className="flex items-center gap-3 text-sm font-semibold text-neutral-400 font-sans"
-                        >
-                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-amber-500 text-xs font-bold">
-                            ✓
-                          </span>
-                          {item}
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Interactive Assist Hint */}
-                    <div className="hidden lg:flex items-center gap-3 text-xs font-mono font-bold tracking-wider text-neutral-500 mt-4">
-                      <span>CLICK ON THE FOLDER TO UNLOCK THE DECK</span>
-                      <ArrowRight className="h-4 w-4 text-amber-500 animate-bounce-horizontal" />
-                    </div>
-                  </div>
-
-                  {/* Right Column: Premium Clickable Folder Card */}
-                  <div className="lg:col-span-5 flex justify-center">
-                    <div
-                      onClick={() => setIsOpen(true)}
-                      onMouseEnter={() => setIsHovered(true)}
-                      onMouseLeave={() => setIsHovered(false)}
-                      className="group relative w-full max-w-sm bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-[2rem] p-8 shadow-2xl cursor-pointer hover:border-neutral-700 hover:shadow-[0_0_50px_rgba(245,158,11,0.06)] transition-all duration-500 overflow-hidden"
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-neutral-400">
+                      {proj.client}
+                    </span>
+                    <span
+                      className={`text-[9px] font-mono font-bold px-2 py-0.5 rounded border uppercase ${proj.accentBg}`}
                     >
-                      {/* Glow ring */}
-                      <div className="absolute -inset-px rounded-[2rem] bg-gradient-to-tr from-amber-500/10 via-transparent to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-                      {/* Card Header */}
-                      <div className="flex items-start justify-between mb-6">
-                        <div>
-                          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-500 font-mono">
-                            INTERACTIVE VAULT
-                          </span>
-                          <h3 className="text-xl font-bold tracking-tight text-white mt-1">
-                            Selected Work
-                          </h3>
-                        </div>
-                        <div className="w-10 h-10 rounded-xl border border-neutral-800 flex items-center justify-center text-neutral-400 group-hover:text-amber-500 group-hover:border-amber-500/30 transition-all duration-300">
-                          <Folder className="w-5 h-5 group-hover:hidden" />
-                          <FolderOpen className="w-5 h-5 hidden group-hover:block text-amber-500" />
-                        </div>
-                      </div>
-
-                      {/* Animated Folder Area */}
-                      <div className="flex justify-center items-center py-6 my-2">
-                        <GoldenFolder isOpen={isHovered} />
-                      </div>
-
-                      {/* Bottom Info */}
-                      <div className="mt-6 text-center">
-                        <h4 className="text-base font-semibold text-white tracking-tight group-hover:text-amber-400 transition-colors duration-300">
-                          Tap Folder to Unlock
-                        </h4>
-                        <p className="text-[11px] text-neutral-400 mt-2 leading-relaxed max-w-xs mx-auto">
-                          A sleek client directory showcasing real-world performance, crisp
-                          graphics, and smart workflows.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ) : (
-                /* OPEN STATE: The full split horizontal client card deck (Our Clients Layout) */
-                <motion.div
-                  key="open-vault"
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="grid gap-12 lg:grid-cols-12 items-center"
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                >
-                  {/* Left Column: Stacked 3D Card Deck */}
-                  <div className="lg:col-span-7 flex justify-center items-center min-h-[480px] relative">
-                    {/* Back Link to Close Folder */}
-                    <button
-                      onClick={() => setIsOpen(false)}
-                      className="absolute top-0 left-0 z-40 flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-neutral-400 hover:text-white bg-neutral-900 border border-neutral-800 hover:border-neutral-700 px-4 py-2 rounded-full transition-all"
-                    >
-                      <Folder className="w-3.5 h-3.5 text-amber-500" /> Close Vault
-                    </button>
-
-                    <div className="relative w-full max-w-md h-[340px] flex items-center justify-center mt-8">
-                      {VAULT_PROJECTS.map((p, idx) => {
-                        // Calculate visual properties for stacked deck cards
-                        const isCardActive = idx === activeIndex;
-                        let offsetIndex = idx - activeIndex;
-
-                        // Wrap index offset around to make a loop
-                        if (offsetIndex < 0) {
-                          offsetIndex += VAULT_PROJECTS.length;
-                        }
-
-                        // Card positions based on offset
-                        const zIndex = 30 - offsetIndex * 10;
-                        const rotate = isCardActive ? 0 : -4 - offsetIndex * 4;
-                        const x = isCardActive ? 0 : -20 - offsetIndex * 16;
-                        const y = isCardActive ? 0 : 20 + offsetIndex * 16;
-                        const scale = isCardActive ? 1 : 0.95 - offsetIndex * 0.05;
-                        const opacity = isCardActive ? 1 : 0.7 - offsetIndex * 0.2;
-
-                        return (
-                          <motion.div
-                            key={p.slug}
-                            style={{ zIndex }}
-                            animate={{
-                              x,
-                              y,
-                              rotate,
-                              scale,
-                              opacity,
-                            }}
-                            transition={{
-                              type: "spring",
-                              stiffness: 160,
-                              damping: 15,
-                            }}
-                            onClick={() => setActiveIndex(idx)}
-                            className={`absolute w-full max-w-[380px] bg-white text-neutral-950 rounded-[2rem] p-6 shadow-2xl border-2 border-neutral-900 cursor-pointer select-none origin-bottom-left group`}
-                          >
-                            {/* Dynamic background gradient accent */}
-                            <div
-                              className={`absolute inset-0 bg-gradient-to-tr ${p.gradient} rounded-[2rem] pointer-events-none`}
-                            />
-
-                            {/* Top Link info */}
-                            <div className="flex items-center justify-between mb-6">
-                              <span className="text-xs font-mono text-neutral-500 flex items-center gap-1">
-                                {p.url} <ExternalLink className="w-3 h-3" />
-                              </span>
-                              {isCardActive && (
-                                <span
-                                  className="w-2 h-2 rounded-full"
-                                  style={{ backgroundColor: p.accent }}
-                                />
-                              )}
-                            </div>
-
-                            {/* Title & Brand Logo */}
-                            <div className="flex items-center justify-between gap-4 mb-4">
-                              <h4 className="text-3xl font-bold tracking-tight text-neutral-900 leading-none">
-                                {p.name}
-                              </h4>
-                              {p.logo && (
-                                <div className="h-12 w-20 flex items-center justify-center p-1 bg-neutral-50 rounded-xl border border-neutral-100">
-                                  <img
-                                    src={p.logo}
-                                    alt={`${p.name} Logo`}
-                                    className="max-h-full max-w-full object-contain mix-blend-multiply"
-                                  />
-                                </div>
-                              )}
-                            </div>
-
-                            {/* Description */}
-                            <p className="text-sm leading-relaxed text-neutral-600 mb-6 font-medium">
-                              {p.description}
-                            </p>
-
-                            {/* Badges */}
-                            <div className="flex flex-wrap gap-1.5 mt-auto">
-                              {p.badges.map((badge) => (
-                                <span
-                                  key={badge}
-                                  className="text-[9px] font-bold tracking-wider font-mono bg-neutral-900 text-white py-1.5 px-3 rounded-full"
-                                >
-                                  {badge}
-                                </span>
-                              ))}
-                            </div>
-                          </motion.div>
-                        );
-                      })}
-                    </div>
+                      {proj.metric}
+                    </span>
                   </div>
 
-                  {/* Right Column: Title & Interactive Navigation Selector */}
-                  <div className="lg:col-span-5 flex flex-col gap-8">
-                    <div>
-                      <span className="text-xs font-bold uppercase tracking-[0.3em] text-neutral-400 font-mono">
-                        SELECTED WORK
-                      </span>
-                      <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif italic text-white mt-1">
-                        Our clients
-                      </h2>
-                    </div>
+                  <h3 className="font-display text-2xl font-black text-white flex items-center gap-2">
+                    {proj.name}
+                    {isActive && <ChevronRight className="h-5 w-5 text-accent-brand" />}
+                  </h3>
 
-                    {/* Vertical interactive list selectors */}
-                    <div className="flex flex-col gap-3">
-                      {VAULT_PROJECTS.map((p, idx) => {
-                        const isSelected = idx === activeIndex;
-                        return (
-                          <button
-                            key={p.slug}
-                            onClick={() => setActiveIndex(idx)}
-                            className={`flex items-center justify-between p-4 rounded-2xl border text-left transition-all duration-300 group ${
-                              isSelected
-                                ? "bg-neutral-900 border-neutral-700 shadow-lg text-white"
-                                : "bg-transparent border-transparent text-neutral-500 hover:text-neutral-300 hover:bg-neutral-900/30"
-                            }`}
-                          >
-                            <div className="flex items-center gap-4">
-                              <span className="font-mono text-xs text-neutral-600 group-hover:text-amber-500 transition-colors">
-                                0{idx + 1}
-                              </span>
-                              <span
-                                className={`text-lg font-bold tracking-tight ${isSelected ? "text-white" : "text-neutral-400"}`}
-                              >
-                                {p.fullName}
-                              </span>
-                            </div>
-                            <ArrowRight
-                              className={`w-5 h-5 transition-transform duration-300 ${
-                                isSelected
-                                  ? "translate-x-0 text-white"
-                                  : "-translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 text-neutral-500"
-                              }`}
-                            />
-                          </button>
-                        );
-                      })}
-                    </div>
+                  <p className="text-xs text-neutral-400 mt-1 line-clamp-2 leading-relaxed">
+                    {proj.description}
+                  </p>
 
-                    {/* Bottom CTA block (Matches image layout perfectly) */}
-                    <div className="p-5 rounded-2xl border border-neutral-800/80 bg-neutral-900/50 backdrop-blur-sm flex items-center justify-between gap-4 mt-2">
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-neutral-400 font-mono">
-                          NEED WORK LIKE THIS?
-                        </span>
-                        <p className="text-sm font-semibold text-white mt-1 leading-tight">
-                          We can build your next client success story.
-                        </p>
-                      </div>
-                      <Link
-                        to="/contact"
-                        className="w-12 h-12 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200 shrink-0"
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {proj.badges.map((b) => (
+                      <span
+                        key={b}
+                        className="text-[9px] font-mono font-semibold text-neutral-400 bg-neutral-950 border border-neutral-800 px-2 py-0.5 rounded"
                       >
-                        <ArrowUpRight className="w-5 h-5" />
-                      </Link>
+                        {b}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Right Column: High-Impact Device Stage */}
+          <div className="lg:col-span-7 bg-neutral-900/60 brutal-border border-ink rounded-3xl p-4 sm:p-6 md:p-8 flex items-center justify-center relative overflow-hidden min-h-[440px] md:min-h-[500px]">
+            {/* Ambient Backlight Glow corresponding to project theme */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeProject.id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.35 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: `radial-gradient(circle at 50% 50%, ${activeProject.color}, transparent 65%)`,
+                }}
+              />
+            </AnimatePresence>
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeProject.id}
+                initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: -15 }}
+                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full h-full flex items-center justify-center relative z-10"
+              >
+                {activeProject.desktopMockup || activeProject.mobileMockup ? (
+                  <div className="w-full flex flex-row items-center justify-center gap-2 sm:gap-4 relative py-2">
+                    {/* Desktop Mockup - Large & Bold */}
+                    {activeProject.desktopMockup && (
+                      <div className="relative flex-1 flex items-center justify-center max-w-[75%] transition-transform duration-500 hover:scale-[1.02]">
+                        <img
+                          src={activeProject.desktopMockup}
+                          alt={`${activeProject.name} Desktop Showcase`}
+                          referrerPolicy="no-referrer"
+                          className="w-full max-h-[440px] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.85)]"
+                        />
+                      </div>
+                    )}
+
+                    {/* Mobile Mockup - Bold Floating Device */}
+                    {activeProject.mobileMockup && (
+                      <div className="relative w-[32%] max-w-[210px] flex items-center justify-center -ml-6 sm:-ml-12 z-20 transition-transform duration-500 hover:scale-105 hover:z-30">
+                        <img
+                          src={activeProject.mobileMockup}
+                          alt={`${activeProject.name} Mobile Showcase`}
+                          referrerPolicy="no-referrer"
+                          className="w-full max-h-[400px] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.95)]"
+                        />
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div className="w-full flex flex-col md:flex-row items-center justify-center gap-6 relative z-10">
+                    {/* Laptop Mockup Display Frame */}
+                    <div className="w-full md:w-[65%] bg-neutral-950 border-2 border-neutral-800 rounded-2xl overflow-hidden shadow-2xl text-left flex flex-col h-[340px] justify-between">
+                      <div className="bg-neutral-900 px-3.5 py-2.5 border-b border-neutral-800 flex items-center justify-between text-[10px] font-mono">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-amber-500/60" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/60" />
+                          <span className="text-neutral-400 font-semibold ml-2 truncate max-w-[140px]">
+                            {activeProject.displayUrl}
+                          </span>
+                        </div>
+                        <span className="text-emerald-400 font-bold hidden sm:inline">
+                          HTTPS SECURE
+                        </span>
+                      </div>
+
+                      <div className="p-4 flex-1 flex flex-col justify-between font-sans">
+                        <div className="flex items-center justify-between pb-3 border-b border-neutral-850">
+                          <div>
+                            <span className="text-[9px] font-mono text-neutral-400 uppercase font-bold block">
+                              APPLICATION PLATFORM
+                            </span>
+                            <h4 className="text-sm font-black text-white mt-0.5">
+                              {activeProject.laptopScreen.header}
+                            </h4>
+                          </div>
+                          <span
+                            className="text-[9px] font-mono font-bold px-2 py-1 rounded"
+                            style={{
+                              backgroundColor: `${activeProject.color}20`,
+                              color: activeProject.color,
+                            }}
+                          >
+                            {activeProject.category}
+                          </span>
+                        </div>
+
+                        <div className="grid grid-cols-3 gap-2 my-2">
+                          {activeProject.laptopScreen.stats.map((s) => (
+                            <div
+                              key={s.label}
+                              className="bg-neutral-900/80 p-2 rounded-lg border border-neutral-850 text-center"
+                            >
+                              <span className="text-[8px] font-mono text-neutral-400 block uppercase font-bold truncate">
+                                {s.label}
+                              </span>
+                              <span className="text-xs font-black text-white mt-0.5 block">
+                                {s.val}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="space-y-1.5">
+                          <span className="text-[8px] font-mono text-neutral-400 uppercase font-bold block">
+                            LIVE RECENT ACTIVITY
+                          </span>
+                          {activeProject.laptopScreen.recent.map((item, i) => (
+                            <div
+                              key={i}
+                              className="bg-neutral-900/50 p-2 rounded-md border border-neutral-850/60 flex items-center justify-between text-[10px]"
+                            >
+                              <span className="text-neutral-200 font-medium truncate max-w-[140px]">
+                                {item.name}
+                              </span>
+                              <div className="flex items-center gap-2 shrink-0">
+                                <span className="font-mono text-neutral-400">{item.price}</span>
+                                <span className="text-[8px] font-mono bg-emerald-500/10 text-emerald-400 px-1.5 py-0.5 rounded font-bold">
+                                  {item.status}
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
 
-                    {/* Miniature Site Map links shown in the image mockup */}
-                    <div className="flex items-center gap-4 text-xs font-mono font-bold tracking-wider text-neutral-600 mt-2 select-none uppercase">
-                      <Link to="/services" className="hover:text-amber-500 transition-colors">
-                        SERVICES
-                      </Link>
-                      <span>→</span>
-                      <Link to="/work" className="hover:text-amber-500 transition-colors">
-                        WORK
-                      </Link>
-                      <span>→</span>
-                      <Link to="/contact" className="hover:text-amber-500 transition-colors">
-                        CONTACT
-                      </Link>
+                    {/* Smartphone Mockup Display Frame */}
+                    <div className="w-[200px] bg-neutral-950 border-2 border-neutral-800 rounded-[2rem] p-3 shadow-2xl text-left flex flex-col h-[340px] justify-between relative shrink-0 overflow-hidden">
+                      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-3 bg-black rounded-full z-20 flex items-center justify-center">
+                        <span className="w-1 h-1 rounded-full bg-neutral-800" />
+                      </div>
+
+                      <div className="pt-3 flex flex-col justify-between h-full font-sans">
+                        <div>
+                          <div className="flex items-center justify-between border-b border-neutral-850 pb-2 mb-2">
+                            <div>
+                              <h5 className="text-[10px] font-bold text-white">
+                                {activeProject.phoneScreen.title}
+                              </h5>
+                              <span className="text-[8px] font-mono text-emerald-400 font-bold block">
+                                {activeProject.phoneScreen.status}
+                              </span>
+                            </div>
+                            <Bot className="h-4 w-4 text-accent-brand" />
+                          </div>
+
+                          <div className="space-y-2 my-2 text-[9px] font-mono">
+                            {activeProject.phoneScreen.chat.map((msg, idx) => (
+                              <div
+                                key={idx}
+                                className={`p-2 rounded-lg leading-relaxed ${
+                                  msg.sender === "user"
+                                    ? "bg-accent-brand/10 border border-accent-brand/30 text-neutral-200"
+                                    : "bg-neutral-900 border border-neutral-800 text-white font-medium"
+                                }`}
+                              >
+                                <span className="text-[7px] text-neutral-400 block font-bold mb-0.5 uppercase">
+                                  {msg.sender === "user" ? "USER ENQUIRY" : "AI RESPONSE"}
+                                </span>
+                                {msg.text}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <button className="w-full bg-accent-brand text-white font-bold py-1.5 rounded-lg text-[9px] hover:bg-opacity-90 transition-all flex items-center justify-center gap-1 mt-1">
+                          <span>{activeProject.phoneScreen.actionText}</span>
+                          <ChevronRight className="h-3 w-3" />
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </motion.div>
-              )}
+                )}
+              </motion.div>
             </AnimatePresence>
           </div>
         </div>

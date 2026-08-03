@@ -116,7 +116,7 @@ export function AIDashboardHero() {
             <span className="w-3.5 h-3.5 rounded-full bg-amber-500/20 border border-amber-500/40" />
             <span className="w-3.5 h-3.5 rounded-full bg-emerald-500/20 border border-emerald-500/40" />
             <span className="text-xs font-mono font-bold text-neutral-400 ml-2 tracking-wide">
-              MORDEN_CONSOLE // v2.4.0
+              MORDEN_ENGINE // ARCHITECTURE
             </span>
           </div>
 
@@ -160,54 +160,33 @@ export function AIDashboardHero() {
           {activeTab === "console" ? (
             /* CONSOLE VIEW */
             <div className="flex flex-col gap-5 flex-1 justify-between">
-              {/* Telemetry Sparkline and Counters */}
+              {/* Architecture Spec Cards */}
               <div className="grid grid-cols-3 gap-3">
                 <div className="bg-neutral-900/50 rounded-xl p-3 border border-neutral-800/60 relative overflow-hidden">
                   <span className="text-[10px] font-mono font-bold text-neutral-500 block uppercase tracking-wider">
-                    Req / Today
+                    Stack
                   </span>
-                  <span className="text-lg font-mono font-bold text-white block mt-1 tracking-tight">
-                    {stats.requests.toLocaleString()}
+                  <span className="text-sm font-mono font-bold text-white block mt-1 tracking-tight">
+                    React & Vite
                   </span>
-                  <div className="absolute right-2 bottom-2 w-12 h-6 opacity-30">
-                    <svg viewBox="0 0 40 20" className="w-full h-full text-accent-brand">
-                      <path
-                        d="M0,15 Q10,5 20,12 T40,4"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      />
-                    </svg>
-                  </div>
                 </div>
 
                 <div className="bg-neutral-900/50 rounded-xl p-3 border border-neutral-800/60 relative overflow-hidden">
                   <span className="text-[10px] font-mono font-bold text-neutral-500 block uppercase tracking-wider">
-                    Latency
+                    Delivery
                   </span>
-                  <span className="text-lg font-mono font-bold text-amber-500 block mt-1 tracking-tight">
-                    {stats.ms}ms
+                  <span className="text-sm font-mono font-bold text-amber-500 block mt-1 tracking-tight">
+                    Edge CDN
                   </span>
-                  <div className="absolute right-2 bottom-2 w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping" />
                 </div>
 
                 <div className="bg-neutral-900/50 rounded-xl p-3 border border-neutral-800/60 relative overflow-hidden">
                   <span className="text-[10px] font-mono font-bold text-neutral-500 block uppercase tracking-wider">
-                    Accuracy
+                    Vitals
                   </span>
-                  <span className="text-lg font-mono font-bold text-emerald-400 block mt-1 tracking-tight">
-                    {stats.successRate}%
+                  <span className="text-sm font-mono font-bold text-emerald-400 block mt-1 tracking-tight">
+                    Sub-Second
                   </span>
-                  <div className="absolute right-2 bottom-2 w-12 h-6 opacity-30">
-                    <svg viewBox="0 0 40 20" className="w-full h-full text-emerald-400">
-                      <path
-                        d="M0,18 Q10,14 20,16 T40,10"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      />
-                    </svg>
-                  </div>
                 </div>
               </div>
 
@@ -462,55 +441,6 @@ export function AIDashboardHero() {
             </div>
             <span>DEPLOYMENT_STATUS: ACTIVE</span>
           </div>
-        </div>
-      </motion.div>
-
-      {/* Super Premium Glass Floating Sub-Cards (layered in 3D space!) */}
-      <motion.div
-        drag
-        dragConstraints={{ left: -50, right: 50, top: -50, bottom: 50 }}
-        whileHover={{ scale: 1.05, zIndex: 50 }}
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: "preserve-3d",
-        }}
-        className="absolute -top-10 -right-6 md:-right-10 bg-neutral-900/90 backdrop-blur-md border-2 border-ink p-4 rounded-2xl shadow-xl w-44 z-20 cursor-grab active:cursor-grabbing hidden sm:block"
-      >
-        <div className="flex items-center gap-2 mb-1.5">
-          <span className="h-2 w-2 rounded-full bg-accent-brand animate-ping" />
-          <span className="text-[9px] font-mono font-bold text-neutral-400 uppercase tracking-wider">
-            Active Agents
-          </span>
-        </div>
-        <div className="text-2xl font-bold tracking-tight text-white font-display">04</div>
-        <div className="text-[10px] text-neutral-400 leading-tight mt-1">
-          Processing conversational intents in background
-        </div>
-      </motion.div>
-
-      <motion.div
-        drag
-        dragConstraints={{ left: -50, right: 50, top: -50, bottom: 50 }}
-        whileHover={{ scale: 1.05, zIndex: 50 }}
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: "preserve-3d",
-        }}
-        className="absolute -bottom-6 -left-6 md:-left-12 bg-neutral-900/90 backdrop-blur-md border-2 border-ink p-4 rounded-2xl shadow-xl w-48 z-20 cursor-grab active:cursor-grabbing hidden sm:block"
-      >
-        <div className="flex items-center gap-2 mb-1.5">
-          <span className="h-2 w-2 rounded-full bg-emerald-500" />
-          <span className="text-[9px] font-mono font-bold text-neutral-400 uppercase tracking-wider">
-            Vitals Rating
-          </span>
-        </div>
-        <div className="text-2xl font-bold tracking-tight text-emerald-400 font-display">
-          99/100
-        </div>
-        <div className="text-[10px] text-neutral-400 leading-tight mt-1">
-          Next-gen server compilation & cache delivery system
         </div>
       </motion.div>
     </div>

@@ -19,6 +19,20 @@ export function Footer() {
               A digital studio building web, mobile, AI solutions, and SEO that actually moves the
               needle. We're a partner, not a vendor.
             </p>
+
+            {/* Social Proof Badge */}
+            <div className="mt-6 inline-flex flex-col gap-1.5 brutal-border bg-card p-3.5 rounded-xl">
+              <div className="flex items-center gap-1.5 text-accent-brand">
+                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-xs font-bold text-neutral-900">Active Live Deployments</span>
+              </div>
+              <p className="text-xs font-medium text-muted-foreground">
+                Trusted by organizations in{" "}
+                <span className="font-bold text-neutral-900">
+                  UK · Nigeria
+                </span>
+              </p>
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-8 lg:col-span-6">
             <FooterCol
