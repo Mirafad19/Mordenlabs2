@@ -19,7 +19,7 @@ export const Route = createFileRoute("/services")({
       {
         property: "og:description",
         content:
-          "The six disciplines Morden Labs delivers for growing businesses and government partners.",
+          "The five disciplines Morden Labs delivers for growing businesses and government partners.",
       },
     ],
   }),
@@ -56,7 +56,7 @@ function ServicesPage() {
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className="mt-8 text-lg text-muted-foreground md:text-xl"
               >
-                Six focused disciplines. We keep our lanes narrow on purpose — deep expertise in a
+                Five focused disciplines. We keep our lanes narrow on purpose — deep expertise in a
                 handful of things beats a buffet of mediocre.
               </motion.p>
             </div>

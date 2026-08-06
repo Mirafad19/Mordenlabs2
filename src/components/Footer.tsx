@@ -47,8 +47,9 @@ export function Footer() {
               links={[
                 { label: "Web Development", to: "/services" as const },
                 { label: "Mobile Apps", to: "/services" as const },
-                { label: "AI Solutions", to: "/services" as const },
+                { label: "AI Solutions & Automation", to: "/services" as const },
                 { label: "SEO & Speed", to: "/services" as const },
+                { label: "CMS Integration", to: "/services" as const },
               ]}
             />
           </div>

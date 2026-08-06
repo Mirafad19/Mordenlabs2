@@ -67,49 +67,26 @@ export function DetailedDisciplines() {
       },
     },
     {
-      id: "ai-automations",
-      icon: Workflow,
-      title: "AI Automations",
-      accent: "Operational Workflow Pipelines",
-      short: "Your tools, talking to each other.",
-      description:
-        "No more repetitive manual data entry or copying text between disconnected tools. We design and connect background automation pipelines that classify leads, parse multi-page PDFs, draft client documentation, and alert teams instantly.",
-      audience:
-        "Operations teams and service businesses scaling output without expanding administrative headcount.",
-      deliverables: [
-        "Zero-friction background webhook & API pipelines",
-        "Automated PDF/document parsing & JSON structuring",
-        "Multi-system sync across CRM, Slack, Email, and DBs",
-        "Audit logging & automatic error recovery safeguards",
-      ],
-      stack: ["Node.js", "Gemini API", "PostgreSQL", "Redis / Queues", "Webhooks"],
-      proofPoint: {
-        name: "Citicare Health CRM",
-        link: "/work",
-        text: "Automated enquiry routing and notification workflow engine",
-      },
-    },
-    {
-      id: "ai-solutions",
+      id: "ai-solutions-automation",
       icon: Bot,
-      title: "AI Solutions",
-      accent: "Custom Intelligence & Voice Agents",
-      short: "Custom agents, tuned to your data.",
+      title: "AI Solutions & Automation",
+      accent: "Custom Intelligence & Automated Workflows",
+      short: "Your tools, talking to each other — and to your customers.",
       description:
-        "We build intelligent conversational voice and text assistants trained on your organization's specific domain knowledge. Using vector search and RAG, our agents deliver accurate, source-cited responses 24/7.",
+        "We build the AI layer for your business — from custom conversational agents and voice interfaces to background automations that connect your tools, parse documents, and keep data moving without manual work.",
       audience:
-        "Public sector portals, high-volume customer support teams, and internal knowledge bases.",
+        "Operations teams, customer support hubs, public portals, and high-growth services.",
       deliverables: [
         "Domain-trained conversational text & voice agents",
-        "Vector database search for factual, cited responses",
-        "Real-time streaming UI & interactive audio interfaces",
-        "Granular safety guardrails & operational telemetry",
+        "Workflow & API automation across CRM, Slack, Email, and databases",
+        "Vector search / RAG for accurate, source-cited responses",
+        "Automated document parsing, structuring & alerting",
       ],
-      stack: ["Google Gemini 2.5", "RAG Vector DB", "WebRTC Voice", "Express Proxy"],
+      stack: ["Google Gemini API", "Node.js", "RAG Vector DB", "Webhooks", "TypeScript"],
       proofPoint: {
         name: "PSSDC AI Conversational Assistant",
         link: "/work",
-        text: "Official Lagos State public service AI voice & portal assistant",
+        text: "Official Lagos State public service AI voice & portal agent",
       },
     },
     {
@@ -252,7 +229,7 @@ export function DetailedDisciplines() {
                   <span>{activeDiscipline.accent}</span>
                 </div>
                 <span className="text-xs font-mono font-bold text-muted-foreground">
-                  DISCIPLINE 0{activeIdx + 1} / 06
+                  DISCIPLINE 0{activeIdx + 1} / 05
                 </span>
               </div>
 

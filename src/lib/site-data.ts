@@ -22,15 +22,9 @@ export const SERVICES: {
   },
   {
     icon: Bot,
-    title: "AI Automations",
+    title: "AI Solutions & Automation",
     short: "Your tools, talking to each other.",
-    body: "We connect your stack end-to-end. Lead routing, content pipelines, internal ops — repetitive work moves into automated flows so your team can focus on real work.",
-  },
-  {
-    icon: Workflow,
-    title: "AI Solutions",
-    short: "Custom agents, tuned to your data.",
-    body: "Purpose-built AI assistants, RAG systems, and copilots trained on your knowledge base. Solutions designed to actually help — not to demo well and quietly die.",
+    body: "We build the AI layer for your business — from custom conversational agents and voice interfaces to background automations that connect your tools, parse documents, and keep data moving.",
   },
   {
     icon: Search,

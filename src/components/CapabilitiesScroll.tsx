@@ -1,17 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import type { LucideIcon } from "lucide-react";
-import {
-  Code2,
-  Smartphone,
-  Workflow,
-  Bot,
-  Search,
-  Database,
-  CheckCircle2,
-  ArrowUpRight,
-} from "lucide-react";
+import { Code2, Smartphone, Bot, Search, Database, CheckCircle2, ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { N8nWorkflowBlock } from "./N8nWorkflowBlock";
 
 export interface CapabilityItem {
   id: string;
@@ -23,9 +15,6 @@ export interface CapabilityItem {
   deliverables: string[];
   stack: string[];
   image: string;
-  projectTag: string;
-  projectTitle: string;
-  projectClient: string;
 }
 
 export const CAPABILITIES: CapabilityItem[] = [
@@ -45,10 +34,7 @@ export const CAPABILITIES: CapabilityItem[] = [
     ],
     stack: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Cloud Run"],
     image:
-      "https://www.image2url.com/r2/default/files/1785761967417-335801c0-e331-4406-8d52-0f6af5f2b61c.png",
-    projectTag: "LIVE COMMERCIAL DEPLOYMENT",
-    projectTitle: "TidyScot Platform",
-    projectClient: "TidyScot Ltd (UK)",
+      "https://www.image2url.com/r2/default/images/1786012399483-f4c0a214-cfbd-4866-a2c6-567e3ecedfeb.png",
   },
   {
     id: "mobile-apps",
@@ -66,77 +52,47 @@ export const CAPABILITIES: CapabilityItem[] = [
     ],
     stack: ["React Native", "Expo", "TypeScript", "SQLite", "Firebase Auth"],
     image:
-      "https://www.image2url.com/r2/default/files/1785761422623-3d338629-9348-4c6f-94b4-337089d6785e.png",
-    projectTag: "MOBILE CRM & DISPATCH",
-    projectTitle: "Citicare Mobile Direct",
-    projectClient: "Citicare Health Integrated Solutions",
+      "https://www.image2url.com/r2/default/images/1786012465140-f8b62bc9-ee53-47ba-ac54-0d4d18fd7742.png",
   },
   {
-    id: "ai-automations",
+    id: "ai-solutions-automation",
     number: "03",
-    title: "AI Automations",
-    short: "Your tools, talking to each other.",
-    icon: Workflow,
-    description:
-      "No more repetitive manual data entry or copying text between disconnected tools. We design and connect background automation pipelines that classify leads, parse multi-page PDFs, draft client documentation, and alert teams instantly.",
-    deliverables: [
-      "Zero-friction background webhook & API pipelines",
-      "Automated PDF/document parsing & JSON structuring",
-      "Multi-system sync across CRM, Slack, Email, and DBs",
-      "Audit logging & automatic error recovery safeguards",
-    ],
-    stack: ["Node.js", "Gemini API", "PostgreSQL", "Queues", "Webhooks"],
-    image:
-      "https://www.image2url.com/r2/default/files/1785761353465-1cc97d30-b41d-4150-8303-9c6a84264f5e.png",
-    projectTag: "OPERATIONAL WORKFLOW ENGINE",
-    projectTitle: "Citicare Health CRM",
-    projectClient: "Automated Enquiry Pipeline",
-  },
-  {
-    id: "ai-solutions",
-    number: "04",
-    title: "AI Solutions",
-    short: "Custom agents, tuned to your data.",
+    title: "AI Solutions & Automation",
+    short: "Your tools talking to each other — and your clients.",
     icon: Bot,
     description:
-      "We build intelligent conversational voice and text assistants trained on your organization's specific domain knowledge. Using vector search and RAG, our agents deliver accurate, source-cited responses 24/7.",
+      "We build the AI layer for your business — from custom conversational agents and voice interfaces to background automations that connect your tools, parse documents, and keep data moving without manual work.",
     deliverables: [
       "Domain-trained conversational text & voice agents",
-      "Vector database search for factual, cited responses",
-      "Real-time streaming UI & interactive audio interfaces",
-      "Granular safety guardrails & operational telemetry",
+      "Workflow & API automation across CRM, Slack, Email, and DBs",
+      "Vector search / RAG for accurate, source-cited responses",
+      "Automated document parsing, structuring & alerting",
     ],
-    stack: ["Google Gemini 2.5", "RAG Vector DB", "WebRTC Voice", "Express Proxy"],
+    stack: ["Google Gemini API", "Node.js", "RAG Vector DB", "Webhooks", "TypeScript"],
     image:
       "https://www.image2url.com/r2/default/images/1785759868043-9b252c53-69fb-4dcf-be2e-145af1f3ed48.png",
-    projectTag: "CIVIC AI & VOICE ASSISTANT",
-    projectTitle: "PSSDC AI Conversational Assistant",
-    projectClient: "Lagos State Public Service",
   },
   {
     id: "seo-speed",
-    number: "05",
+    number: "04",
     title: "SEO & Speed Optimization",
     short: "Fast pages. Better rankings.",
     icon: Search,
     description:
       "Performance is a fundamental growth metric. We run deep technical audits on existing codebases, optimize asset delivery pipelines, eliminate render-blocking scripts, and structure micro-data for maximum search indexing.",
     deliverables: [
-      "100/100 Core Web Vitals optimization on mobile & desktop",
+      "Optimized Core Web Vitals across mobile & desktop",
       "Dynamic WebP/AVIF image compression & lazy loading",
       "Structured JSON-LD schema markup for search snippets",
       "Canonical routing, sitemaps, & crawler efficiency fixes",
     ],
     stack: ["Lighthouse", "Schema.org", "Vite SSG", "Cloudflare Edge"],
     image:
-      "https://www.image2url.com/r2/default/files/1785762007649-2973d059-284e-4928-a8c6-80f5f1fc9ba7.png",
-    projectTag: "PERFORMANCE & WEB VITALS",
-    projectTitle: "Sub-Second LCP Engine",
-    projectClient: "TidyScot Mobile Platform",
+      "https://www.image2url.com/r2/default/images/1786020310457-85681786-ffdc-48d4-b3e7-3656534733ff.png",
   },
   {
     id: "cms-integration",
-    number: "06",
+    number: "05",
     title: "CMS Integration",
     short: "Content systems your team can use.",
     icon: Database,
@@ -150,12 +106,29 @@ export const CAPABILITIES: CapabilityItem[] = [
     ],
     stack: ["Sanity.io", "Strapi", "Contentful", "Decoupled React"],
     image:
-      "https://www.image2url.com/r2/default/images/1785759935249-3ae81f9f-d354-40a2-9761-d85e66c881ea.png",
-    projectTag: "PUBLIC CONTENT PORTAL",
-    projectTitle: "PSSDC Course Repository & CMS",
-    projectClient: "Lagos State Government",
+      "https://www.image2url.com/r2/default/images/1786019038737-a87c4090-a413-47d8-9702-b5493b288441.png",
   },
 ];
+
+function CapabilityVisualFrame({ cap }: { cap: CapabilityItem }) {
+  if (cap.id === "ai-solutions-automation") {
+    return (
+      <div className="w-[92%] sm:w-[88%] mx-auto h-full flex flex-col justify-center">
+        <N8nWorkflowBlock />
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-full h-full flex items-center justify-center p-2">
+      <img
+        src={cap.image}
+        alt={cap.title}
+        className="w-[90%] sm:w-[85%] max-w-[520px] h-auto max-h-[380px] object-contain rounded-2xl border border-white/10 shadow-2xl transition-all duration-300"
+      />
+    </div>
+  );
+}
 
 export function CapabilitiesScroll() {
   const [activeIdx, setActiveIdx] = useState<number>(0);
@@ -172,7 +145,6 @@ export function CapabilitiesScroll() {
       sectionRefs.current.forEach((ref, index) => {
         if (!ref) return;
         const rect = ref.getBoundingClientRect();
-        // Distance of block top/center to target line
         const distance = Math.abs(rect.top + rect.height * 0.3 - targetY);
         if (distance < minDistance) {
           minDistance = distance;
@@ -184,7 +156,7 @@ export function CapabilitiesScroll() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial evaluation
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -218,7 +190,7 @@ export function CapabilitiesScroll() {
 
         {/* Scroll-Driven Pinned Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* LEFT COLUMN: Scrolling Items (1 block per viewport approx) */}
+          {/* LEFT COLUMN: Scrolling Items */}
           <div className="lg:col-span-6 flex flex-col gap-16 lg:gap-24 text-left">
             {CAPABILITIES.map((cap, idx) => {
               const IconComp = cap.icon;
@@ -237,7 +209,7 @@ export function CapabilitiesScroll() {
                   {/* Badge & Number */}
                   <div className="flex items-center gap-3 mb-4">
                     <span className="font-mono text-xs font-bold text-accent-brand bg-accent-brand/10 border border-accent-brand/20 px-2.5 py-1 rounded-md">
-                      {cap.number} / 06
+                      {cap.number} / 05
                     </span>
                     <span className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-wider">
                       {cap.short}
@@ -291,12 +263,16 @@ export function CapabilitiesScroll() {
 
                   {/* Mobile Inline Visual (shown only on mobile/tablet) */}
                   <div className="mt-6 block lg:hidden brutal-border border-ink rounded-2xl overflow-hidden bg-neutral-900 p-2">
-                    <img
-                      src={cap.image}
-                      alt={cap.title}
-                      className="w-full h-auto rounded-xl object-cover max-h-[300px]"
-                      loading="lazy"
-                    />
+                    {cap.id === "ai-solutions-automation" ? (
+                      <N8nWorkflowBlock />
+                    ) : (
+                      <img
+                        src={cap.image}
+                        alt={cap.title}
+                        className="w-full h-auto rounded-xl object-contain max-h-[300px]"
+                        loading="lazy"
+                      />
+                    )}
                   </div>
                 </div>
               );
@@ -304,57 +280,56 @@ export function CapabilitiesScroll() {
           </div>
 
           {/* RIGHT COLUMN: Sticky Pinned Visual Container (Desktop only) */}
-          <div className="hidden lg:block lg:col-span-6 lg:sticky lg:top-28">
-            <div className="brutal-border border-ink bg-card rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between min-h-[520px]">
+          <div className="hidden lg:block lg:col-span-6 lg:sticky lg:top-[144px]">
+            <div
+              className="bg-gradient-to-b from-[#121212] via-[#161616] to-[#1A1A1A] rounded-[32px] p-8 shadow-[0_30px_80px_rgba(0,0,0,0.35)] relative overflow-hidden flex flex-col justify-between max-h-[calc(100vh-170px)] min-h-[480px]"
+              style={{ border: "1px solid rgba(255, 255, 255, 0.08)" }}
+            >
               {/* Sticky Card Top Header */}
-              <div className="flex items-center justify-between gap-4 mb-4 z-10">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-neutral-900 text-cream font-mono text-xs font-bold uppercase tracking-wider border border-neutral-800">
+              <div className="flex items-center justify-between gap-4 mb-4 z-10 shrink-0">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] text-white font-mono text-xs font-semibold uppercase tracking-widest border border-white/10">
                   <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>{activeCapability.projectTag}</span>
+                  <span>{activeCapability.title}</span>
                 </div>
 
-                <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-neutral-500">
+                <div className="flex items-center gap-1.5 font-mono text-xs font-medium text-neutral-400 tracking-wider">
                   <span>DISCIPLINE</span>
-                  <span className="text-accent-brand font-black">{activeCapability.number}</span>
-                  <span>/ 06</span>
+                  <span className="text-accent-brand font-bold">{activeCapability.number}</span>
+                  <span>/ 05</span>
                 </div>
               </div>
 
-              {/* Smooth Animated Image Swap Container */}
-              <div className="relative w-full flex-1 flex items-center justify-center my-4 min-h-[340px] overflow-hidden rounded-2xl bg-neutral-950/90 border border-neutral-800/80 p-3">
+              {/* Visual Container */}
+              <div className="relative w-full flex-1 flex items-center justify-center my-2 overflow-hidden rounded-2xl bg-transparent">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeCapability.id}
-                    initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                    initial={{ opacity: 0, y: 12, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -18, scale: 0.98 }}
-                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full h-full flex flex-col items-center justify-center relative group"
+                    exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="w-full h-full flex flex-col items-center justify-center relative"
                   >
-                    <img
-                      src={activeCapability.image}
-                      alt={activeCapability.title}
-                      className="w-full h-auto max-h-[380px] object-contain rounded-xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
-                    />
+                    <CapabilityVisualFrame cap={activeCapability} />
                   </motion.div>
                 </AnimatePresence>
               </div>
 
-              {/* Sticky Card Bottom Bar */}
-              <div className="bg-neutral-900 text-white p-4 rounded-xl border border-neutral-800 flex items-center justify-between gap-4 z-10">
-                <div className="text-left">
-                  <span className="text-[10px] font-mono font-bold text-accent-brand uppercase tracking-wider block">
-                    {activeCapability.projectClient}
+              {/* Integrated Footer Bar */}
+              <div className="pt-6 border-t border-white/[0.08] flex items-center justify-between gap-4 z-10 shrink-0 mt-2">
+                <div className="text-left min-w-0">
+                  <span className="text-[10px] font-mono font-bold text-accent-brand uppercase tracking-widest block truncate mb-0.5">
+                    MORDEN LABS CAPABILITY
                   </span>
-                  <span className="text-sm font-bold text-white block">
-                    {activeCapability.projectTitle}
+                  <span className="text-base font-bold text-white block truncate tracking-tight">
+                    {activeCapability.title}
                   </span>
                 </div>
 
-                <Link to="/work">
-                  <button className="brutal-border bg-accent-brand text-cream px-3 py-2 text-xs font-bold hover:bg-orange-600 transition-colors inline-flex items-center gap-1.5 cursor-pointer">
-                    <span>Explore Case Study</span>
-                    <ArrowUpRight className="h-3.5 w-3.5" />
+                <Link to="/services">
+                  <button className="h-[52px] px-6 rounded-xl bg-accent-brand text-cream font-bold text-xs uppercase tracking-wider hover:bg-orange-600 shadow-[0_4px_20px_rgba(224,86,31,0.25)] hover:shadow-[0_6px_28px_rgba(224,86,31,0.4)] transition-all duration-300 inline-flex items-center gap-2 cursor-pointer shrink-0">
+                    <span>Explore Service</span>
+                    <ArrowUpRight className="h-4 w-4" />
                   </button>
                 </Link>
               </div>
