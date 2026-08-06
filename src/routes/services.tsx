@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SERVICES } from "@/lib/site-data";
-import { DetailedDisciplines } from "@/components/DetailedDisciplines";
+import { CapabilitiesScroll } from "@/components/CapabilitiesScroll";
 import { motion } from "motion/react";
 
 export const Route = createFileRoute("/services")({
@@ -63,19 +63,7 @@ function ServicesPage() {
           </div>
         </section>
 
-        <section className="border-b-2 border-ink py-20 lg:py-28 bg-background relative overflow-hidden">
-          {/* Subtle background visual grid to enhance aesthetic */}
-          <div
-            className="absolute inset-0 opacity-[0.02] pointer-events-none"
-            style={{
-              backgroundImage: "radial-gradient(circle, black 1px, transparent 1px)",
-              backgroundSize: "24px 24px",
-            }}
-          />
-          <div className="mx-auto max-w-7xl px-5 lg:px-8 relative z-10">
-            <DetailedDisciplines />
-          </div>
-        </section>
+        <CapabilitiesScroll />
 
         <section className="border-b-2 border-ink bg-ink py-20 text-cream lg:py-24">
           <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-5 md:flex-row md:items-center lg:px-8">

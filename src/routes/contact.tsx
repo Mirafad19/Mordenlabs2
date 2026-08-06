@@ -101,19 +101,83 @@ function ContactRow({
 }
 
 function ContactForm() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("submitting");
+    setErrorMessage("");
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      service: formData.get("service"),
+      budget: formData.get("budget"),
+      project: formData.get("project"),
+      message: formData.get("message"),
+      _subject: `New Project Inquiry from ${formData.get("name") || "Client"} — Morden Labs`,
+    };
+
+    try {
+      const res = await fetch("https://formspree.io/f/xaewnqwq", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+      } else {
+        const errorData = await res.json().catch(() => null);
+        setStatus("error");
+        setErrorMessage(
+          errorData?.errors?.[0]?.message || "Something went wrong. Please try submitting again.",
+        );
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage("Network error. Please check your connection and try again.");
+    }
+  };
+
+  if (status === "success") {
+    return (
+      <div className="brutal-border brutal-shadow-lg bg-card p-8 md:p-12 text-center flex flex-col items-center justify-center min-h-[420px]">
+        <div className="h-14 w-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 flex items-center justify-center mb-4">
+          <span className="h-3 w-3 rounded-full bg-emerald-500 animate-pulse" />
+        </div>
+        <h2 className="font-display text-2xl font-bold md:text-3xl">Message Received!</h2>
+        <p className="mt-3 max-w-sm text-muted-foreground text-sm leading-relaxed">
+          Thank you for reaching out. Your project details have been sent straight to our inbox, and
+          we'll reply within 24 hours.
+        </p>
+        <button
+          onClick={() => setStatus("idle")}
+          className="mt-8 brutal-border bg-ink px-6 py-3 font-semibold text-cream text-xs uppercase tracking-wider transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px] cursor-pointer"
+        >
+          Send another message
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        setSent(true);
-      }}
-      className="brutal-border brutal-shadow-lg bg-card p-6 md:p-10"
-    >
+    <form onSubmit={handleSubmit} className="brutal-border brutal-shadow-lg bg-card p-6 md:p-10">
       <h2 className="font-display text-2xl font-bold md:text-3xl">Start your project</h2>
       <p className="mt-2 text-sm text-muted-foreground">
         Tell us what you're building. We'll get back within 24 hours.
       </p>
+
+      {status === "error" && (
+        <div className="mt-4 p-3 rounded bg-rose-500/10 border border-rose-500/30 text-rose-600 text-xs font-semibold">
+          {errorMessage}
+        </div>
+      )}
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <Field name="name" placeholder="Your name *" required />
@@ -155,9 +219,10 @@ function ContactForm() {
       </div>
       <button
         type="submit"
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 brutal-border brutal-shadow bg-ink px-6 py-4 font-semibold text-cream transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px] sm:w-auto"
+        disabled={status === "submitting"}
+        className="mt-6 inline-flex w-full items-center justify-center gap-2 brutal-border brutal-shadow bg-ink px-6 py-4 font-semibold text-cream transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px] disabled:opacity-50 disabled:cursor-not-allowed sm:w-auto cursor-pointer"
       >
-        {sent ? "Got it — we'll be in touch" : "Send message"}
+        {status === "submitting" ? "Sending..." : "Send message"}
         <ArrowRight className="h-5 w-5" />
       </button>
     </form>

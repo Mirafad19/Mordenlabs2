@@ -1,10 +1,45 @@
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Twitter, Instagram, Linkedin, Github } from "lucide-react";
+import { ArrowRight, Twitter, Instagram, Linkedin, Github, Check } from "lucide-react";
 import { mordenLogo } from "../lib/images-base64";
 
 const logoAsset = mordenLogo;
 
 export function Footer() {
+  const [newsletterStatus, setNewsletterStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+  const [emailInput, setEmailInput] = useState("");
+
+  const handleNewsletterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!emailInput) return;
+    setNewsletterStatus("submitting");
+
+    try {
+      const res = await fetch("https://formspree.io/f/xaewnqwq", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: emailInput,
+          formType: "Newsletter Subscription",
+          _subject: `New Newsletter Subscription: ${emailInput}`,
+        }),
+      });
+
+      if (res.ok) {
+        setNewsletterStatus("success");
+        setEmailInput("");
+      } else {
+        setNewsletterStatus("error");
+      }
+    } catch {
+      setNewsletterStatus("error");
+    }
+  };
   return (
     <footer className="bg-background pt-20">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
@@ -65,18 +100,42 @@ export function Footer() {
                 Field notes from the studio — once a month, no fluff.
               </div>
             </div>
-            <form className="flex w-full max-w-md md:w-auto" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="min-w-0 flex-1 brutal-border bg-background px-4 py-3 text-sm focus:outline-none"
-              />
-              <button
-                className="grid w-12 shrink-0 place-items-center brutal-border bg-ink text-cream [border-left-width:0]"
-                aria-label="Subscribe"
-              >
-                <ArrowRight className="h-5 w-5" />
-              </button>
+            <form
+              className="flex w-full max-w-md md:w-auto flex-col sm:flex-row gap-2 sm:gap-0"
+              onSubmit={handleNewsletterSubmit}
+            >
+              <div className="flex-1 flex min-w-0">
+                <input
+                  type="email"
+                  required
+                  value={emailInput}
+                  onChange={(e) => setEmailInput(e.target.value)}
+                  placeholder="Your email address"
+                  className="min-w-0 flex-1 brutal-border bg-background px-4 py-3 text-sm focus:outline-none placeholder:text-muted-foreground"
+                />
+                <button
+                  type="submit"
+                  disabled={newsletterStatus === "submitting"}
+                  className="grid w-12 shrink-0 place-items-center brutal-border bg-ink text-cream [border-left-width:0] disabled:opacity-50 cursor-pointer hover:bg-accent-brand transition-colors"
+                  aria-label="Subscribe"
+                >
+                  {newsletterStatus === "success" ? (
+                    <Check className="h-5 w-5 text-emerald-400" />
+                  ) : (
+                    <ArrowRight className="h-5 w-5" />
+                  )}
+                </button>
+              </div>
+              {newsletterStatus === "success" && (
+                <div className="text-xs font-semibold text-emerald-600 mt-2 sm:mt-0 sm:ml-3 flex items-center gap-1.5 self-center">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" /> Subscribed!
+                </div>
+              )}
+              {newsletterStatus === "error" && (
+                <div className="text-xs font-semibold text-rose-600 mt-2 sm:mt-0 sm:ml-3 flex items-center gap-1.5 self-center">
+                  Try again.
+                </div>
+              )}
             </form>
           </div>
         </div>
