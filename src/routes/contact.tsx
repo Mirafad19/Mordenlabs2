@@ -44,8 +44,8 @@ function ContactPage() {
                   <ContactRow
                     icon={Mail}
                     label="Email"
-                    value="hello@mordenlabs.com"
-                    href="mailto:hello@mordenlabs.com"
+                    value="support@mordenlabs.com.ng"
+                    href="mailto:support@mordenlabs.com.ng"
                   />
                   <ContactRow
                     icon={Phone}
@@ -53,7 +53,7 @@ function ContactPage() {
                     value="+234 907 171 7079"
                     href="tel:+2349071717079"
                   />
-                  <ContactRow icon={MapPin} label="Studio" value="Remote-first · Lagos, Nigeria" />
+                  <ContactRow icon={MapPin} label="Studio" value="Lagos, Nigeria" />
                 </div>
               </div>
 
@@ -114,7 +114,6 @@ function ContactForm() {
       name: formData.get("name"),
       email: formData.get("email"),
       service: formData.get("service"),
-      budget: formData.get("budget"),
       project: formData.get("project"),
       message: formData.get("message"),
       _subject: `New Project Inquiry from ${formData.get("name") || "Client"} — Morden Labs`,
@@ -149,7 +148,7 @@ function ContactForm() {
     return (
       <div className="brutal-border brutal-shadow-lg bg-card p-8 md:p-12 text-center flex flex-col items-center justify-center min-h-[420px]">
         <div className="h-14 w-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 flex items-center justify-center mb-4">
-          <span className="h-3 w-3 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="h-3 w-3 rounded-full bg-emerald-500" />
         </div>
         <h2 className="font-display text-2xl font-bold md:text-3xl">Message Received!</h2>
         <p className="mt-3 max-w-sm text-muted-foreground text-sm leading-relaxed">
@@ -195,17 +194,6 @@ function ContactForm() {
           <option>SEO & Speed</option>
           <option>CMS Integration</option>
         </Select>
-        <Select name="budget" defaultValue="">
-          <option value="" disabled>
-            Budget range
-          </option>
-          <option>Under $5k</option>
-          <option>$5k – $15k</option>
-          <option>$15k – $50k</option>
-          <option>$50k+</option>
-        </Select>
-      </div>
-      <div className="mt-4">
         <Field name="project" placeholder="Project or company name" />
       </div>
       <div className="mt-4">

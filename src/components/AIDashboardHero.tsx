@@ -1,32 +1,21 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "motion/react";
-import {
-  Sparkles,
-  Server,
-  Smartphone,
-  Globe,
-  Database,
-  CheckCircle2,
-  Cpu,
-  TrendingUp,
-} from "lucide-react";
+import { Sparkles, Smartphone, Globe2, Zap, Building2, Check } from "lucide-react";
 
 export function AIDashboardHero() {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const [activeTab, setActiveTab] = useState<"console" | "network">("console");
-  const [stats, setStats] = useState({ requests: 14820, ms: 124, successRate: 99.8 });
+  const [activeModule, setActiveModule] = useState<number>(0);
+  const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // Smooth mouse-controlled 3D tilt effect (like Apple / Stripe / Vercel cards)
+  // Smooth mouse-controlled 3D tilt effect
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [10, -10]), {
+  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [8, -8]), {
     stiffness: 150,
     damping: 18,
   });
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-10, 10]), {
+  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-8, 8]), {
     stiffness: 150,
     damping: 18,
   });
@@ -46,400 +35,294 @@ export function AIDashboardHero() {
   const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
+    setIsHovered(false);
   };
 
-  // Loop simulation for the AI development and deployment lifecycle
+  // Auto-cycle active system connection when not hovered
   useEffect(() => {
-    const stepInterval = setInterval(() => {
-      setCurrentStep((prev) => (prev + 1) % 5);
-    }, 4500);
+    if (isHovered) return;
+    const interval = setInterval(() => {
+      setActiveModule((prev) => (prev + 1) % 4);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [isHovered]);
 
-    const progressInterval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) return 0;
-        return prev + 1;
-      });
-    }, 40);
-
-    // Subtle drift in telemetry numbers to make them look "alive"
-    const statsInterval = setInterval(() => {
-      setStats((prev) => ({
-        requests: prev.requests + Math.floor(Math.random() * 3) + 1,
-        ms: 120 + Math.floor(Math.random() * 10),
-        successRate: Number((99.8 + (Math.random() * 0.15 - 0.05)).toFixed(2)),
-      }));
-    }, 3000);
-
-    return () => {
-      clearInterval(stepInterval);
-      clearInterval(progressInterval);
-      clearInterval(statsInterval);
-    };
-  }, []);
-
-  const steps = [
-    { text: "Core engine synthesized", delay: "0s" },
-    { text: "Database pipelines connected", delay: "1.2s" },
-    { text: "SEO & performance optimized", delay: "2.4s" },
-    { text: "Autonomous AI agents deployed", delay: "3.6s" },
-    { text: "Cloud orchestration complete", delay: "4.8s" },
+  const modules = [
+    {
+      id: "ai",
+      title: "AI SYSTEMS",
+      label: "INTELLIGENCE",
+      icon: Sparkles,
+      position: "top",
+    },
+    {
+      id: "web",
+      title: "WEB PLATFORM",
+      label: "EXPERIENCE",
+      icon: Globe2,
+      position: "right",
+    },
+    {
+      id: "automation",
+      title: "AUTOMATION",
+      label: "WORKFLOWS",
+      icon: Zap,
+      position: "bottom",
+    },
+    {
+      id: "mobile",
+      title: "MOBILE APP",
+      label: "ACCESS",
+      icon: Smartphone,
+      position: "left",
+    },
   ];
 
   return (
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       className="relative w-full max-w-xl mx-auto [perspective:1000px] select-none"
     >
-      {/* Decorative ambient background glows behind the card */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-accent-brand/20 via-amber-500/15 to-indigo-500/20 rounded-[2.5rem] blur-2xl opacity-70 animate-pulse pointer-events-none" />
-
-      {/* Main 3D Interactive Console Board */}
+      {/* Main Software Architecture Card */}
       <motion.div
-        style={{ rotateX, rotateY }}
-        className="relative w-full bg-neutral-950 text-cream rounded-[2rem] border-2 border-ink shadow-[0_30px_100px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col h-[520px] transition-colors duration-500"
+        style={{
+          rotateX,
+          rotateY,
+          border: "1px solid rgba(255, 255, 255, 0.1)",
+        }}
+        className="relative w-full bg-[#111111] text-cream rounded-[24px] sm:rounded-[28px] shadow-2xl overflow-hidden flex flex-col min-h-[500px] sm:min-h-[530px] transition-colors duration-500"
       >
-        {/* Sleek retro grid lines inside the app card */}
+        {/* Subtle grid pattern background */}
         <div
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{
             backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-            backgroundSize: "20px 20px",
+            backgroundSize: "24px 24px",
           }}
         />
 
-        {/* Header Control Bar */}
-        <div className="flex items-center justify-between px-6 py-4 border-b-2 border-ink/80 bg-neutral-900/60 backdrop-blur-sm relative z-10">
+        {/* Card Header Bar */}
+        <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-white/10 bg-black/40 backdrop-blur-sm relative z-10">
           <div className="flex items-center gap-2">
-            <span className="w-3.5 h-3.5 rounded-full bg-red-500/20 border border-red-500/40" />
-            <span className="w-3.5 h-3.5 rounded-full bg-amber-500/20 border border-amber-500/40" />
-            <span className="w-3.5 h-3.5 rounded-full bg-emerald-500/20 border border-emerald-500/40" />
-            <span className="text-xs font-mono font-bold text-neutral-400 ml-2 tracking-wide">
-              MORDEN_ENGINE // ARCHITECTURE
+            <span className="w-2.5 h-2.5 rounded-full bg-red-500/30 border border-red-500/50" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-500/30 border border-amber-500/50" />
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/30 border border-emerald-500/50" />
+            <span className="text-[11px] font-mono font-medium text-neutral-400 ml-2 tracking-wider">
+              MORDEN LABS / DIGITAL SYSTEM
             </span>
           </div>
 
-          <div className="flex items-center gap-4">
-            {/* View Switch Tabs */}
-            <div className="flex bg-neutral-900 p-0.5 rounded-lg border border-neutral-800">
-              <button
-                onClick={() => setActiveTab("console")}
-                className={`px-3 py-1 text-[11px] font-mono font-bold uppercase tracking-wider rounded-md transition-all ${
-                  activeTab === "console"
-                    ? "bg-accent-brand text-cream"
-                    : "text-neutral-400 hover:text-cream"
-                }`}
-              >
-                Agent
-              </button>
-              <button
-                onClick={() => setActiveTab("network")}
-                className={`px-3 py-1 text-[11px] font-mono font-bold uppercase tracking-wider rounded-md transition-all ${
-                  activeTab === "network"
-                    ? "bg-accent-brand text-cream"
-                    : "text-neutral-400 hover:text-cream"
-                }`}
-              >
-                Network
-              </button>
-            </div>
-
-            {/* Pulsing online status indicator */}
-            <div className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-2.5 py-0.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[9px] font-mono font-bold text-emerald-400 uppercase tracking-widest">
-                LIVE
-              </span>
-            </div>
+          <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <span className="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest">
+              SYSTEM ACTIVE
+            </span>
           </div>
         </div>
 
-        {/* Console Content Screen */}
-        <div className="flex-1 p-6 flex flex-col justify-between overflow-hidden relative z-10">
-          {activeTab === "console" ? (
-            /* CONSOLE VIEW */
-            <div className="flex flex-col gap-5 flex-1 justify-between">
-              {/* Architecture Spec Cards */}
-              <div className="grid grid-cols-3 gap-3">
-                <div className="bg-neutral-900/50 rounded-xl p-3 border border-neutral-800/60 relative overflow-hidden">
-                  <span className="text-[10px] font-mono font-bold text-neutral-500 block uppercase tracking-wider">
-                    Stack
-                  </span>
-                  <span className="text-sm font-mono font-bold text-white block mt-1 tracking-tight">
-                    React & Vite
-                  </span>
-                </div>
+        {/* Main Architecture Diagram Container */}
+        <div className="flex-1 p-5 sm:p-6 flex flex-col justify-between relative z-10 overflow-hidden">
+          {/* Diagram Canvas */}
+          <div className="relative flex-1 min-h-[350px] w-full flex items-center justify-center my-2">
+            {/* SVG Connection Paths */}
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none"
+              viewBox="0 0 400 320"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              {/* Base Structural Architecture Lines connecting central node (200, 160) to outer nodes */}
+              <g stroke="rgba(255, 255, 255, 0.2)" strokeWidth="1.5">
+                {/* Center (200, 160) to Top AI (200, 52) */}
+                <line x1="200" y1="160" x2="200" y2="52" strokeDasharray="3 3" />
+                {/* Center (200, 160) to Right Web (325, 160) */}
+                <line x1="200" y1="160" x2="325" y2="160" strokeDasharray="3 3" />
+                {/* Center (200, 160) to Bottom Automation (200, 268) */}
+                <line x1="200" y1="160" x2="200" y2="268" strokeDasharray="3 3" />
+                {/* Center (200, 160) to Left Mobile (75, 160) */}
+                <line x1="200" y1="160" x2="75" y2="160" strokeDasharray="3 3" />
+              </g>
 
-                <div className="bg-neutral-900/50 rounded-xl p-3 border border-neutral-800/60 relative overflow-hidden">
-                  <span className="text-[10px] font-mono font-bold text-neutral-500 block uppercase tracking-wider">
-                    Delivery
-                  </span>
-                  <span className="text-sm font-mono font-bold text-amber-500 block mt-1 tracking-tight">
-                    Edge CDN
-                  </span>
-                </div>
+              {/* Active Pathway Line (Highlighted without blur glow) */}
+              {activeModule === 0 && (
+                <line x1="200" y1="160" x2="200" y2="52" stroke="#E0561F" strokeWidth="2" />
+              )}
+              {activeModule === 1 && (
+                <line x1="200" y1="160" x2="325" y2="160" stroke="#E0561F" strokeWidth="2" />
+              )}
+              {activeModule === 2 && (
+                <line x1="200" y1="160" x2="200" y2="268" stroke="#E0561F" strokeWidth="2" />
+              )}
+              {activeModule === 3 && (
+                <line x1="200" y1="160" x2="75" y2="160" stroke="#E0561F" strokeWidth="2" />
+              )}
 
-                <div className="bg-neutral-900/50 rounded-xl p-3 border border-neutral-800/60 relative overflow-hidden">
-                  <span className="text-[10px] font-mono font-bold text-neutral-500 block uppercase tracking-wider">
-                    Vitals
-                  </span>
-                  <span className="text-sm font-mono font-bold text-emerald-400 block mt-1 tracking-tight">
-                    Sub-Second
-                  </span>
-                </div>
+              {/* Subtle indicator dot along active pathway */}
+              {activeModule === 0 && (
+                <motion.circle
+                  r="3"
+                  fill="#E0561F"
+                  animate={{ cx: [200, 200], cy: [160, 52] }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                />
+              )}
+              {activeModule === 1 && (
+                <motion.circle
+                  r="3"
+                  fill="#E0561F"
+                  animate={{ cx: [200, 325], cy: [160, 160] }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                />
+              )}
+              {activeModule === 2 && (
+                <motion.circle
+                  r="3"
+                  fill="#E0561F"
+                  animate={{ cx: [200, 200], cy: [160, 268] }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                />
+              )}
+              {activeModule === 3 && (
+                <motion.circle
+                  r="3"
+                  fill="#E0561F"
+                  animate={{ cx: [200, 75], cy: [160, 160] }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                />
+              )}
+            </svg>
+
+            {/* Architectural Modules */}
+
+            {/* TOP NODE: AI SYSTEMS */}
+            <div
+              onMouseEnter={() => setActiveModule(0)}
+              className={`absolute top-0 left-1/2 -translate-x-1/2 px-3.5 py-2 rounded-lg border transition-all duration-200 cursor-pointer flex items-center gap-2.5 ${
+                activeModule === 0
+                  ? "bg-[#1C1C1C] border-accent-brand text-white"
+                  : "bg-[#141414] border-white/10 hover:border-white/25 text-neutral-300"
+              }`}
+            >
+              <div
+                className={`w-6 h-6 rounded flex items-center justify-center transition-colors ${
+                  activeModule === 0 ? "bg-accent-brand text-cream" : "bg-white/5 text-neutral-400"
+                }`}
+              >
+                <Sparkles className="w-3.5 h-3.5" />
               </div>
-
-              {/* Progress Bar & Loader Card */}
-              <div className="bg-neutral-900/30 rounded-2xl p-4 border border-neutral-800/40 relative overflow-hidden">
-                <div className="flex justify-between items-center mb-2.5">
-                  <div className="flex items-center gap-2">
-                    <Cpu
-                      className="w-4 h-4 text-accent-brand animate-spin"
-                      style={{ animationDuration: "3s" }}
-                    />
-                    <span className="text-xs font-mono font-bold text-white uppercase tracking-wider">
-                      Compiling AI Instance...
-                    </span>
-                  </div>
-                  <span className="text-xs font-mono font-bold text-accent-brand">{progress}%</span>
-                </div>
-
-                {/* Micro Progress Bar */}
-                <div className="w-full h-2 bg-neutral-900 rounded-full overflow-hidden border border-neutral-800">
-                  <motion.div
-                    className="h-full bg-gradient-to-r from-accent-brand to-amber-500 shadow-[0_0_8px_rgba(249,115,22,0.6)]"
-                    style={{ width: `${progress}%` }}
-                  />
-                </div>
-
-                {/* Mini blinking status text */}
-                <p className="text-[10px] font-mono text-neutral-400 mt-2 flex items-center gap-1.5">
-                  <span className="inline-block w-1 h-1 bg-accent-brand rounded-full animate-ping" />
-                  {progress < 40 && "Loading static graph weights..."}
-                  {progress >= 40 && progress < 80 && "Assembling neural client interfaces..."}
-                  {progress >= 80 && "Connecting to production servers..."}
-                </p>
-              </div>
-
-              {/* Step Checklist of Capabilities */}
-              <div className="flex-1 flex flex-col justify-center gap-2">
-                {steps.map((step, index) => {
-                  const isChecked = index < currentStep;
-                  const isCurrent = index === currentStep;
-
-                  return (
-                    <motion.div
-                      key={step.text}
-                      initial={{ opacity: 0.3, x: -10 }}
-                      animate={{
-                        opacity: isCurrent ? 1 : isChecked ? 0.8 : 0.25,
-                        x: isCurrent ? 4 : 0,
-                      }}
-                      transition={{ duration: 0.4 }}
-                      className={`flex items-center gap-3 py-1 px-2.5 rounded-lg border transition-all duration-300 ${
-                        isCurrent
-                          ? "bg-accent-brand/5 border-accent-brand/20 text-cream"
-                          : isChecked
-                            ? "bg-neutral-900/20 border-transparent text-neutral-300"
-                            : "border-transparent text-neutral-500"
-                      }`}
-                    >
-                      <div className="shrink-0">
-                        {isChecked ? (
-                          <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                        ) : isCurrent ? (
-                          <div className="w-4 h-4 rounded-full border-2 border-accent-brand border-t-transparent animate-spin" />
-                        ) : (
-                          <div className="w-4 h-4 rounded-full border border-neutral-700" />
-                        )}
-                      </div>
-
-                      <span className="text-xs font-mono font-medium leading-none">
-                        {step.text}
-                      </span>
-
-                      {isCurrent && (
-                        <motion.span
-                          animate={{ opacity: [0, 1, 0] }}
-                          transition={{ repeat: Infinity, duration: 1 }}
-                          className="text-[9px] font-mono font-bold uppercase bg-accent-brand/20 text-accent-brand px-1.5 py-0.5 rounded ml-auto tracking-wider"
-                        >
-                          ACTIVE
-                        </motion.span>
-                      )}
-                    </motion.div>
-                  );
-                })}
+              <div className="text-left">
+                <span className="text-[9px] font-mono font-medium tracking-wider text-neutral-400 uppercase block leading-tight">
+                  INTELLIGENCE
+                </span>
+                <span className="text-xs font-semibold font-sans tracking-tight block">AI SYSTEMS</span>
               </div>
             </div>
-          ) : (
-            /* PRODUCT/NETWORK DYNAMIC NODE GRAPH VIEW */
-            <div className="flex-1 flex flex-col justify-between">
-              {/* Description Banner */}
-              <div className="bg-neutral-900/40 rounded-xl p-3 border border-neutral-800/60 flex items-center gap-3">
-                <Sparkles className="w-4.5 h-4.5 text-accent-brand animate-pulse shrink-0" />
-                <p className="text-[11px] text-neutral-300 leading-normal font-medium">
-                  Autonomous distribution graph. AI processes are parsed and mapped to responsive
-                  client interfaces and backend relational databases dynamically.
-                </p>
+
+            {/* RIGHT NODE: WEB PLATFORM */}
+            <div
+              onMouseEnter={() => setActiveModule(1)}
+              className={`absolute right-0 top-1/2 -translate-y-1/2 px-3.5 py-2 rounded-lg border transition-all duration-200 cursor-pointer flex items-center gap-2.5 ${
+                activeModule === 1
+                  ? "bg-[#1C1C1C] border-accent-brand text-white"
+                  : "bg-[#141414] border-white/10 hover:border-white/25 text-neutral-300"
+              }`}
+            >
+              <div
+                className={`w-6 h-6 rounded flex items-center justify-center transition-colors ${
+                  activeModule === 1 ? "bg-accent-brand text-cream" : "bg-white/5 text-neutral-400"
+                }`}
+              >
+                <Globe2 className="w-3.5 h-3.5" />
               </div>
-
-              {/* Node Layout Graph */}
-              <div className="relative flex-1 flex items-center justify-center py-6">
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 240">
-                  {/* Glowing Connection Paths */}
-                  <g className="stroke-neutral-800" strokeWidth="2" fill="none">
-                    <path d="M200,45 L100,120" />
-                    <path d="M200,45 L200,120" />
-                    <path d="M200,45 L300,120" />
-                    <path d="M100,120 L200,195" />
-                    <path d="M200,120 L200,195" />
-                    <path d="M300,120 L200,195" />
-                  </g>
-
-                  {/* Animated traveling pulses on the lines */}
-                  <motion.circle
-                    r="4"
-                    fill="#f97316"
-                    className="shadow-[0_0_8px_#f97316]"
-                    animate={{
-                      cx: [200, 100],
-                      cy: [45, 120],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 3,
-                      ease: "linear",
-                    }}
-                  />
-                  <motion.circle
-                    r="4"
-                    fill="#a855f7"
-                    animate={{
-                      cx: [200, 200],
-                      cy: [45, 120],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 2.2,
-                      ease: "linear",
-                      delay: 0.5,
-                    }}
-                  />
-                  <motion.circle
-                    r="4"
-                    fill="#3b82f6"
-                    animate={{
-                      cx: [200, 300],
-                      cy: [45, 120],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 2.6,
-                      ease: "linear",
-                      delay: 0.2,
-                    }}
-                  />
-                  <motion.circle
-                    r="4"
-                    fill="#10b981"
-                    animate={{
-                      cx: [100, 200],
-                      cy: [120, 195],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 2,
-                      ease: "linear",
-                      delay: 1.2,
-                    }}
-                  />
-                  <motion.circle
-                    r="4"
-                    fill="#10b981"
-                    animate={{
-                      cx: [300, 200],
-                      cy: [120, 195],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 2.4,
-                      ease: "linear",
-                      delay: 0.8,
-                    }}
-                  />
-                </svg>
-
-                {/* Nodes superimposed as HTML layers for gorgeous responsive graphics */}
-                <div className="absolute inset-0 flex flex-col items-center justify-between py-2">
-                  {/* Top Parent Node */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 rounded-full bg-accent-brand/10 border-2 border-accent-brand flex items-center justify-center text-accent-brand shadow-[0_0_20px_rgba(249,115,22,0.2)]">
-                      <Cpu className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <span className="text-[10px] font-mono font-bold text-white mt-1.5 uppercase bg-neutral-900 border border-neutral-800 px-2 py-0.5 rounded">
-                      AI ENGINE
-                    </span>
-                  </div>
-
-                  {/* Mid Row Nodes */}
-                  <div className="w-full flex justify-between px-6 max-w-sm mt-3">
-                    <div className="flex flex-col items-center">
-                      <div className="w-11 h-11 rounded-full bg-amber-500/10 border-2 border-amber-500 flex items-center justify-center text-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.15)]">
-                        <Globe className="w-5 h-5" />
-                      </div>
-                      <span className="text-[9px] font-mono font-bold text-neutral-300 mt-1 uppercase bg-neutral-900/80 border border-neutral-800 px-1.5 py-0.5 rounded">
-                        WEBSITE
-                      </span>
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                      <div className="w-11 h-11 rounded-full bg-purple-500/10 border-2 border-purple-500 flex items-center justify-center text-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.15)]">
-                        <Smartphone className="w-5 h-5" />
-                      </div>
-                      <span className="text-[9px] font-mono font-bold text-neutral-300 mt-1 uppercase bg-neutral-900/80 border border-neutral-800 px-1.5 py-0.5 rounded">
-                        MOBILE
-                      </span>
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                      <div className="w-11 h-11 rounded-full bg-blue-500/10 border-2 border-blue-500 flex items-center justify-center text-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.15)]">
-                        <Server className="w-5 h-5" />
-                      </div>
-                      <span className="text-[9px] font-mono font-bold text-neutral-300 mt-1 uppercase bg-neutral-900/80 border border-neutral-800 px-1.5 py-0.5 rounded">
-                        MICROSERVICE
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Bottom Database Node */}
-                  <div className="flex flex-col items-center mt-3">
-                    <div className="w-11 h-11 rounded-full bg-emerald-500/10 border-2 border-emerald-500 flex items-center justify-center text-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
-                      <Database className="w-5 h-5" />
-                    </div>
-                    <span className="text-[9px] font-mono font-bold text-neutral-300 mt-1 uppercase bg-neutral-900/80 border border-neutral-800 px-1.5 py-0.5 rounded">
-                      FIRESTORE / DB
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Status bar */}
-              <div className="bg-neutral-900/20 p-2.5 rounded-xl border border-neutral-800/40 text-[10px] font-mono text-neutral-500 flex justify-between items-center">
-                <span>CONNECTED STACKS: REST_API / WEBSOCKETS</span>
-                <span className="text-emerald-400 font-bold">100% SECURE</span>
+              <div className="text-left">
+                <span className="text-[9px] font-mono font-medium tracking-wider text-neutral-400 uppercase block leading-tight">
+                  EXPERIENCE
+                </span>
+                <span className="text-xs font-semibold font-sans tracking-tight block">
+                  WEB PLATFORM
+                </span>
               </div>
             </div>
-          )}
 
-          {/* Floating Live Indicator Bar (bottom) */}
-          <div className="mt-5 pt-4 border-t border-neutral-900/80 flex items-center justify-between text-[11px] font-mono text-neutral-400">
-            <div className="flex items-center gap-1.5">
-              <TrendingUp className="w-3.5 h-3.5 text-accent-brand" />
-              <span>SYSTEM METRICS: OPTIMIZED</span>
+            {/* BOTTOM NODE: AUTOMATION */}
+            <div
+              onMouseEnter={() => setActiveModule(2)}
+              className={`absolute bottom-0 left-1/2 -translate-x-1/2 px-3.5 py-2 rounded-lg border transition-all duration-200 cursor-pointer flex items-center gap-2.5 ${
+                activeModule === 2
+                  ? "bg-[#1C1C1C] border-accent-brand text-white"
+                  : "bg-[#141414] border-white/10 hover:border-white/25 text-neutral-300"
+              }`}
+            >
+              <div
+                className={`w-6 h-6 rounded flex items-center justify-center transition-colors ${
+                  activeModule === 2 ? "bg-accent-brand text-cream" : "bg-white/5 text-neutral-400"
+                }`}
+              >
+                <Zap className="w-3.5 h-3.5" />
+              </div>
+              <div className="text-left">
+                <span className="text-[9px] font-mono font-medium tracking-wider text-neutral-400 uppercase block leading-tight">
+                  WORKFLOWS
+                </span>
+                <span className="text-xs font-semibold font-sans tracking-tight block">AUTOMATION</span>
+              </div>
             </div>
-            <span>DEPLOYMENT_STATUS: ACTIVE</span>
+
+            {/* LEFT NODE: MOBILE APP */}
+            <div
+              onMouseEnter={() => setActiveModule(3)}
+              className={`absolute left-0 top-1/2 -translate-y-1/2 px-3.5 py-2 rounded-lg border transition-all duration-200 cursor-pointer flex items-center gap-2.5 ${
+                activeModule === 3
+                  ? "bg-[#1C1C1C] border-accent-brand text-white"
+                  : "bg-[#141414] border-white/10 hover:border-white/25 text-neutral-300"
+              }`}
+            >
+              <div
+                className={`w-6 h-6 rounded flex items-center justify-center transition-colors ${
+                  activeModule === 3 ? "bg-accent-brand text-cream" : "bg-white/5 text-neutral-400"
+                }`}
+              >
+                <Smartphone className="w-3.5 h-3.5" />
+              </div>
+              <div className="text-left">
+                <span className="text-[9px] font-mono font-medium tracking-wider text-neutral-400 uppercase block leading-tight">
+                  ACCESS
+                </span>
+                <span className="text-xs font-semibold font-sans tracking-tight block">MOBILE APP</span>
+              </div>
+            </div>
+
+            {/* CENTRAL FOCAL NODE: BUSINESS / INTEGRATED ECOSYSTEM */}
+            <div className="relative z-20 px-5 py-3.5 rounded-xl bg-[#161616] border border-accent-brand/80 text-center flex flex-col items-center justify-center shadow-lg">
+              <div className="flex items-center gap-2 mb-1">
+                <Building2 className="w-3.5 h-3.5 text-accent-brand" />
+                <span className="text-[10px] font-mono font-bold tracking-widest text-accent-brand uppercase">
+                  DIGITAL SYSTEM
+                </span>
+              </div>
+              <h3 className="text-base sm:text-lg font-bold font-sans text-white tracking-tight">
+                BUSINESS
+              </h3>
+              <div className="mt-1.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-white/5 border border-white/10">
+                <Check className="w-3 h-3 text-emerald-400" />
+                <span className="text-[9px] font-mono font-semibold text-neutral-200 tracking-wider">
+                  4 CORE SYSTEMS INTEGRATED
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Integrated Footer Bar */}
+          <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-neutral-400">
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-brand" />
+              <span className="text-[11px] font-medium text-neutral-300 tracking-wider">
+                SYSTEMS CONNECTED
+              </span>
+            </div>
+            <span className="text-[11px] font-bold text-accent-brand tracking-widest">04 / 04</span>
           </div>
         </div>
       </motion.div>

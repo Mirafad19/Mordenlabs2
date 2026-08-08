@@ -54,12 +54,18 @@ export const PROJECTS = [
   },
   {
     slug: "tidyscot",
-    name: "TidyScot Website & AI Assistant",
-    category: "Business Website & AI Assistant",
+    name: "TidyScot Platform, Mobile App & AI Assistant",
+    category: "Business Web, Mobile App & AI",
     client: "TidyScot, Scotland, UK",
     description:
-      "Designed and developed a modern business website with an AI customer assistant that helps visitors receive instant responses, access company information, and improve customer engagement.",
-    technologies: ["Website Development", "AI Chatbot", "Automation", "Responsive Design"],
+      "Designed and developed a modern business web platform and native mobile app with an integrated AI customer assistant that provides instant quotes, booking management, and 24/7 customer engagement.",
+    technologies: [
+      "Website Development",
+      "Mobile App",
+      "AI Chatbot",
+      "Automation",
+      "Responsive Design",
+    ],
     badge: null,
     logo: tidyscotLogo,
   },

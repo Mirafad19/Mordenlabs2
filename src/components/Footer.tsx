@@ -58,7 +58,7 @@ export function Footer() {
             {/* Social Proof Badge */}
             <div className="mt-6 inline-flex flex-col gap-1.5 brutal-border bg-card p-3.5 rounded-xl">
               <div className="flex items-center gap-1.5 text-accent-brand">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="h-2 w-2 rounded-full bg-emerald-500" />
                 <span className="text-xs font-bold text-neutral-900">Active Live Deployments</span>
               </div>
               <p className="text-xs font-medium text-muted-foreground">
@@ -94,10 +94,10 @@ export function Footer() {
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
             <div>
               <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                Newsletter
+                Stay Connected
               </div>
               <div className="mt-2 font-display text-2xl font-bold md:text-3xl">
-                Field notes from the studio — once a month, no fluff.
+                Studio insights & engineering updates — delivered to your inbox.
               </div>
             </div>
             <form
@@ -128,7 +128,7 @@ export function Footer() {
               </div>
               {newsletterStatus === "success" && (
                 <div className="text-xs font-semibold text-emerald-600 mt-2 sm:mt-0 sm:ml-3 flex items-center gap-1.5 self-center">
-                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" /> Subscribed!
+                  <span className="h-2 w-2 rounded-full bg-emerald-500" /> Subscribed!
                 </div>
               )}
               {newsletterStatus === "error" && (

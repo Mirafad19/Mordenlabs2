@@ -20,7 +20,7 @@ export function LogoMarquee() {
         {/* Header */}
         <div className="mb-10 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-muted-foreground flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="h-2 w-2 rounded-full bg-emerald-500" />
             TRUSTED BY INSTITUTIONS & GROWING BUSINESSES
           </span>
           <div className="flex items-center gap-3 text-xs font-mono font-bold text-neutral-500">

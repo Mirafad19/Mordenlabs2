@@ -69,7 +69,7 @@ function Hero() {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="mb-6 inline-flex items-center gap-2 brutal-border bg-card px-3 py-1.5 text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground"
             >
-              <span className="h-2 w-2 rounded-full bg-accent-brand animate-pulse" />
+              <span className="h-2 w-2 rounded-full bg-accent-brand" />
               DIGITAL ENGINEERING STUDIO
             </motion.div>
 

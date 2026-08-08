@@ -6,6 +6,7 @@ import { mordenLogo } from "../lib/images-base64";
 const logoAsset = mordenLogo;
 
 const NAV = [
+  { label: "Home", to: "/" as const },
   { label: "Work", to: "/work" as const },
   { label: "Services", to: "/services" as const },
   { label: "About", to: "/about" as const },

@@ -23,15 +23,15 @@ export const SHOWCASE_PROJECTS = [
   {
     id: "tidyscot",
     name: "TidyScot",
-    tagline: "Commercial Web & AI Booking Engine",
+    tagline: "Commercial Web, Mobile App & AI Engine",
     client: "TidyScot Ltd, Scotland (UK)",
     url: "https://tidyscot.co.uk",
     displayUrl: "tidyscot.co.uk",
-    category: "Commercial Web & AI",
-    metric: "Live Booking Engine",
+    category: "Commercial Web & Mobile",
+    metric: "Web, Mobile & AI System",
     description:
-      "A fast business platform with an integrated online booking calculator and a conversational AI assistant that handles customer quotes 24/7.",
-    badges: ["BOOKING ENGINE", "AI CHATBOT", "UK"],
+      "A fast business platform and native mobile app with an integrated booking calculator and a conversational AI assistant that handles customer quotes 24/7.",
+    badges: ["WEBSITE", "MOBILE APP", "AI CHATBOT", "UK"],
     color: "#10b981", // Emerald
     accentBg: "bg-emerald-500/10 border-emerald-500/30 text-emerald-400",
     desktopMockup:
@@ -190,7 +190,7 @@ export function ProjectVault() {
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-14 text-left">
           <div>
             <div className="mb-2 inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-[0.2em] text-accent-brand">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent-brand animate-pulse" />
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" />
               RECENT DELIVERIES
             </div>
             <h2 className="font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl text-white">

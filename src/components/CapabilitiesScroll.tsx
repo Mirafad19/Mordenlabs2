@@ -288,7 +288,7 @@ export function CapabilitiesScroll() {
               {/* Sticky Card Top Header */}
               <div className="flex items-center justify-between gap-4 mb-4 z-10 shrink-0">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] text-white font-mono text-xs font-semibold uppercase tracking-widest border border-white/10">
-                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="h-2 w-2 rounded-full bg-emerald-500" />
                   <span>{activeCapability.title}</span>
                 </div>
 
