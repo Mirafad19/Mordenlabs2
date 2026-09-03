@@ -16,14 +16,17 @@ import { motion } from "motion/react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Fadahunsi Miracle | Founder & CEO | Morden Labs" },
+      { title: "About Us | Fadahunsi Miracle, Founder & CEO | Morden Labs" },
       {
         name: "description",
         content:
           "Meet Fadahunsi Miracle, Founder & CEO at Morden Labs. Leading software engineering, enterprise AI systems, and scalable digital platforms across the UK and Nigeria.",
       },
       { name: "author", content: "Fadahunsi Miracle, Founder & CEO at Morden Labs" },
-      { property: "og:title", content: "Fadahunsi Miracle | Founder & CEO | Morden Labs" },
+      {
+        property: "og:title",
+        content: "About Us | Fadahunsi Miracle, Founder & CEO | Morden Labs",
+      },
       {
         property: "og:description",
         content:

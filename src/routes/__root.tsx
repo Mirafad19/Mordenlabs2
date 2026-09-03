@@ -164,6 +164,56 @@ function RootShell({ children }: { children: ReactNode }) {
           "Automation & CRM",
         ],
       },
+      {
+        "@type": "WebSite",
+        "@id": "https://mordenlabs.com.ng/#website",
+        url: "https://mordenlabs.com.ng",
+        name: "Morden Labs",
+        alternateName: ["MordenLabs", "Morden Labs Studio", "Morden Labs Digital Studio"],
+        publisher: {
+          "@id": "https://mordenlabs.com.ng/#organization",
+        },
+        inLanguage: "en-US",
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://mordenlabs.com.ng/#navigation",
+        name: "Main Site Navigation",
+        itemListElement: [
+          {
+            "@type": "SiteNavigationElement",
+            position: 1,
+            name: "About Us",
+            description:
+              "Meet Morden Labs, executive leadership by Fadahunsi Miracle, and our modern engineering approach.",
+            url: "https://mordenlabs.com.ng/about",
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 2,
+            name: "Services",
+            description:
+              "Full-stack web engineering, mobile apps, enterprise AI automations, speed SEO, and CMS integrations.",
+            url: "https://mordenlabs.com.ng/services",
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 3,
+            name: "Featured Projects",
+            description:
+              "Production case studies including UK commercial platforms, healthcare CRMs, and government AI systems.",
+            url: "https://mordenlabs.com.ng/work",
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 4,
+            name: "Contact",
+            description:
+              "Initiate a project conversation or consultation with Morden Labs with a 24-hour reply window.",
+            url: "https://mordenlabs.com.ng/contact",
+          },
+        ],
+      },
     ],
   };
 
