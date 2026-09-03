@@ -216,7 +216,9 @@ export function AIDashboardHero() {
                 <span className="text-[9px] font-mono font-medium tracking-wider text-neutral-400 uppercase block leading-tight">
                   INTELLIGENCE
                 </span>
-                <span className="text-xs font-semibold font-sans tracking-tight block">AI SYSTEMS</span>
+                <span className="text-xs font-semibold font-sans tracking-tight block">
+                  AI SYSTEMS
+                </span>
               </div>
             </div>
 
@@ -266,7 +268,9 @@ export function AIDashboardHero() {
                 <span className="text-[9px] font-mono font-medium tracking-wider text-neutral-400 uppercase block leading-tight">
                   WORKFLOWS
                 </span>
-                <span className="text-xs font-semibold font-sans tracking-tight block">AUTOMATION</span>
+                <span className="text-xs font-semibold font-sans tracking-tight block">
+                  AUTOMATION
+                </span>
               </div>
             </div>
 
@@ -290,7 +294,9 @@ export function AIDashboardHero() {
                 <span className="text-[9px] font-mono font-medium tracking-wider text-neutral-400 uppercase block leading-tight">
                   ACCESS
                 </span>
-                <span className="text-xs font-semibold font-sans tracking-tight block">MOBILE APP</span>
+                <span className="text-xs font-semibold font-sans tracking-tight block">
+                  MOBILE APP
+                </span>
               </div>
             </div>
 

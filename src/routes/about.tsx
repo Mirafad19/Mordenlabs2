@@ -1,23 +1,33 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  Linkedin,
+  Twitter,
+  Mail,
+  ShieldCheck,
+  CheckCircle2,
+  Award,
+} from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { STATS } from "@/lib/site-data";
+import { STATS, LEADERSHIP } from "@/lib/site-data";
 import { motion } from "motion/react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Morden Labs" },
+      { title: "Fadahunsi Miracle | Founder & CEO — Morden Labs" },
       {
         name: "description",
         content:
-          "Morden Labs is a small, senior team of designers, engineers, and strategists shipping digital products for growing businesses and government partners.",
+          "Meet Fadahunsi Miracle, Founder & CEO at Morden Labs. Leading software engineering, enterprise AI systems, and scalable digital platforms across the UK and Nigeria.",
       },
-      { property: "og:title", content: "About — Morden Labs" },
+      { name: "author", content: "Fadahunsi Miracle, Founder & CEO at Morden Labs" },
+      { property: "og:title", content: "Fadahunsi Miracle | Founder & CEO — Morden Labs" },
       {
         property: "og:description",
-        content: "The team, the values, and how we work at Morden Labs.",
+        content:
+          "Meet Fadahunsi Miracle, Founder & CEO at Morden Labs. Engineering digital products with taste, velocity, and real stakes.",
       },
     ],
   }),
@@ -103,6 +113,193 @@ function AboutPage() {
                 share is a bias for doing things properly.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* Office of the Founder & CEO Section */}
+        <section
+          id="leadership"
+          className="border-b-2 border-ink bg-background py-20 lg:py-28 relative"
+        >
+          {/* Schema.org Person Structured Data for Google Search Indexing */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Person",
+                name: LEADERSHIP.name,
+                jobTitle: LEADERSHIP.role,
+                image: LEADERSHIP.image,
+                worksFor: {
+                  "@type": "Organization",
+                  name: LEADERSHIP.company,
+                  url: "https://mordenlabs.com.ng",
+                },
+                url: "https://mordenlabs.com.ng/about#leadership",
+                description: LEADERSHIP.headline,
+                email: `mailto:${LEADERSHIP.socials.email}`,
+                sameAs: [LEADERSHIP.socials.linkedin].filter(Boolean),
+                knowsAbout: LEADERSHIP.expertise,
+              }),
+            }}
+          />
+
+          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="mb-14 max-w-3xl"
+            >
+              <div className="mb-4 inline-flex items-center gap-2 brutal-border bg-card px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-accent-brand">
+                <span className="h-2 w-2 rounded-full bg-accent-brand" />
+                LEADERSHIP & EXECUTIVE VISION
+              </div>
+              <h2 className="font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl">
+                Office of the Founder &amp; CEO.
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                Steering technical integrity, enterprise AI architecture, and product delivery
+                across all Morden Labs engagements.
+              </p>
+            </motion.div>
+
+            {/* Leadership Spotlight Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="brutal-border brutal-shadow-lg bg-card overflow-hidden grid lg:grid-cols-12"
+            >
+              {/* Executive Profile Identity Card */}
+              <div className="lg:col-span-5 border-b-2 lg:border-b-0 lg:border-r-2 border-ink p-8 lg:p-10 bg-muted/40 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between gap-4 mb-6">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 font-mono text-xs font-bold uppercase tracking-wider">
+                      <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                      EXECUTIVE LEADERSHIP
+                    </span>
+                    <span className="font-mono text-xs text-muted-foreground">ML // DIR</span>
+                  </div>
+
+                  {/* Profile Portrait Photo */}
+                  <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl brutal-border overflow-hidden mb-6 bg-ink shadow-md shrink-0 border-2 border-ink">
+                    <img
+                      src={LEADERSHIP.image}
+                      alt={`${LEADERSHIP.name} — ${LEADERSHIP.role}`}
+                      className="w-full h-full object-cover object-top"
+                      loading="eager"
+                    />
+                  </div>
+
+                  <h3 className="font-display text-3xl font-bold leading-tight">
+                    {LEADERSHIP.name}
+                  </h3>
+                  <div className="mt-1 font-mono text-sm font-semibold text-accent-brand uppercase tracking-wider">
+                    {LEADERSHIP.role}
+                  </div>
+                  <div className="mt-2 text-xs font-medium text-muted-foreground flex items-center gap-2">
+                    <span>{LEADERSHIP.company}</span>
+                    <span>·</span>
+                    <span>{LEADERSHIP.location}</span>
+                  </div>
+
+                  <div className="mt-6 pt-6 border-t border-ink/10 space-y-2">
+                    <div className="flex items-center gap-2 text-xs font-mono text-neutral-600">
+                      <ShieldCheck className="h-4 w-4 text-emerald-600" />
+                      <span>Chief Executive &amp; Technical Oversight</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs font-mono text-neutral-600">
+                      <Award className="h-4 w-4 text-accent-brand" />
+                      <span>Government &amp; Commercial Client Trust</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Direct Executive Contact Buttons */}
+                <div className="mt-8 pt-6 border-t border-ink/10 flex flex-wrap items-center gap-3">
+                  <a
+                    href={LEADERSHIP.socials.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 brutal-border bg-card hover:bg-muted text-xs font-mono font-semibold transition-transform hover:-translate-y-[1px]"
+                  >
+                    <Linkedin className="h-3.5 w-3.5 text-[#0A66C2]" />
+                    LinkedIn
+                  </a>
+                  {LEADERSHIP.socials.twitter && (
+                    <a
+                      href={LEADERSHIP.socials.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 brutal-border bg-card hover:bg-muted text-xs font-mono font-semibold transition-transform hover:-translate-y-[1px]"
+                    >
+                      <Twitter className="h-3.5 w-3.5" />X / Twitter
+                    </a>
+                  )}
+                  <a
+                    href={`mailto:${LEADERSHIP.socials.email}`}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 brutal-border bg-card hover:bg-muted text-xs font-mono font-semibold transition-transform hover:-translate-y-[1px]"
+                  >
+                    <Mail className="h-3.5 w-3.5 text-accent-brand" />
+                    Direct Email
+                  </a>
+                </div>
+              </div>
+
+              {/* Executive Vision & Bio Content */}
+              <div className="lg:col-span-7 p-8 lg:p-12 flex flex-col justify-between space-y-8">
+                <div>
+                  {/* Executive Quote */}
+                  <div className="p-6 brutal-border bg-muted/20 mb-8 border-l-4 border-l-accent-brand">
+                    <p className="font-display text-xl lg:text-2xl font-bold leading-snug">
+                      "{LEADERSHIP.quote}"
+                    </p>
+                  </div>
+
+                  <h4 className="font-display text-2xl font-bold mb-4">{LEADERSHIP.headline}</h4>
+
+                  <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
+                    {LEADERSHIP.bio.map((para, i) => (
+                      <p key={i}>{para}</p>
+                    ))}
+                  </div>
+
+                  {/* Core Strategic Domains */}
+                  <div className="mt-8 pt-6 border-t border-ink/10">
+                    <div className="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
+                      Executive Competencies &amp; Architectural Focus
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {LEADERSHIP.expertise.map((skill) => (
+                        <div
+                          key={skill}
+                          className="flex items-center gap-2 text-xs font-semibold text-foreground"
+                        >
+                          <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                          <span>{skill}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-6 border-t border-ink/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="text-xs text-muted-foreground">
+                    Direct executive inquiries &amp; high-stake partnership proposals.
+                  </div>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2 brutal-border brutal-shadow bg-ink px-5 py-2.5 font-semibold text-cream text-xs transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px]"
+                  >
+                    Contact Leadership <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 

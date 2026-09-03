@@ -88,3 +88,31 @@ export const STATS = [
   { value: "100%", label: "On-time delivery" },
   { value: "24/7", label: "Production support" },
 ];
+
+export const LEADERSHIP = {
+  name: "Fadahunsi Miracle",
+  role: "Founder & Chief Executive Officer",
+  company: "Morden Labs",
+  location: "Lagos, Nigeria",
+  image:
+    "https://www.image2url.com/r2/default/images/1788471400856-36701ac8-2925-4e9d-8462-b24257965e0a.png",
+  headline:
+    "Pioneering software engineering, intelligent AI systems, and scalable digital architecture.",
+  bio: [
+    "At Morden Labs, our mission is straightforward: eliminate bloated agency promises and replace them with high-velocity, precision engineering. As Founder & CEO, I guide our studio's strategic vision, technical architecture, and product delivery across the UK, Nigeria, and international markets.",
+    "From voice and conversational AI platforms deployed for official government bodies to mission-critical healthcare CRMs and UK commercial booking ecosystems, I lead our teams to build software that scales reliably and generates lasting competitive edge.",
+  ],
+  quote:
+    "We build software with taste, speed, and real stakes — engineered to establish our clients as undeniable leaders in their category.",
+  expertise: [
+    "Software & Cloud Architecture",
+    "Enterprise AI & Automation",
+    "High-Performance Web Platforms",
+    "Mobile & Cross-Platform Systems",
+  ],
+  socials: {
+    linkedin: "https://www.linkedin.com/in/miracle-fadahunsi-897149295/",
+    twitter: "",
+    email: "fadahunsi.miracle@gmail.com",
+  },
+};

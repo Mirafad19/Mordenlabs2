@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mordenlabs.com.ng/sitemap.xml

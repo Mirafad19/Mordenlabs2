@@ -80,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Morden Labs is a digital studio shipping web, mobile, AI automations, and SEO that actually works. We build bold, fast, modern products.",
       },
-      { name: "author", content: "Morden Labs" },
+      { name: "author", content: "Fadahunsi Miracle, Founder & CEO at Morden Labs" },
       { property: "og:title", content: "Morden Labs — We build the bold web." },
       {
         property: "og:description",
@@ -88,9 +88,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "robots",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
     ],
     links: [
       { rel: "icon", type: "image/webp", href: favicon },
+      { rel: "canonical", href: "https://mordenlabs.com.ng" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -107,10 +112,65 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const schemaOrgGraph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://mordenlabs.com.ng/#organization",
+        name: "Morden Labs",
+        url: "https://mordenlabs.com.ng",
+        logo: "https://mordenlabs.com.ng/morden-logo.png",
+        description:
+          "High-end digital engineering studio building web platforms, mobile apps, enterprise AI systems, and business automation.",
+        founder: {
+          "@type": "Person",
+          "@id": "https://mordenlabs.com.ng/#founder",
+          name: "Fadahunsi Miracle",
+          jobTitle: "Founder & Chief Executive Officer",
+          image:
+            "https://www.image2url.com/r2/default/images/1788471400856-36701ac8-2925-4e9d-8462-b24257965e0a.png",
+          worksFor: {
+            "@id": "https://mordenlabs.com.ng/#organization",
+          },
+        },
+        sameAs: [
+          "https://www.linkedin.com/company/mordenlabs",
+          "https://www.linkedin.com/in/miracle-fadahunsi-897149295/",
+        ],
+      },
+      {
+        "@type": "Person",
+        "@id": "https://mordenlabs.com.ng/#founder",
+        name: "Fadahunsi Miracle",
+        jobTitle: "Founder & Chief Executive Officer",
+        image:
+          "https://www.image2url.com/r2/default/images/1788471400856-36701ac8-2925-4e9d-8462-b24257965e0a.png",
+        worksFor: {
+          "@id": "https://mordenlabs.com.ng/#organization",
+        },
+        url: "https://mordenlabs.com.ng/about#leadership",
+        email: "mailto:fadahunsi.miracle@gmail.com",
+        sameAs: ["https://www.linkedin.com/in/miracle-fadahunsi-897149295/"],
+        knowsAbout: [
+          "Software Architecture",
+          "Artificial Intelligence",
+          "Full-Stack Web Development",
+          "Mobile Engineering",
+          "Automation & CRM",
+        ],
+      },
+    ],
+  };
+
   return (
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgGraph) }}
+        />
       </head>
       <body>
         {children}
