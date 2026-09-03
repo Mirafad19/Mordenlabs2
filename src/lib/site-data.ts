@@ -12,7 +12,7 @@ export const SERVICES: {
     icon: Code2,
     title: "Web Development",
     short: "Clean code. Real performance.",
-    body: "From landing pages to full-scale web platforms — we ship fast, scalable, accessible builds on modern stacks with a focus on maintainability and long-term ownership.",
+    body: "From landing pages to full-scale web platforms, we ship fast, scalable, accessible builds on modern stacks with a focus on maintainability and long-term ownership.",
   },
   {
     icon: Smartphone,
@@ -24,7 +24,7 @@ export const SERVICES: {
     icon: Bot,
     title: "AI Solutions & Automation",
     short: "Your tools, talking to each other.",
-    body: "We build the AI layer for your business — from custom conversational agents and voice interfaces to background automations that connect your tools, parse documents, and keep data moving.",
+    body: "We build the AI layer for your business, from custom conversational agents and voice interfaces to background automations that connect your tools, parse documents, and keep data moving.",
   },
   {
     icon: Search,
@@ -36,7 +36,7 @@ export const SERVICES: {
     icon: Database,
     title: "CMS Integration",
     short: "Content systems your team can use.",
-    body: "Sanity, Strapi, WordPress, Payload — we integrate the right CMS for your workflow so your team can ship content without pinging a developer.",
+    body: "Sanity, Strapi, WordPress, Payload: we integrate the right CMS for your workflow so your team can ship content without pinging a developer.",
   },
 ];
 
@@ -103,7 +103,7 @@ export const LEADERSHIP = {
     "From voice and conversational AI platforms deployed for official government bodies to mission-critical healthcare CRMs and UK commercial booking ecosystems, I lead our teams to build software that scales reliably and generates lasting competitive edge.",
   ],
   quote:
-    "We build software with taste, speed, and real stakes — engineered to establish our clients as undeniable leaders in their category.",
+    "We build software with taste, speed, and real stakes, engineered to establish our clients as undeniable leaders in their category.",
   expertise: [
     "Software & Cloud Architecture",
     "Enterprise AI & Automation",

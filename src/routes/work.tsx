@@ -8,13 +8,13 @@ import { motion } from "motion/react";
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
-      { title: "Featured Projects — Morden Labs" },
+      { title: "Featured Projects | Morden Labs" },
       {
         name: "description",
         content:
           "Featured projects from Morden Labs: real AI, web, and CRM solutions delivered for government agencies and growing businesses.",
       },
-      { property: "og:title", content: "Featured Projects — Morden Labs" },
+      { property: "og:title", content: "Featured Projects | Morden Labs" },
       {
         property: "og:description",
         content:

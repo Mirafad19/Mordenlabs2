@@ -16,14 +16,14 @@ import { motion } from "motion/react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Fadahunsi Miracle | Founder & CEO — Morden Labs" },
+      { title: "Fadahunsi Miracle | Founder & CEO | Morden Labs" },
       {
         name: "description",
         content:
           "Meet Fadahunsi Miracle, Founder & CEO at Morden Labs. Leading software engineering, enterprise AI systems, and scalable digital platforms across the UK and Nigeria.",
       },
       { name: "author", content: "Fadahunsi Miracle, Founder & CEO at Morden Labs" },
-      { property: "og:title", content: "Fadahunsi Miracle | Founder & CEO — Morden Labs" },
+      { property: "og:title", content: "Fadahunsi Miracle | Founder & CEO | Morden Labs" },
       {
         property: "og:description",
         content:
@@ -49,7 +49,7 @@ const VALUES = [
   },
   {
     title: "Own the outcome.",
-    body: "We measure success by whether the thing actually works in production — not by hours logged or tickets closed.",
+    body: "We measure success by whether the thing actually works in production, not by hours logged or tickets closed.",
   },
 ];
 
@@ -84,7 +84,7 @@ function AboutPage() {
                 className="mt-8 text-lg text-muted-foreground md:text-xl"
               >
                 We're designers, engineers, and strategists working together as one team. We build
-                for founders, marketing leads, product teams, and government partners — anyone
+                for founders, marketing leads, product teams, and government partners: anyone
                 shipping things that need to actually work.
               </motion.p>
             </div>
@@ -104,7 +104,7 @@ function AboutPage() {
                 same problem: most software gets shipped tired.
               </p>
               <p>
-                We wanted to build differently — smaller teams, senior work, and enough taste to say
+                We wanted to build differently: smaller teams, senior work, and enough taste to say
                 no. That's still the whole point.
               </p>
               <p>
@@ -186,11 +186,11 @@ function AboutPage() {
                   </div>
 
                   {/* Profile Portrait Photo */}
-                  <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl brutal-border overflow-hidden mb-6 bg-ink shadow-md shrink-0 border-2 border-ink">
+                  <div className="mb-6 shrink-0">
                     <img
                       src={LEADERSHIP.image}
-                      alt={`${LEADERSHIP.name} — ${LEADERSHIP.role}`}
-                      className="w-full h-full object-cover object-top"
+                      alt={`${LEADERSHIP.name}, ${LEADERSHIP.role}`}
+                      className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-0 outline-none shadow-none"
                       loading="eager"
                     />
                   </div>
@@ -254,7 +254,7 @@ function AboutPage() {
               <div className="lg:col-span-7 p-8 lg:p-12 flex flex-col justify-between space-y-8">
                 <div>
                   {/* Executive Quote */}
-                  <div className="p-6 brutal-border bg-muted/20 mb-8 border-l-4 border-l-accent-brand">
+                  <div className="p-6 bg-muted/40 mb-8 border-l-4 border-l-accent-brand rounded-r-lg">
                     <p className="font-display text-xl lg:text-2xl font-bold leading-snug">
                       "{LEADERSHIP.quote}"
                     </p>

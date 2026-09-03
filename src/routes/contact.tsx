@@ -7,14 +7,14 @@ import { Footer } from "@/components/Footer";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Morden Labs" },
+      { title: "Contact | Morden Labs" },
       {
         name: "description",
         content:
-          "Get in touch with Morden Labs. Tell us about your project — we reply within 24 hours.",
+          "Get in touch with Morden Labs. Tell us about your project: we reply within 24 hours.",
       },
-      { property: "og:title", content: "Contact — Morden Labs" },
-      { property: "og:description", content: "Reach out — we reply within 24 hours." },
+      { property: "og:title", content: "Contact | Morden Labs" },
+      { property: "og:description", content: "Reach out: we reply within 24 hours." },
     ],
   }),
   component: ContactPage,
@@ -36,7 +36,7 @@ function ContactPage() {
                   Let's <span className="text-accent-brand">connect.</span>
                 </h1>
                 <p className="mt-8 max-w-md text-lg text-muted-foreground">
-                  Got a project in mind? A weird idea? An impossible deadline? Send it our way — we
+                  Got a project in mind? A weird idea? An impossible deadline? Send it our way: we
                   read every message and reply within 24 hours.
                 </p>
 
@@ -116,7 +116,7 @@ function ContactForm() {
       service: formData.get("service"),
       project: formData.get("project"),
       message: formData.get("message"),
-      _subject: `New Project Inquiry from ${formData.get("name") || "Client"} — Morden Labs`,
+      _subject: `New Project Inquiry from ${formData.get("name") || "Client"} | Morden Labs`,
     };
 
     try {

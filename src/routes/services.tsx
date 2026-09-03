@@ -9,13 +9,13 @@ import { motion } from "motion/react";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Morden Labs" },
+      { title: "Services | Morden Labs" },
       {
         name: "description",
         content:
-          "Web development, mobile apps, AI automations, AI solutions, SEO & speed optimization, and CMS integration — from Morden Labs.",
+          "Web development, mobile apps, AI automations, AI solutions, SEO & speed optimization, and CMS integration from Morden Labs.",
       },
-      { property: "og:title", content: "Services — Morden Labs" },
+      { property: "og:title", content: "Services | Morden Labs" },
       {
         property: "og:description",
         content:
@@ -56,7 +56,7 @@ function ServicesPage() {
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className="mt-8 text-lg text-muted-foreground md:text-xl"
               >
-                Five focused disciplines. We keep our lanes narrow on purpose — deep expertise in a
+                Five focused disciplines. We keep our lanes narrow on purpose: deep expertise in a
                 handful of things beats a buffet of mediocre.
               </motion.p>
             </div>

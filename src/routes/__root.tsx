@@ -74,14 +74,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Morden Labs — We build the bold web." },
+      { title: "Morden Labs | We build the bold web." },
       {
         name: "description",
         content:
           "Morden Labs is a digital studio shipping web, mobile, AI automations, and SEO that actually works. We build bold, fast, modern products.",
       },
       { name: "author", content: "Fadahunsi Miracle, Founder & CEO at Morden Labs" },
-      { property: "og:title", content: "Morden Labs — We build the bold web." },
+      { property: "og:title", content: "Morden Labs | We build the bold web." },
       {
         property: "og:description",
         content: "Digital studio for web, mobile, AI automations & SEO that ships.",
@@ -91,6 +91,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "robots",
         content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
+      {
+        name: "google-site-verification",
+        content: "1U8gZhpzwM9ypOy6pJ-S2a2L0l5B0FKsoveksOC-SZA",
       },
     ],
     links: [
@@ -166,6 +170,10 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <meta
+          name="google-site-verification"
+          content="1U8gZhpzwM9ypOy6pJ-S2a2L0l5B0FKsoveksOC-SZA"
+        />
         <HeadContent />
         <script
           type="application/ld+json"

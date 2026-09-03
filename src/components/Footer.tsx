@@ -97,7 +97,7 @@ export function Footer() {
                 Stay Connected
               </div>
               <div className="mt-2 font-display text-2xl font-bold md:text-3xl">
-                Studio insights & engineering updates — delivered to your inbox.
+                Studio insights & engineering updates, delivered to your inbox.
               </div>
             </div>
             <form

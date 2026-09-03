@@ -58,10 +58,10 @@ export const CAPABILITIES: CapabilityItem[] = [
     id: "ai-solutions-automation",
     number: "03",
     title: "AI Solutions & Automation",
-    short: "Your tools talking to each other — and your clients.",
+    short: "Your tools talking to each other and your clients.",
     icon: Bot,
     description:
-      "We build the AI layer for your business — from custom conversational agents and voice interfaces to background automations that connect your tools, parse documents, and keep data moving without manual work.",
+      "We build the AI layer for your business, from custom conversational agents and voice interfaces to background automations that connect your tools, parse documents, and keep data moving without manual work.",
     deliverables: [
       "Domain-trained conversational text & voice agents",
       "Workflow & API automation across CRM, Slack, Email, and DBs",
@@ -97,7 +97,7 @@ export const CAPABILITIES: CapabilityItem[] = [
     short: "Content systems your team can use.",
     icon: Database,
     description:
-      "Empower non-technical marketing and content teams to publish articles, adjust landing page sections, and launch campaigns independently—without breaking site layout or requiring developer intervention.",
+      "Empower non-technical marketing and content teams to publish articles, adjust landing page sections, and launch campaigns independently, without breaking site layout or requiring developer intervention.",
     deliverables: [
       "Tailored visual editor configured strictly to brand rules",
       "Role-based permission workflows & draft previews",

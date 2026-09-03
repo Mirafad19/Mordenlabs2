@@ -14,13 +14,13 @@ import { motion } from "motion/react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Morden Labs — Digital studio building modern software" },
+      { title: "Morden Labs | Digital studio building modern software" },
       {
         name: "description",
         content:
           "Morden Labs is a digital studio building web platforms, mobile apps, AI solutions, and automation for companies that move forward.",
       },
-      { property: "og:title", content: "Morden Labs — Digital studio building modern software" },
+      { property: "og:title", content: "Morden Labs | Digital studio building modern software" },
       {
         property: "og:description",
         content: "Custom AI, Web platforms, Automation & Mobile apps.",
@@ -225,7 +225,7 @@ function CTA() {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed"
         >
-          Whether it's AI, mobile, automation, or a custom platform—let's discuss your project.
+          Whether it's AI, mobile, automation, or a custom platform, let's discuss your project.
         </motion.p>
 
         <motion.ul

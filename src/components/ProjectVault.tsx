@@ -58,9 +58,9 @@ export const SHOWCASE_PROJECTS = [
         { label: "Customer Satisfaction", val: "99.2%" },
       ],
       recent: [
-        { name: "Deep Clean — EH12 Edinburgh", price: "£140", status: "CONFIRMED" },
-        { name: "End of Tenancy — Leith", price: "£210", status: "SCHEDULED" },
-        { name: "Office Contract — Glasgow", price: "£450", status: "ACTIVE" },
+        { name: "Deep Clean, EH12 Edinburgh", price: "£140", status: "CONFIRMED" },
+        { name: "End of Tenancy, Leith", price: "£210", status: "SCHEDULED" },
+        { name: "Office Contract, Glasgow", price: "£450", status: "ACTIVE" },
       ],
     },
   },
@@ -149,7 +149,7 @@ export const SHOWCASE_PROJECTS = [
         { label: "Patient Retention", val: "96.5%" },
       ],
       recent: [
-        { name: "Specialist Consultation — Ikeja", price: "Priority", status: "CONFIRMED" },
+        { name: "Specialist Consultation, Ikeja", price: "Priority", status: "CONFIRMED" },
         { name: "Preventive Health Screening", price: "Standard", status: "SCHEDULED" },
         { name: "Corporate Wellness Program", price: "Enterprise", status: "ACTIVE" },
       ],
