@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Twitter, Instagram, Linkedin, Github, Check } from "lucide-react";
+import { ArrowRight, Linkedin, Mail, MapPin, Phone, Check } from "lucide-react";
 import { mordenLogo } from "../lib/images-base64";
 
 const logoAsset = mordenLogo;
@@ -44,7 +44,7 @@ export function Footer() {
     <footer className="bg-background pt-20">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-5">
             <img
               src={logoAsset}
               alt="Morden Labs"
@@ -67,26 +67,71 @@ export function Footer() {
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-8 lg:col-span-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:col-span-7">
             <FooterCol
               title="Studio"
               links={[
-                { label: "Work", to: "/work" as const },
-                { label: "Services", to: "/services" as const },
-                { label: "About", to: "/about" as const },
-                { label: "Contact", to: "/contact" as const },
+                { label: "Work", to: "/work" },
+                { label: "Services", to: "/services" },
+                { label: "About", to: "/about" },
+                { label: "Contact", to: "/contact" },
               ]}
             />
             <FooterCol
               title="Services"
               links={[
-                { label: "Web Development", to: "/services" as const },
-                { label: "Mobile Apps", to: "/services" as const },
-                { label: "AI Solutions & Automation", to: "/services" as const },
-                { label: "SEO & Speed", to: "/services" as const },
-                { label: "CMS Integration", to: "/services" as const },
+                { label: "Web Development", to: "/services" },
+                { label: "Mobile Apps", to: "/services" },
+                { label: "AI & Automation", to: "/services" },
+                { label: "SEO & Speed", to: "/services" },
+                { label: "CMS Integration", to: "/services" },
               ]}
             />
+            <div className="col-span-2 sm:col-span-1">
+              <div className="font-display text-sm font-bold uppercase tracking-wider">
+                Legal &amp; Connect
+              </div>
+              <ul className="mt-4 space-y-3 text-sm">
+                <li>
+                  <Link
+                    to="/terms"
+                    className="text-foreground/70 transition-colors hover:text-ink font-medium block"
+                  >
+                    Terms &amp; Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/privacy"
+                    className="text-foreground/70 transition-colors hover:text-ink font-medium block"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li className="pt-2.5 border-t border-ink/10">
+                  <div className="text-[11px] uppercase font-mono font-semibold text-muted-foreground tracking-wider mb-1">
+                    Email Us
+                  </div>
+                  <a
+                    href="mailto:support@mordenlabs.com.ng"
+                    className="text-sm font-semibold text-foreground hover:text-accent-brand transition-colors block"
+                  >
+                    support@mordenlabs.com.ng
+                  </a>
+                </li>
+                <li>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-accent-brand hover:text-ink transition-colors"
+                  >
+                    Start a Project <span aria-hidden="true">→</span>
+                  </Link>
+                </li>
+                <li className="text-xs text-muted-foreground">
+                  Lagos, Nigeria · Serving Worldwide
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -145,16 +190,22 @@ export function Footer() {
             © {new Date().getFullYear()} Morden Labs. All rights reserved.
           </div>
           <div className="flex items-center gap-3">
-            {[Twitter, Instagram, Linkedin, Github].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                aria-label="Social link"
-                className="grid h-10 w-10 place-items-center brutal-border bg-card transition-colors hover:bg-ink hover:text-cream"
-              >
-                <Icon className="h-4 w-4" />
-              </a>
-            ))}
+            <a
+              href="https://www.linkedin.com/in/miracle-fadahunsi-897149295/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="grid h-10 w-10 place-items-center brutal-border bg-card transition-colors hover:bg-ink hover:text-cream"
+            >
+              <Linkedin className="h-4 w-4" />
+            </a>
+            <a
+              href="mailto:support@mordenlabs.com.ng"
+              aria-label="Email"
+              className="grid h-10 w-10 place-items-center brutal-border bg-card transition-colors hover:bg-ink hover:text-cream"
+            >
+              <Mail className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </div>
@@ -167,7 +218,10 @@ function FooterCol({
   links,
 }: {
   title: string;
-  links: { label: string; to: "/" | "/work" | "/services" | "/about" | "/contact" }[];
+  links: {
+    label: string;
+    to: "/" | "/work" | "/services" | "/about" | "/contact" | "/terms" | "/privacy";
+  }[];
 }) {
   return (
     <div>

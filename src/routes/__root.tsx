@@ -80,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Morden Labs is a digital studio shipping web, mobile, AI automations, and SEO that actually works. We build bold, fast, modern products.",
       },
-      { name: "author", content: "Fadahunsi Miracle, Founder & CEO at Morden Labs" },
+      { name: "author", content: "Fadahunsi Miracle, Founder at Morden Labs" },
       { property: "og:title", content: "Morden Labs | We build the bold web." },
       {
         property: "og:description",
@@ -131,7 +131,7 @@ function RootShell({ children }: { children: ReactNode }) {
           "@type": "Person",
           "@id": "https://mordenlabs.com.ng/#founder",
           name: "Fadahunsi Miracle",
-          jobTitle: "Founder & Chief Executive Officer",
+          jobTitle: "Founder & Lead Engineer",
           image:
             "https://www.image2url.com/r2/default/images/1788471400856-36701ac8-2925-4e9d-8462-b24257965e0a.png",
           worksFor: {
@@ -147,14 +147,14 @@ function RootShell({ children }: { children: ReactNode }) {
         "@type": "Person",
         "@id": "https://mordenlabs.com.ng/#founder",
         name: "Fadahunsi Miracle",
-        jobTitle: "Founder & Chief Executive Officer",
+        jobTitle: "Founder & Lead Engineer",
         image:
           "https://www.image2url.com/r2/default/images/1788471400856-36701ac8-2925-4e9d-8462-b24257965e0a.png",
         worksFor: {
           "@id": "https://mordenlabs.com.ng/#organization",
         },
         url: "https://mordenlabs.com.ng/about#leadership",
-        email: "mailto:fadahunsi.miracle@gmail.com",
+        email: "mailto:support@mordenlabs.com.ng",
         sameAs: ["https://www.linkedin.com/in/miracle-fadahunsi-897149295/"],
         knowsAbout: [
           "Software Architecture",
@@ -185,7 +185,7 @@ function RootShell({ children }: { children: ReactNode }) {
             position: 1,
             name: "About Us",
             description:
-              "Meet Morden Labs, executive leadership by Fadahunsi Miracle, and our modern engineering approach.",
+              "Meet Morden Labs, leadership by Fadahunsi Miracle, and our modern engineering approach.",
             url: "https://mordenlabs.com.ng/about",
           },
           {

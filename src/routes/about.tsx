@@ -1,13 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  ArrowUpRight,
-  Linkedin,
-  Twitter,
-  Mail,
-  ShieldCheck,
-  CheckCircle2,
-  Award,
-} from "lucide-react";
+import { ArrowUpRight, Linkedin, Mail, ShieldCheck, CheckCircle2, Award } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { STATS, LEADERSHIP } from "@/lib/site-data";
@@ -119,7 +111,7 @@ function AboutPage() {
           </div>
         </section>
 
-        {/* Office of the Founder & CEO Section */}
+        {/* Founder & Leadership Section */}
         <section
           id="leadership"
           className="border-b-2 border-ink bg-background py-20 lg:py-28 relative"
@@ -158,18 +150,18 @@ function AboutPage() {
             >
               <div className="mb-4 inline-flex items-center gap-2 brutal-border bg-card px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-accent-brand">
                 <span className="h-2 w-2 rounded-full bg-accent-brand" />
-                LEADERSHIP & EXECUTIVE VISION
+                LEADERSHIP
               </div>
               <h2 className="font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl">
-                Office of the Founder &amp; CEO.
+                Built and Led by Miracle Fadahunsi.
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Steering technical integrity, enterprise AI architecture, and product delivery
-                across all Morden Labs engagements.
+                Direct hands-on engineering and architectural leadership across every client
+                project.
               </p>
             </motion.div>
 
-            {/* Leadership Spotlight Card */}
+            {/* Leadership Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -177,15 +169,14 @@ function AboutPage() {
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="brutal-border brutal-shadow-lg bg-card overflow-hidden grid lg:grid-cols-12"
             >
-              {/* Executive Profile Identity Card */}
+              {/* Profile Identity Card */}
               <div className="lg:col-span-5 border-b-2 lg:border-b-0 lg:border-r-2 border-ink p-8 lg:p-10 bg-muted/40 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-6">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 font-mono text-xs font-bold uppercase tracking-wider">
                       <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                      EXECUTIVE LEADERSHIP
+                      FOUNDER & LEAD ENGINEER
                     </span>
-                    <span className="font-mono text-xs text-muted-foreground">ML // DIR</span>
                   </div>
 
                   {/* Profile Portrait Photo */}
@@ -213,16 +204,16 @@ function AboutPage() {
                   <div className="mt-6 pt-6 border-t border-ink/10 space-y-2">
                     <div className="flex items-center gap-2 text-xs font-mono text-neutral-600">
                       <ShieldCheck className="h-4 w-4 text-emerald-600" />
-                      <span>Chief Executive &amp; Technical Oversight</span>
+                      <span>Technical Architecture & Hands-on Delivery</span>
                     </div>
                     <div className="flex items-center gap-2 text-xs font-mono text-neutral-600">
                       <Award className="h-4 w-4 text-accent-brand" />
-                      <span>Government &amp; Commercial Client Trust</span>
+                      <span>Commercial & Government Project Experience</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Direct Executive Contact Buttons */}
+                {/* Direct Contact Buttons */}
                 <div className="mt-8 pt-6 border-t border-ink/10 flex flex-wrap items-center gap-3">
                   <a
                     href={LEADERSHIP.socials.linkedin}
@@ -233,30 +224,20 @@ function AboutPage() {
                     <Linkedin className="h-3.5 w-3.5 text-[#0A66C2]" />
                     LinkedIn
                   </a>
-                  {LEADERSHIP.socials.twitter && (
-                    <a
-                      href={LEADERSHIP.socials.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 brutal-border bg-card hover:bg-muted text-xs font-mono font-semibold transition-transform hover:-translate-y-[1px]"
-                    >
-                      <Twitter className="h-3.5 w-3.5" />X / Twitter
-                    </a>
-                  )}
                   <a
                     href={`mailto:${LEADERSHIP.socials.email}`}
                     className="inline-flex items-center gap-1.5 px-3.5 py-2 brutal-border bg-card hover:bg-muted text-xs font-mono font-semibold transition-transform hover:-translate-y-[1px]"
                   >
                     <Mail className="h-3.5 w-3.5 text-accent-brand" />
-                    Direct Email
+                    Email
                   </a>
                 </div>
               </div>
 
-              {/* Executive Vision & Bio Content */}
+              {/* Bio Content */}
               <div className="lg:col-span-7 p-8 lg:p-12 flex flex-col justify-between space-y-8">
                 <div>
-                  {/* Executive Quote */}
+                  {/* Quote */}
                   <div className="p-6 bg-muted/40 mb-8 border-l-4 border-l-accent-brand rounded-r-lg">
                     <p className="font-display text-xl lg:text-2xl font-bold leading-snug">
                       "{LEADERSHIP.quote}"
@@ -274,7 +255,7 @@ function AboutPage() {
                   {/* Core Strategic Domains */}
                   <div className="mt-8 pt-6 border-t border-ink/10">
                     <div className="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
-                      Executive Competencies &amp; Architectural Focus
+                      Core Technical Focus
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {LEADERSHIP.expertise.map((skill) => (
@@ -292,13 +273,13 @@ function AboutPage() {
 
                 <div className="pt-6 border-t border-ink/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div className="text-xs text-muted-foreground">
-                    Direct executive inquiries &amp; high-stake partnership proposals.
+                    Ready to start a project or discuss an engineering engagement?
                   </div>
                   <Link
                     to="/contact"
                     className="inline-flex items-center gap-2 brutal-border brutal-shadow bg-ink px-5 py-2.5 font-semibold text-cream text-xs transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px]"
                   >
-                    Contact Leadership <ArrowUpRight className="h-4 w-4" />
+                    Start a Project <ArrowUpRight className="h-4 w-4" />
                   </Link>
                 </div>
               </div>

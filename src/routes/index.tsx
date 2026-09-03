@@ -4,7 +4,6 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SERVICES, STATS } from "@/lib/site-data";
 import { ProjectVault } from "@/components/ProjectVault";
-import { AIDashboardHero } from "@/components/AIDashboardHero";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { ProcessSection } from "@/components/ProcessSection";
@@ -50,7 +49,7 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden border-b-2 border-ink bg-background py-20 lg:py-28">
+    <section className="relative overflow-hidden border-b-2 border-ink bg-background py-20 lg:py-32">
       {/* Background elegant grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.025] pointer-events-none"
@@ -60,111 +59,121 @@ function Hero() {
         }}
       />
       <div className="mx-auto max-w-7xl px-5 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Copywriting & Actions */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-6 inline-flex items-center gap-2 brutal-border bg-card px-3 py-1.5 text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground"
-            >
-              <span className="h-2 w-2 rounded-full bg-accent-brand" />
-              DIGITAL ENGINEERING STUDIO
-            </motion.div>
+        <div className="max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-6 inline-flex items-center gap-2 brutal-border bg-card px-3.5 py-1.5 text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground"
+          >
+            <span className="h-2 w-2 rounded-full bg-accent-brand" />
+            DIGITAL ENGINEERING STUDIO
+          </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.25rem] text-neutral-900"
-            >
-              We build software <br className="hidden sm:inline" />
-              that moves <br className="hidden sm:inline" />
-              <span className="text-accent-brand">businesses forward.</span>
-            </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="font-display text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem] text-neutral-900"
+          >
+            We build software <br className="hidden sm:inline" />
+            that moves <br className="hidden sm:inline" />
+            <span className="text-accent-brand">businesses forward.</span>
+          </motion.h1>
 
-            {/* Subheading Bullet Stack */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-base md:text-lg font-medium text-muted-foreground"
-            >
-              <span className="flex items-center gap-2 text-neutral-900 font-semibold">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Custom AI
-              </span>
-              <span className="text-neutral-300">•</span>
-              <span className="flex items-center gap-2 text-neutral-900 font-semibold">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Web Platforms
-              </span>
-              <span className="text-neutral-300">•</span>
-              <span className="flex items-center gap-2 text-neutral-900 font-semibold">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Automation
-              </span>
-              <span className="text-neutral-300">•</span>
-              <span className="flex items-center gap-2 text-neutral-900 font-semibold">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Mobile Apps
-              </span>
-            </motion.div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-8 max-w-2xl text-lg sm:text-xl text-muted-foreground leading-relaxed font-normal"
+          >
+            High-performance web platforms, custom mobile applications, enterprise AI systems, and
+            business automation for ambitious teams in the UK, Nigeria, and worldwide.
+          </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-10 flex flex-wrap gap-4"
-            >
-              <Link to="/contact">
-                <motion.button
-                  whileHover="hover"
-                  initial="initial"
-                  className="inline-flex items-center gap-2.5 brutal-border brutal-shadow bg-ink px-7 py-4 font-bold text-cream transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] cursor-pointer"
+          {/* Subheading Bullet Stack */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm sm:text-base font-medium text-muted-foreground"
+          >
+            <span className="flex items-center gap-2 text-neutral-900 font-semibold">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Custom AI
+            </span>
+            <span className="text-neutral-300">•</span>
+            <span className="flex items-center gap-2 text-neutral-900 font-semibold">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Web Platforms
+            </span>
+            <span className="text-neutral-300">•</span>
+            <span className="flex items-center gap-2 text-neutral-900 font-semibold">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Automation
+            </span>
+            <span className="text-neutral-300">•</span>
+            <span className="flex items-center gap-2 text-neutral-900 font-semibold">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Mobile Apps
+            </span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-10 flex flex-wrap items-center gap-4"
+          >
+            <Link to="/contact">
+              <motion.button
+                whileHover="hover"
+                initial="initial"
+                className="inline-flex items-center gap-2.5 brutal-border brutal-shadow bg-ink px-8 py-4 font-bold text-cream transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] cursor-pointer text-base"
+              >
+                Start a project
+                <motion.span
+                  variants={{
+                    initial: { x: 0, y: 0 },
+                    hover: { x: 4, y: -4 },
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  Start a project
-                  <motion.span
-                    variants={{
-                      initial: { x: 0, y: 0 },
-                      hover: { x: 4, y: -4 },
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  >
-                    <ArrowUpRight className="h-5 w-5 text-accent-brand" />
-                  </motion.span>
-                </motion.button>
-              </Link>
+                  <ArrowUpRight className="h-5 w-5 text-accent-brand" />
+                </motion.span>
+              </motion.button>
+            </Link>
 
-              <Link to="/work">
-                <motion.button
-                  whileHover="hover"
-                  initial="initial"
-                  className="inline-flex items-center gap-2.5 brutal-border bg-card px-7 py-4 font-bold transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:brutal-shadow cursor-pointer"
+            <Link to="/work">
+              <motion.button
+                whileHover="hover"
+                initial="initial"
+                className="inline-flex items-center gap-2.5 brutal-border bg-card px-8 py-4 font-bold transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:brutal-shadow cursor-pointer text-base"
+              >
+                See our work
+                <motion.span
+                  variants={{
+                    initial: { x: 0 },
+                    hover: { x: 5 },
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  See our work
-                  <motion.span
-                    variants={{
-                      initial: { x: 0 },
-                      hover: { x: 5 },
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  >
-                    <ArrowRight className="h-5 w-5" />
-                  </motion.span>
-                </motion.button>
-              </Link>
-            </motion.div>
-          </div>
+                  <ArrowRight className="h-5 w-5" />
+                </motion.span>
+              </motion.button>
+            </Link>
+          </motion.div>
 
-          {/* Right Column: Clean AI Console/Dashboard Panel */}
-          <div className="lg:col-span-5 w-full flex justify-center lg:justify-end">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full"
-            >
-              <AIDashboardHero />
-            </motion.div>
-          </div>
+          {/* Clean Studio Status Metadata Strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-12 pt-8 border-t border-ink/10 flex flex-wrap items-center gap-6 sm:gap-10 text-xs sm:text-sm text-muted-foreground font-mono"
+          >
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-foreground font-semibold">Available for Q2/Q3</span>
+            </div>
+            <div>Turnaround: 2 to 6 weeks</div>
+            <div>Lagos · UK · Worldwide</div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -91,28 +91,28 @@ export const STATS = [
 
 export const LEADERSHIP = {
   name: "Fadahunsi Miracle",
-  role: "Founder & Chief Executive Officer",
+  role: "Founder & Lead Engineer",
   company: "Morden Labs",
   location: "Lagos, Nigeria",
   image:
     "https://www.image2url.com/r2/default/images/1788471400856-36701ac8-2925-4e9d-8462-b24257965e0a.png",
   headline:
-    "Pioneering software engineering, intelligent AI systems, and scalable digital architecture.",
+    "Engineering robust web platforms, applied AI systems, and scalable digital infrastructure.",
   bio: [
-    "At Morden Labs, our mission is straightforward: eliminate bloated agency promises and replace them with high-velocity, precision engineering. As Founder & CEO, I guide our studio's strategic vision, technical architecture, and product delivery across the UK, Nigeria, and international markets.",
-    "From voice and conversational AI platforms deployed for official government bodies to mission-critical healthcare CRMs and UK commercial booking ecosystems, I lead our teams to build software that scales reliably and generates lasting competitive edge.",
+    "At Morden Labs, our focus is simple: deliver high-quality engineering without agency bureaucracy. As founder and lead engineer, I work directly with clients to design, build, and deploy systems that solve real operational problems.",
+    "From conversational AI platforms deployed for government initiatives to custom healthcare CRMs and UK commercial booking ecosystems, we write code that works reliably under real-world conditions.",
   ],
   quote:
-    "We build software with taste, speed, and real stakes, engineered to establish our clients as undeniable leaders in their category.",
+    "We build software with taste and precision, engineered to help our clients move faster and scale with confidence.",
   expertise: [
-    "Software & Cloud Architecture",
-    "Enterprise AI & Automation",
+    "Web & Cloud Architecture",
+    "Applied AI & Workflow Automation",
     "High-Performance Web Platforms",
     "Mobile & Cross-Platform Systems",
   ],
   socials: {
     linkedin: "https://www.linkedin.com/in/miracle-fadahunsi-897149295/",
     twitter: "",
-    email: "fadahunsi.miracle@gmail.com",
+    email: "support@mordenlabs.com.ng",
   },
 };
