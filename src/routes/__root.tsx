@@ -8,7 +8,6 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
-import { favicon } from "../lib/images-base64";
 import { Preloader } from "@/components/Preloader";
 
 import appCss from "../styles.css?url";
@@ -99,7 +98,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
     links: [
-      { rel: "icon", type: "image/webp", href: favicon },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon.png" },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "shortcut icon", href: "/favicon.ico" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/favicon.png" },
       { rel: "canonical", href: "https://mordenlabs.com.ng" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },

@@ -22,7 +22,7 @@ export function Header() {
           <img
             src={logoAsset}
             alt="Morden Labs"
-            className="h-16 md:h-24 w-auto object-contain transition-all hover:scale-[1.02] filter drop-shadow-sm font-bold"
+            className="h-9 sm:h-10 md:h-11 w-auto object-contain transition-all hover:scale-[1.02] filter drop-shadow-sm font-bold"
           />
         </Link>
         <nav className="hidden items-center gap-8 lg:flex">

@@ -49,7 +49,7 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden border-b-2 border-ink bg-background py-20 lg:py-32">
+    <section className="relative overflow-hidden border-b-2 border-ink bg-background min-h-[calc(100vh-5rem)] flex flex-col justify-center py-8 sm:py-12 lg:py-14">
       {/* Background elegant grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
@@ -58,13 +58,13 @@ function Hero() {
           backgroundSize: "24px 24px",
         }}
       />
-      <div className="mx-auto max-w-7xl px-5 lg:px-8 relative z-10">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8 relative z-10 w-full">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-6 inline-flex items-center gap-2 brutal-border bg-card px-3.5 py-1.5 text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground"
+            className="mb-5 inline-flex items-center gap-2 brutal-border bg-card px-3.5 py-1.5 text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground"
           >
             <span className="h-2 w-2 rounded-full bg-accent-brand" />
             DIGITAL ENGINEERING STUDIO
@@ -74,7 +74,7 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem] text-white"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.75rem] font-extrabold leading-[1.05] tracking-tight text-white"
           >
             We build software <br className="hidden sm:inline" />
             that moves <br className="hidden sm:inline" />
@@ -85,7 +85,7 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-8 max-w-2xl text-lg sm:text-xl text-muted-foreground leading-relaxed font-normal"
+            className="mt-6 max-w-2xl text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed font-normal"
           >
             High-performance web platforms, custom mobile applications, enterprise AI systems, and
             business automation for ambitious teams in the UK, Nigeria, and worldwide.
@@ -96,7 +96,7 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm sm:text-base font-medium text-muted-foreground"
+            className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm sm:text-base font-medium text-muted-foreground"
           >
             <span className="flex items-center gap-2 text-white font-semibold">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Custom AI
@@ -119,13 +119,13 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-10 flex flex-wrap items-center gap-4"
+            className="mt-8 flex flex-wrap items-center gap-4"
           >
             <Link to="/contact">
               <motion.button
                 whileHover="hover"
                 initial="initial"
-                className="inline-flex items-center gap-2.5 brutal-border brutal-shadow bg-accent-brand px-8 py-4 font-bold text-white transition-all duration-300 hover:bg-orange-600 hover:-translate-x-[2px] hover:-translate-y-[2px] cursor-pointer text-base"
+                className="inline-flex items-center gap-2.5 brutal-border brutal-shadow bg-accent-brand px-7 py-3.5 sm:px-8 sm:py-4 font-bold text-white transition-all duration-300 hover:bg-orange-600 hover:-translate-x-[2px] hover:-translate-y-[2px] cursor-pointer text-base"
               >
                 Start a project
                 <motion.span
@@ -144,7 +144,7 @@ function Hero() {
               <motion.button
                 whileHover="hover"
                 initial="initial"
-                className="inline-flex items-center gap-2.5 brutal-border bg-card px-8 py-4 font-bold text-foreground transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:brutal-shadow cursor-pointer text-base hover:border-neutral-700"
+                className="inline-flex items-center gap-2.5 brutal-border bg-card px-7 py-3.5 sm:px-8 sm:py-4 font-bold text-foreground transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:brutal-shadow cursor-pointer text-base hover:border-neutral-700"
               >
                 See our work
                 <motion.span
@@ -158,21 +158,6 @@ function Hero() {
                 </motion.span>
               </motion.button>
             </Link>
-          </motion.div>
-
-          {/* Clean Studio Status Metadata Strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-12 pt-8 border-t border-neutral-800 flex flex-wrap items-center gap-6 sm:gap-10 text-xs sm:text-sm text-muted-foreground font-mono"
-          >
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-foreground font-semibold">Available for Q2/Q3</span>
-            </div>
-            <div>Turnaround: 2 to 6 weeks</div>
-            <div>Lagos · UK · Worldwide</div>
           </motion.div>
         </div>
       </div>

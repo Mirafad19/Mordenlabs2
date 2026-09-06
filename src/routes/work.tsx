@@ -71,7 +71,7 @@ function WorkPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="grid gap-0 overflow-hidden brutal-border brutal-shadow-lg bg-card md:grid-cols-5"
+                className="grid gap-0 overflow-hidden brutal-border brutal-shadow-lg bg-[#121214] md:grid-cols-5"
               >
                 <div
                   className={`flex items-center justify-center bg-white p-8 sm:p-12 md:p-14 md:col-span-2 min-h-[200px] md:min-h-[280px] border-ink ${
@@ -84,9 +84,9 @@ function WorkPage() {
                     className="max-h-24 sm:max-h-32 md:max-h-36 w-auto max-w-[85%] object-contain transition-transform duration-300 hover:scale-105"
                   />
                 </div>
-                <div className="flex flex-col gap-4 p-8 md:col-span-3 md:p-12">
+                <div className="flex flex-col gap-4 p-8 md:col-span-3 md:p-12 bg-[#121214]">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="brutal-border bg-background px-3 py-1 font-mono text-xs font-bold uppercase text-foreground">
+                    <span className="brutal-border bg-[#0b0b0c] px-3 py-1 font-mono text-xs font-bold uppercase text-neutral-300">
                       {p.category}
                     </span>
                     {p.badge && (
@@ -98,19 +98,19 @@ function WorkPage() {
                   <h2 className="font-display text-3xl font-bold leading-tight md:text-4xl text-white">
                     {p.name}
                   </h2>
-                  <div className="text-sm font-semibold text-muted-foreground">
+                  <div className="text-sm font-semibold text-neutral-400">
                     Client: <span className="text-white font-semibold">{p.client}</span>
                   </div>
-                  <p className="text-base leading-relaxed text-muted-foreground">{p.description}</p>
+                  <p className="text-base leading-relaxed text-neutral-300">{p.description}</p>
                   <div>
-                    <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-neutral-400">
                       Technologies
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {p.technologies.map((t) => (
                         <span
                           key={t}
-                          className="brutal-border bg-background px-3 py-1 text-xs font-medium text-foreground"
+                          className="brutal-border bg-[#0b0b0c] px-3 py-1 text-xs font-medium text-neutral-300"
                         >
                           {t}
                         </span>
