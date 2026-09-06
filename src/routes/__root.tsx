@@ -78,13 +78,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Morden Labs is a digital studio shipping web, mobile, AI automations, and SEO that actually works. We build bold, fast, modern products.",
+          "Morden Labs is a digital studio shipping web, mobile, AI automations, and SEO that actually works. We build software that moves businesses forward.",
+      },
+      {
+        name: "keywords",
+        content:
+          "Morden Labs, MordenLabs, digital engineering studio, custom software, AI automation, web development, Fadahunsi Miracle, Nigeria, UK",
       },
       { name: "author", content: "Fadahunsi Miracle, Founder at Morden Labs" },
-      { property: "og:title", content: "Morden Labs | We build the bold web." },
+      {
+        property: "og:title",
+        content: "Morden Labs | We build software that moves businesses forward.",
+      },
       {
         property: "og:description",
-        content: "Digital studio for web, mobile, AI automations & SEO that ships.",
+        content:
+          "High-performance digital engineering studio building web platforms, mobile apps, enterprise AI systems, and automation.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -126,10 +135,26 @@ function RootShell({ children }: { children: ReactNode }) {
         "@type": "Organization",
         "@id": "https://mordenlabs.com.ng/#organization",
         name: "Morden Labs",
+        alternateName: ["MordenLabs", "Morden Labs Digital Studio"],
+        slogan: "We build software that moves businesses forward.",
+        disambiguatingDescription:
+          "Morden Labs is an engineering and digital product studio founded by Fadahunsi Miracle, specializing in custom software development, enterprise AI automation, and web platforms in the UK, Nigeria, and worldwide.",
         url: "https://mordenlabs.com.ng",
         logo: "https://mordenlabs.com.ng/morden-logo.png",
         description:
           "High-end digital engineering studio building web platforms, mobile apps, enterprise AI systems, and business automation.",
+        areaServed: [
+          { "@type": "Country", name: "Nigeria" },
+          { "@type": "Country", name: "United Kingdom" },
+          { "@type": "AdministrativeArea", name: "Worldwide" },
+        ],
+        knowsAbout: [
+          "Custom Software Development",
+          "Web Engineering",
+          "Mobile Applications",
+          "Enterprise AI Systems",
+          "Business Automation",
+        ],
         founder: {
           "@type": "Person",
           "@id": "https://mordenlabs.com.ng/#founder",
