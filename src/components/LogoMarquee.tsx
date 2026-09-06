@@ -15,12 +15,12 @@ export function LogoMarquee() {
   ];
 
   return (
-    <div className="border-b-2 border-ink bg-card py-12 lg:py-16 relative">
+    <div className="border-b border-neutral-200 bg-white py-12 lg:py-16 relative">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         {/* Header */}
         <div className="mb-10 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-muted-foreground flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-emerald-500" />
+          <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-neutral-600 flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-emerald-600" />
             TRUSTED BY INSTITUTIONS & GROWING BUSINESSES
           </span>
           <div className="flex items-center gap-3 text-xs font-mono font-bold text-neutral-500">

@@ -59,13 +59,11 @@ export function Footer() {
             <div className="mt-6 inline-flex flex-col gap-1.5 brutal-border bg-card p-3.5 rounded-xl">
               <div className="flex items-center gap-1.5 text-accent-brand">
                 <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                <span className="text-xs font-bold text-neutral-900">
-                  Production-Grade Engineering
-                </span>
+                <span className="text-xs font-bold text-white">Production-Grade Engineering</span>
               </div>
               <p className="text-xs font-medium text-muted-foreground">
                 Trusted by organizations in{" "}
-                <span className="font-bold text-neutral-900">UK · Nigeria</span>
+                <span className="font-bold text-white">UK · Nigeria</span>
               </p>
             </div>
           </div>
@@ -90,14 +88,14 @@ export function Footer() {
               ]}
             />
             <div className="col-span-2 sm:col-span-1">
-              <div className="font-display text-sm font-bold uppercase tracking-wider">
+              <div className="font-display text-sm font-bold uppercase tracking-wider text-white">
                 Legal &amp; Connect
               </div>
               <ul className="mt-4 space-y-3 text-sm">
                 <li>
                   <Link
                     to="/terms"
-                    className="text-foreground/70 transition-colors hover:text-ink font-medium block"
+                    className="text-neutral-400 transition-colors hover:text-white font-medium block"
                   >
                     Terms &amp; Conditions
                   </Link>
@@ -105,18 +103,18 @@ export function Footer() {
                 <li>
                   <Link
                     to="/privacy"
-                    className="text-foreground/70 transition-colors hover:text-ink font-medium block"
+                    className="text-neutral-400 transition-colors hover:text-white font-medium block"
                   >
                     Privacy Policy
                   </Link>
                 </li>
-                <li className="pt-2.5 border-t border-ink/10">
+                <li className="pt-2.5 border-t border-neutral-800">
                   <div className="text-[11px] uppercase font-mono font-semibold text-muted-foreground tracking-wider mb-1">
                     Email Us
                   </div>
                   <a
                     href="mailto:support@mordenlabs.com.ng"
-                    className="text-sm font-semibold text-foreground hover:text-accent-brand transition-colors block"
+                    className="text-sm font-semibold text-white hover:text-accent-brand transition-colors block"
                   >
                     support@mordenlabs.com.ng
                   </a>
@@ -124,7 +122,7 @@ export function Footer() {
                 <li>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-accent-brand hover:text-ink transition-colors"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-accent-brand hover:text-white transition-colors"
                   >
                     Start a Project <span aria-hidden="true">→</span>
                   </Link>
@@ -143,7 +141,7 @@ export function Footer() {
               <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                 Stay Connected
               </div>
-              <div className="mt-2 font-display text-2xl font-bold md:text-3xl">
+              <div className="mt-2 font-display text-2xl font-bold md:text-3xl text-white">
                 Studio insights & engineering updates, delivered to your inbox.
               </div>
             </div>
@@ -158,28 +156,28 @@ export function Footer() {
                   value={emailInput}
                   onChange={(e) => setEmailInput(e.target.value)}
                   placeholder="Your email address"
-                  className="min-w-0 flex-1 brutal-border bg-background px-4 py-3 text-sm focus:outline-none placeholder:text-muted-foreground"
+                  className="min-w-0 flex-1 brutal-border bg-background px-4 py-3 text-sm text-foreground focus:outline-none placeholder:text-muted-foreground"
                 />
                 <button
                   type="submit"
                   disabled={newsletterStatus === "submitting"}
-                  className="grid w-12 shrink-0 place-items-center brutal-border bg-ink text-cream [border-left-width:0] disabled:opacity-50 cursor-pointer hover:bg-accent-brand transition-colors"
+                  className="grid w-12 shrink-0 place-items-center brutal-border bg-accent-brand text-white [border-left-width:0] disabled:opacity-50 cursor-pointer hover:bg-orange-600 transition-colors"
                   aria-label="Subscribe"
                 >
                   {newsletterStatus === "success" ? (
-                    <Check className="h-5 w-5 text-emerald-400" />
+                    <Check className="h-5 w-5 text-emerald-300" />
                   ) : (
                     <ArrowRight className="h-5 w-5" />
                   )}
                 </button>
               </div>
               {newsletterStatus === "success" && (
-                <div className="text-xs font-semibold text-emerald-600 mt-2 sm:mt-0 sm:ml-3 flex items-center gap-1.5 self-center">
+                <div className="text-xs font-semibold text-emerald-400 mt-2 sm:mt-0 sm:ml-3 flex items-center gap-1.5 self-center">
                   <span className="h-2 w-2 rounded-full bg-emerald-500" /> Subscribed!
                 </div>
               )}
               {newsletterStatus === "error" && (
-                <div className="text-xs font-semibold text-rose-600 mt-2 sm:mt-0 sm:ml-3 flex items-center gap-1.5 self-center">
+                <div className="text-xs font-semibold text-rose-400 mt-2 sm:mt-0 sm:ml-3 flex items-center gap-1.5 self-center">
                   Try again.
                 </div>
               )}
@@ -197,14 +195,14 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="grid h-10 w-10 place-items-center brutal-border bg-card transition-colors hover:bg-ink hover:text-cream"
+              className="grid h-10 w-10 place-items-center brutal-border bg-card text-foreground transition-colors hover:bg-accent-brand hover:text-white"
             >
               <Linkedin className="h-4 w-4" />
             </a>
             <a
               href="mailto:support@mordenlabs.com.ng"
               aria-label="Email"
-              className="grid h-10 w-10 place-items-center brutal-border bg-card transition-colors hover:bg-ink hover:text-cream"
+              className="grid h-10 w-10 place-items-center brutal-border bg-card text-foreground transition-colors hover:bg-accent-brand hover:text-white"
             >
               <Mail className="h-4 w-4" />
             </a>

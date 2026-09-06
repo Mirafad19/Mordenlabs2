@@ -35,37 +35,38 @@
   --font-display: "Bricolage Grotesque", "Space Grotesk", sans-serif;
   --font-sans: "Space Grotesk", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
-  --shadow-brutal: 5px 5px 0 0 var(--ink);
-  --shadow-brutal-lg: 8px 8px 0 0 var(--ink);
-  --shadow-brutal-sm: 3px 3px 0 0 var(--ink);
+  --shadow-brutal: 4px 4px 0 0 var(--shadow-color);
+  --shadow-brutal-lg: 6px 6px 0 0 var(--shadow-color);
+  --shadow-brutal-sm: 2px 2px 0 0 var(--shadow-color);
 }
 
 :root {
   --radius: 0px;
-  --ink: oklch(0.14 0.015 255);
-  --cream: oklch(0.985 0.002 240);
-  --bone: oklch(0.95 0.004 240);
-  --accent-brand: oklch(0.62 0.19 38);
-
-  --background: var(--cream);
-  --foreground: var(--ink);
-  --card: oklch(1 0 0);
-  --card-foreground: var(--ink);
-  --popover: oklch(1 0 0);
-  --popover-foreground: var(--ink);
-  --primary: var(--ink);
-  --primary-foreground: var(--cream);
-  --secondary: var(--bone);
-  --secondary-foreground: var(--ink);
-  --muted: var(--bone);
-  --muted-foreground: oklch(0.46 0.015 255);
+  /* Deep Obsidian Architectural Dark Palette */
+  --background: oklch(0.12 0.015 255);
+  --foreground: oklch(0.96 0.005 240);
+  --card: oklch(0.16 0.018 255);
+  --card-foreground: oklch(0.96 0.005 240);
+  --popover: oklch(0.16 0.018 255);
+  --popover-foreground: oklch(0.96 0.005 240);
+  --primary: var(--accent-brand);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.20 0.02 255);
+  --secondary-foreground: oklch(0.96 0.005 240);
+  --muted: oklch(0.18 0.015 255);
+  --muted-foreground: oklch(0.70 0.015 255);
+  --accent-brand: oklch(0.65 0.20 38);
   --accent: var(--accent-brand);
-  --accent-foreground: var(--cream);
+  --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(1 0 0);
-  --border: var(--ink);
-  --input: var(--ink);
+  --border: oklch(0.28 0.025 255);
+  --input: oklch(0.26 0.02 255);
   --ring: var(--accent-brand);
+  --ink: oklch(0.28 0.025 255);
+  --cream: oklch(0.98 0.005 240);
+  --bone: oklch(0.19 0.018 255);
+  --shadow-color: rgba(0, 0, 0, 0.65);
 }
 
 @layer base {
@@ -77,6 +78,7 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    color-scheme: dark;
   }
   h1,
   h2,
@@ -87,14 +89,15 @@
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: -0.025em;
+    color: var(--color-foreground);
   }
 }
 
 @utility brutal-border {
-  border: 2px solid var(--ink);
+  border: 2px solid var(--border);
 }
 @utility brutal-border-thick {
-  border: 3px solid var(--ink);
+  border: 3px solid var(--border);
 }
 @utility brutal-shadow {
   box-shadow: var(--shadow-brutal);

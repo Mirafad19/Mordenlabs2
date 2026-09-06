@@ -174,14 +174,14 @@ export function CapabilitiesScroll() {
             <div className="mb-2 text-xs font-mono font-bold uppercase tracking-wider text-accent-brand">
               OUR CAPABILITIES
             </div>
-            <h2 className="max-w-2xl font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl text-neutral-900">
+            <h2 className="max-w-2xl font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl text-white">
               Digital products built to last.
             </h2>
           </div>
           <Link to="/services">
             <motion.button
               whileHover={{ x: 2, y: -2 }}
-              className="inline-flex items-center gap-2 brutal-border bg-card px-5 py-3 font-bold transition-all duration-300 hover:brutal-shadow-sm cursor-pointer"
+              className="inline-flex items-center gap-2 brutal-border bg-card px-5 py-3 font-bold text-foreground transition-all duration-300 hover:brutal-shadow-sm cursor-pointer hover:border-neutral-700"
             >
               View all services <ArrowUpRight className="h-4 w-4 text-accent-brand" />
             </motion.button>
@@ -202,7 +202,7 @@ export function CapabilitiesScroll() {
                   ref={(el) => {
                     sectionRefs.current[idx] = el;
                   }}
-                  className={`transition-all duration-500 py-6 sm:py-8 lg:py-12 border-b lg:border-b-0 border-neutral-200 ${
+                  className={`transition-all duration-500 py-6 sm:py-8 lg:py-12 border-b lg:border-b-0 border-neutral-800 ${
                     isActive ? "opacity-100 scale-[1.01]" : "opacity-50 lg:opacity-60"
                   }`}
                 >
@@ -218,16 +218,16 @@ export function CapabilitiesScroll() {
 
                   {/* Title */}
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="h-9 w-9 rounded-lg bg-neutral-900 text-cream flex items-center justify-center shrink-0">
+                    <div className="h-9 w-9 rounded-lg bg-card border border-neutral-800 text-white flex items-center justify-center shrink-0">
                       <IconComp className="h-5 w-5 text-accent-brand" />
                     </div>
-                    <h3 className="font-display text-2xl sm:text-3xl font-black text-neutral-900">
+                    <h3 className="font-display text-2xl sm:text-3xl font-black text-white">
                       {cap.title}
                     </h3>
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm sm:text-base text-neutral-700 leading-relaxed font-normal mb-6">
+                  <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-normal mb-6">
                     {cap.description}
                   </p>
 
@@ -240,9 +240,9 @@ export function CapabilitiesScroll() {
                       {cap.deliverables.map((item) => (
                         <div
                           key={item}
-                          className="flex items-start gap-2 bg-neutral-50/80 p-2.5 rounded-lg border border-neutral-200/80 text-xs text-neutral-800 font-medium"
+                          className="flex items-start gap-2 bg-neutral-900/90 p-2.5 rounded-lg border border-neutral-800 text-xs text-neutral-200 font-medium"
                         >
-                          <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                          <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
                           <span className="leading-snug">{item}</span>
                         </div>
                       ))}
@@ -254,7 +254,7 @@ export function CapabilitiesScroll() {
                     {cap.stack.map((t) => (
                       <span
                         key={t}
-                        className="text-[11px] font-mono font-bold bg-neutral-900 text-cream px-2.5 py-0.5 rounded-md"
+                        className="text-[11px] font-mono font-bold bg-neutral-900 border border-neutral-800 text-neutral-300 px-2.5 py-0.5 rounded-md"
                       >
                         {t}
                       </span>
@@ -327,7 +327,7 @@ export function CapabilitiesScroll() {
                 </div>
 
                 <Link to="/services">
-                  <button className="h-[52px] px-6 rounded-xl bg-accent-brand text-cream font-bold text-xs uppercase tracking-wider hover:bg-orange-600 shadow-[0_4px_20px_rgba(224,86,31,0.25)] hover:shadow-[0_6px_28px_rgba(224,86,31,0.4)] transition-all duration-300 inline-flex items-center gap-2 cursor-pointer shrink-0">
+                  <button className="h-[52px] px-6 rounded-xl bg-accent-brand text-white font-bold text-xs uppercase tracking-wider hover:bg-orange-600 shadow-[0_4px_20px_rgba(224,86,31,0.25)] hover:shadow-[0_6px_28px_rgba(224,86,31,0.4)] transition-all duration-300 inline-flex items-center gap-2 cursor-pointer shrink-0">
                     <span>Explore Service</span>
                     <ArrowUpRight className="h-4 w-4" />
                   </button>

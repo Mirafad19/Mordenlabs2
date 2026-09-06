@@ -253,7 +253,7 @@ function AboutPage() {
                   </div>
 
                   {/* Core Strategic Domains */}
-                  <div className="mt-8 pt-6 border-t border-ink/10">
+                  <div className="mt-8 pt-6 border-t border-neutral-800">
                     <div className="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
                       Core Technical Focus
                     </div>
@@ -263,7 +263,7 @@ function AboutPage() {
                           key={skill}
                           className="flex items-center gap-2 text-xs font-semibold text-foreground"
                         >
-                          <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                          <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
                           <span>{skill}</span>
                         </div>
                       ))}
@@ -271,13 +271,13 @@ function AboutPage() {
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-ink/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div className="text-xs text-muted-foreground">
                     Ready to start a project or discuss an engineering engagement?
                   </div>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-2 brutal-border brutal-shadow bg-ink px-5 py-2.5 font-semibold text-cream text-xs transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px]"
+                    className="inline-flex items-center gap-2 brutal-border brutal-shadow bg-accent-brand px-5 py-2.5 font-bold text-white text-xs transition-all hover:bg-orange-600 hover:-translate-x-[2px] hover:-translate-y-[2px]"
                   >
                     Start a Project <ArrowUpRight className="h-4 w-4" />
                   </Link>
@@ -299,7 +299,7 @@ function AboutPage() {
               <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 What we believe
               </div>
-              <h2 className="font-display text-4xl font-bold leading-[1.05] md:text-5xl">
+              <h2 className="font-display text-4xl font-bold leading-[1.05] md:text-5xl text-white">
                 Four things that shape our work.
               </h2>
             </motion.div>
@@ -318,7 +318,7 @@ function AboutPage() {
                   } border-ink bg-card`}
                 >
                   <div className="mb-3 font-mono text-xs font-bold text-accent-brand">0{i + 1}</div>
-                  <h3 className="font-display text-2xl font-bold">{v.title}</h3>
+                  <h3 className="font-display text-2xl font-bold text-white">{v.title}</h3>
                   <p className="mt-3 text-base leading-relaxed text-muted-foreground">{v.body}</p>
                 </div>
               ))}
@@ -326,7 +326,7 @@ function AboutPage() {
           </div>
         </section>
 
-        <section className="border-b-2 border-ink bg-ink py-16 text-cream lg:py-24">
+        <section className="border-b-2 border-ink bg-card py-16 text-foreground lg:py-24">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-b border-neutral-800 pb-6">
               <div className="flex items-center gap-2">
@@ -342,7 +342,9 @@ function AboutPage() {
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
               {STATS.map((s) => (
                 <div key={s.label}>
-                  <div className="font-display text-4xl font-bold md:text-5xl">{s.value}</div>
+                  <div className="font-display text-4xl font-bold md:text-5xl text-white">
+                    {s.value}
+                  </div>
                   <div className="mt-2 text-xs font-mono font-bold uppercase tracking-wider text-accent-brand">
                     {s.label}
                   </div>
@@ -354,10 +356,12 @@ function AboutPage() {
 
         <section className="border-b-2 border-ink py-20 lg:py-28">
           <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
-            <h2 className="font-display text-4xl font-bold md:text-5xl">Want to work with us?</h2>
+            <h2 className="font-display text-4xl font-bold md:text-5xl text-white">
+              Want to work with us?
+            </h2>
             <Link
               to="/contact"
-              className="mt-8 inline-flex items-center gap-2 brutal-border brutal-shadow bg-ink px-6 py-3.5 font-semibold text-cream transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px]"
+              className="mt-8 inline-flex items-center gap-2 brutal-border brutal-shadow bg-accent-brand px-6 py-3.5 font-bold text-white transition-all hover:bg-orange-600 hover:-translate-x-[2px] hover:-translate-y-[2px]"
             >
               Start a conversation <ArrowUpRight className="h-5 w-5" />
             </Link>

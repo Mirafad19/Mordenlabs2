@@ -209,12 +209,12 @@ function PrivacyPage() {
           <div className="mx-auto max-w-5xl px-5 lg:px-8">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground hover:text-ink mb-6 transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground hover:text-white mb-6 transition-colors"
             >
               <ArrowLeft className="h-3.5 w-3.5" /> Back to Home
             </Link>
             <div className="flex items-center gap-2 mb-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 font-mono text-xs font-bold uppercase tracking-wider">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">
                 <Lock className="h-3.5 w-3.5" />
                 Data Privacy & Security
               </span>
@@ -222,7 +222,7 @@ function PrivacyPage() {
                 Updated: September 2026
               </span>
             </div>
-            <h1 className="font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl">
+            <h1 className="font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl text-white">
               Privacy Policy
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
@@ -250,7 +250,7 @@ function PrivacyPage() {
                     <span className="font-mono text-xs font-bold text-accent-brand bg-accent-brand/10 px-2.5 py-1 rounded">
                       SECTION {sec.num}
                     </span>
-                    <h2 className="font-display text-2xl font-bold">{sec.title}</h2>
+                    <h2 className="font-display text-2xl font-bold text-white">{sec.title}</h2>
                   </div>
                   <div className="mt-4">{sec.content}</div>
                 </motion.div>
@@ -258,7 +258,9 @@ function PrivacyPage() {
 
               {/* Data Controller Card */}
               <div className="p-8 lg:p-10 brutal-border bg-card">
-                <h3 className="font-display text-2xl font-bold">Data Controller & Studio Entity</h3>
+                <h3 className="font-display text-2xl font-bold text-white">
+                  Data Controller & Studio Entity
+                </h3>
                 <p className="mt-2 text-muted-foreground text-sm leading-relaxed">
                   For inquiries regarding data processing, confidentiality agreements, or privacy
                   requests:
@@ -268,7 +270,7 @@ function PrivacyPage() {
                     <div className="text-xs text-muted-foreground uppercase font-bold">
                       Organization
                     </div>
-                    <div className="font-bold text-ink mt-1">Morden Labs</div>
+                    <div className="font-bold text-white mt-1">Morden Labs</div>
                     <div className="text-xs text-muted-foreground mt-0.5">
                       Lagos, Nigeria · Serving Clients Worldwide
                     </div>
@@ -277,7 +279,7 @@ function PrivacyPage() {
                     <div className="text-xs text-muted-foreground uppercase font-bold">
                       Data Protection & Support
                     </div>
-                    <div className="font-bold text-ink mt-1">Morden Labs Support Team</div>
+                    <div className="font-bold text-white mt-1">Morden Labs Support Team</div>
                     <a
                       href="mailto:support@mordenlabs.com.ng"
                       className="text-xs text-accent-brand font-bold underline mt-0.5 block font-mono"

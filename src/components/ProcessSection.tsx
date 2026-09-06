@@ -45,9 +45,9 @@ export function ProcessSection() {
     <section className="border-b-2 border-ink py-20 lg:py-28 bg-background relative overflow-hidden">
       {/* Background Grid Pattern */}
       <div
-        className="absolute inset-0 opacity-[0.02] pointer-events-none"
+        className="absolute inset-0 opacity-[0.035] pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, black 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
       />
@@ -57,7 +57,7 @@ export function ProcessSection() {
           <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-2">
             HOW WE WORK
           </span>
-          <h2 className="font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl text-neutral-900">
+          <h2 className="font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl text-white">
             A disciplined engineering process.
           </h2>
           <p className="mt-4 max-w-xl text-base text-muted-foreground leading-relaxed">
@@ -84,12 +84,12 @@ export function ProcessSection() {
                     <span className="font-display text-3xl font-black text-accent-brand">
                       {step.num}
                     </span>
-                    <div className="h-10 w-10 rounded-xl brutal-border bg-background flex items-center justify-center text-neutral-800 group-hover:bg-accent-brand group-hover:text-white transition-colors">
+                    <div className="h-10 w-10 rounded-xl brutal-border bg-background flex items-center justify-center text-foreground group-hover:bg-accent-brand group-hover:text-white transition-colors">
                       <Icon className="h-5 w-5" />
                     </div>
                   </div>
 
-                  <h3 className="font-display text-2xl font-bold text-neutral-900 group-hover:text-accent-brand transition-colors">
+                  <h3 className="font-display text-2xl font-bold text-white group-hover:text-accent-brand transition-colors">
                     {step.title}
                   </h3>
                   <p className="text-xs font-semibold text-accent-brand uppercase tracking-wider mt-1">
@@ -98,7 +98,7 @@ export function ProcessSection() {
                   <p className="mt-4 text-xs leading-relaxed text-muted-foreground">{step.desc}</p>
                 </div>
 
-                <div className="mt-6 border-t border-ink/10 pt-4">
+                <div className="mt-6 border-t border-neutral-800 pt-4">
                   <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-neutral-400 block mb-2">
                     KEY DELIVERABLES
                   </span>
@@ -106,7 +106,7 @@ export function ProcessSection() {
                     {step.deliverables.map((d) => (
                       <div
                         key={d}
-                        className="flex items-center gap-1.5 text-[11px] font-medium text-neutral-700"
+                        className="flex items-center gap-1.5 text-[11px] font-medium text-neutral-300"
                       >
                         <span className="h-1 w-1 rounded-full bg-accent-brand" />
                         <span>{d}</span>

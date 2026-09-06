@@ -30,10 +30,10 @@ export function Header() {
             <Link
               key={n.label}
               to={n.to}
-              activeProps={{ className: "text-ink" }}
-              inactiveProps={{ className: "text-ink/60" }}
+              activeProps={{ className: "text-white font-bold" }}
+              inactiveProps={{ className: "text-neutral-400 font-medium" }}
               activeOptions={{ exact: true }}
-              className="text-sm font-semibold uppercase tracking-wide transition-colors hover:text-ink"
+              className="text-sm font-semibold uppercase tracking-wider transition-colors hover:text-accent-brand"
             >
               {n.label}
             </Link>
@@ -41,14 +41,14 @@ export function Header() {
         </nav>
         <Link
           to="/contact"
-          className="hidden lg:inline-flex items-center gap-2 brutal-border brutal-shadow-sm bg-ink px-5 py-2.5 text-sm font-semibold text-cream transition-transform hover:-translate-x-[1px] hover:-translate-y-[1px]"
+          className="hidden lg:inline-flex items-center gap-2 brutal-border brutal-shadow-sm bg-accent-brand px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-orange-600 hover:-translate-x-[1px] hover:-translate-y-[1px]"
         >
           Get in touch <ArrowUpRight className="h-4 w-4" />
         </Link>
         <button
           aria-label="Menu"
           onClick={() => setOpen(!open)}
-          className="lg:hidden brutal-border bg-card p-2"
+          className="lg:hidden brutal-border bg-card p-2 text-foreground"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -61,7 +61,7 @@ export function Header() {
                 key={n.label}
                 to={n.to}
                 onClick={() => setOpen(false)}
-                className="border-b border-ink/10 py-3 font-semibold uppercase tracking-wide"
+                className="border-b border-neutral-800 py-3 font-semibold uppercase tracking-wide text-foreground hover:text-accent-brand"
               >
                 {n.label}
               </Link>
@@ -69,7 +69,7 @@ export function Header() {
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-4 brutal-border bg-ink px-5 py-3 text-center font-semibold text-cream"
+              className="mt-4 brutal-border bg-accent-brand px-5 py-3 text-center font-bold text-white"
             >
               Get in touch
             </Link>

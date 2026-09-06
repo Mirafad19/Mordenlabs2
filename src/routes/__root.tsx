@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { favicon } from "../lib/images-base64";
+import { Preloader } from "@/components/Preloader";
 
 import appCss from "../styles.css?url";
 
@@ -218,7 +219,7 @@ function RootShell({ children }: { children: ReactNode }) {
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <meta
           name="google-site-verification"
@@ -230,7 +231,7 @@ function RootShell({ children }: { children: ReactNode }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgGraph) }}
         />
       </head>
-      <body>
+      <body className="bg-background text-foreground antialiased selection:bg-accent-brand selection:text-white">
         {children}
         <Scripts />
       </body>
@@ -243,6 +244,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Preloader />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

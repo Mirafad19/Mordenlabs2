@@ -157,7 +157,7 @@ function ContactForm() {
         </p>
         <button
           onClick={() => setStatus("idle")}
-          className="mt-8 brutal-border bg-ink px-6 py-3 font-semibold text-cream text-xs uppercase tracking-wider transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px] cursor-pointer"
+          className="mt-8 brutal-border bg-accent-brand px-6 py-3 font-bold text-white text-xs uppercase tracking-wider transition-all hover:bg-orange-600 hover:-translate-x-[2px] hover:-translate-y-[2px] cursor-pointer"
         >
           Send another message
         </button>
@@ -167,13 +167,13 @@ function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="brutal-border brutal-shadow-lg bg-card p-6 md:p-10">
-      <h2 className="font-display text-2xl font-bold md:text-3xl">Start your project</h2>
+      <h2 className="font-display text-2xl font-bold md:text-3xl text-white">Start your project</h2>
       <p className="mt-2 text-sm text-muted-foreground">
         Tell us what you're building. We'll get back within 24 hours.
       </p>
 
       {status === "error" && (
-        <div className="mt-4 p-3 rounded bg-rose-500/10 border border-rose-500/30 text-rose-600 text-xs font-semibold">
+        <div className="mt-4 p-3 rounded bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-semibold">
           {errorMessage}
         </div>
       )}
@@ -202,13 +202,13 @@ function ContactForm() {
           required
           rows={5}
           placeholder="Tell us about your project, goals, and how we can help *"
-          className="w-full brutal-border bg-background px-4 py-3 font-sans text-sm text-ink placeholder:text-muted-foreground focus:outline-none focus:brutal-shadow-sm"
+          className="w-full brutal-border bg-background px-4 py-3 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:brutal-shadow-sm"
         />
       </div>
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 brutal-border brutal-shadow bg-ink px-6 py-4 font-semibold text-cream transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px] disabled:opacity-50 disabled:cursor-not-allowed sm:w-auto cursor-pointer"
+        className="mt-6 inline-flex w-full items-center justify-center gap-2 brutal-border brutal-shadow bg-accent-brand px-6 py-4 font-bold text-white transition-all hover:bg-orange-600 hover:-translate-x-[2px] hover:-translate-y-[2px] disabled:opacity-50 disabled:cursor-not-allowed sm:w-auto cursor-pointer"
       >
         {status === "submitting" ? "Sending..." : "Send message"}
         <ArrowRight className="h-5 w-5" />
@@ -221,7 +221,7 @@ function Field(props: React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
       {...props}
-      className="w-full brutal-border bg-background px-4 py-3 font-sans text-sm text-ink placeholder:text-muted-foreground focus:outline-none focus:brutal-shadow-sm"
+      className="w-full brutal-border bg-background px-4 py-3 font-sans text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:brutal-shadow-sm"
     />
   );
 }
@@ -232,7 +232,7 @@ function Select(
   return (
     <select
       {...props}
-      className="w-full brutal-border bg-background px-4 py-3 font-sans text-sm text-ink focus:outline-none focus:brutal-shadow-sm"
+      className="w-full brutal-border bg-background px-4 py-3 font-sans text-sm text-foreground focus:outline-none focus:brutal-shadow-sm"
     >
       {props.children}
     </select>

@@ -208,7 +208,7 @@ function TermsPage() {
                 Updated: September 2026
               </span>
             </div>
-            <h1 className="font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl">
+            <h1 className="font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl text-white">
               Terms & Conditions
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
@@ -236,23 +236,23 @@ function TermsPage() {
                     <span className="font-mono text-xs font-bold text-accent-brand bg-accent-brand/10 px-2.5 py-1 rounded">
                       SECTION {sec.num}
                     </span>
-                    <h2 className="font-display text-2xl font-bold">{sec.title}</h2>
+                    <h2 className="font-display text-2xl font-bold text-white">{sec.title}</h2>
                   </div>
                   <div className="mt-4">{sec.content}</div>
                 </motion.div>
               ))}
 
               {/* Direct Legal Contact Card */}
-              <div className="p-8 lg:p-10 brutal-border bg-ink text-cream">
+              <div className="p-8 lg:p-10 brutal-border bg-card text-foreground">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                   <div>
                     <div className="flex items-center gap-2 text-accent-brand font-mono text-xs font-bold uppercase tracking-wider mb-2">
                       <Shield className="h-4 w-4" /> Questions About Terms?
                     </div>
-                    <h3 className="font-display text-2xl font-bold text-cream">
+                    <h3 className="font-display text-2xl font-bold text-white">
                       Legal &amp; Contract Inquiries
                     </h3>
-                    <p className="mt-2 text-sm text-cream/70 max-w-md">
+                    <p className="mt-2 text-sm text-muted-foreground max-w-md">
                       If you have questions about these terms or require a custom Master Services
                       Agreement (MSA), reach out to us directly.
                     </p>
@@ -260,14 +260,14 @@ function TermsPage() {
                   <div className="flex flex-col sm:flex-row gap-3 shrink-0">
                     <a
                       href="mailto:support@mordenlabs.com.ng?subject=Legal%20Inquiry"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3.5 brutal-border bg-accent-brand text-white font-mono text-sm font-bold hover:bg-white hover:text-ink transition-colors"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3.5 brutal-border bg-accent-brand text-white font-mono text-sm font-bold hover:bg-orange-600 transition-colors"
                     >
                       <Mail className="h-4 w-4" />
                       support@mordenlabs.com.ng
                     </a>
                     <Link
                       to="/contact"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3.5 brutal-border bg-card text-ink font-mono text-sm font-bold hover:bg-muted transition-colors"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3.5 brutal-border bg-background text-foreground font-mono text-sm font-bold hover:bg-neutral-800 transition-colors"
                     >
                       Contact Studio
                     </Link>

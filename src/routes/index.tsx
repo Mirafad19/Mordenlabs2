@@ -52,9 +52,9 @@ function Hero() {
     <section className="relative overflow-hidden border-b-2 border-ink bg-background py-20 lg:py-32">
       {/* Background elegant grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+        className="absolute inset-0 opacity-[0.035] pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, black 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
       />
@@ -74,7 +74,7 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem] text-neutral-900"
+            className="font-display text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem] text-white"
           >
             We build software <br className="hidden sm:inline" />
             that moves <br className="hidden sm:inline" />
@@ -98,19 +98,19 @@ function Hero() {
             transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm sm:text-base font-medium text-muted-foreground"
           >
-            <span className="flex items-center gap-2 text-neutral-900 font-semibold">
+            <span className="flex items-center gap-2 text-white font-semibold">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Custom AI
             </span>
-            <span className="text-neutral-300">•</span>
-            <span className="flex items-center gap-2 text-neutral-900 font-semibold">
+            <span className="text-neutral-600">•</span>
+            <span className="flex items-center gap-2 text-white font-semibold">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Web Platforms
             </span>
-            <span className="text-neutral-300">•</span>
-            <span className="flex items-center gap-2 text-neutral-900 font-semibold">
+            <span className="text-neutral-600">•</span>
+            <span className="flex items-center gap-2 text-white font-semibold">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Automation
             </span>
-            <span className="text-neutral-300">•</span>
-            <span className="flex items-center gap-2 text-neutral-900 font-semibold">
+            <span className="text-neutral-600">•</span>
+            <span className="flex items-center gap-2 text-white font-semibold">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-brand" /> Mobile Apps
             </span>
           </motion.div>
@@ -125,7 +125,7 @@ function Hero() {
               <motion.button
                 whileHover="hover"
                 initial="initial"
-                className="inline-flex items-center gap-2.5 brutal-border brutal-shadow bg-ink px-8 py-4 font-bold text-cream transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] cursor-pointer text-base"
+                className="inline-flex items-center gap-2.5 brutal-border brutal-shadow bg-accent-brand px-8 py-4 font-bold text-white transition-all duration-300 hover:bg-orange-600 hover:-translate-x-[2px] hover:-translate-y-[2px] cursor-pointer text-base"
               >
                 Start a project
                 <motion.span
@@ -135,7 +135,7 @@ function Hero() {
                   }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  <ArrowUpRight className="h-5 w-5 text-accent-brand" />
+                  <ArrowUpRight className="h-5 w-5 text-white" />
                 </motion.span>
               </motion.button>
             </Link>
@@ -144,7 +144,7 @@ function Hero() {
               <motion.button
                 whileHover="hover"
                 initial="initial"
-                className="inline-flex items-center gap-2.5 brutal-border bg-card px-8 py-4 font-bold transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:brutal-shadow cursor-pointer text-base"
+                className="inline-flex items-center gap-2.5 brutal-border bg-card px-8 py-4 font-bold text-foreground transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:brutal-shadow cursor-pointer text-base hover:border-neutral-700"
               >
                 See our work
                 <motion.span
@@ -165,7 +165,7 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-12 pt-8 border-t border-ink/10 flex flex-wrap items-center gap-6 sm:gap-10 text-xs sm:text-sm text-muted-foreground font-mono"
+            className="mt-12 pt-8 border-t border-neutral-800 flex flex-wrap items-center gap-6 sm:gap-10 text-xs sm:text-sm text-muted-foreground font-mono"
           >
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -182,20 +182,12 @@ function Hero() {
 
 function Highlights() {
   return (
-    <section className="border-b-2 border-ink bg-ink py-16 lg:py-24 text-cream relative overflow-hidden">
-      {/* Grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.02] pointer-events-none"
-        style={{
-          backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      />
+    <section className="border-b-2 border-ink bg-white py-16 lg:py-24 text-neutral-900 relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-5 lg:px-8 relative z-10">
-        <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-b border-neutral-800 pb-6">
+        <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-b border-neutral-200 pb-6">
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-accent-brand" />
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-neutral-400">
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-neutral-700">
               Studio Benchmarks & Standards
             </span>
           </div>
@@ -211,9 +203,9 @@ function Highlights() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="p-5 rounded-xl bg-neutral-900/40 border border-neutral-800"
+              className="p-5 rounded-xl bg-neutral-50 border border-neutral-200 shadow-sm"
             >
-              <div className="font-display text-4xl font-extrabold md:text-5xl text-white">
+              <div className="font-display text-4xl font-extrabold md:text-5xl text-neutral-950">
                 <AnimatedNumber value={s.value} />
               </div>
               <div className="mt-2 text-xs font-mono font-bold uppercase tracking-wider text-accent-brand">
@@ -236,7 +228,7 @@ function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-4xl font-black leading-[1.05] md:text-6xl text-neutral-900"
+          className="font-display text-4xl font-black leading-[1.05] md:text-6xl text-white"
         >
           Ready to build something exceptional?
         </motion.h2>
@@ -263,8 +255,8 @@ function CTA() {
             "Weekly live demos & rapid iteration",
             "Long-term engineering partnership",
           ].map((f) => (
-            <li key={f} className="flex items-center gap-3 text-sm font-semibold">
-              <span className="grid h-6 w-6 shrink-0 place-items-center brutal-border bg-accent-brand text-cream">
+            <li key={f} className="flex items-center gap-3 text-sm font-semibold text-foreground">
+              <span className="grid h-6 w-6 shrink-0 place-items-center brutal-border bg-accent-brand text-white">
                 <Check className="h-3.5 w-3.5 stroke-[3px]" />
               </span>
               {f}
@@ -283,7 +275,7 @@ function CTA() {
             <motion.button
               whileHover="hover"
               initial="initial"
-              className="inline-flex items-center gap-2.5 brutal-border brutal-shadow bg-ink px-8 py-4 font-extrabold text-cream transition-transform duration-300 hover:-translate-x-[2px] hover:-translate-y-[2px] cursor-pointer text-base"
+              className="inline-flex items-center gap-2.5 brutal-border brutal-shadow bg-accent-brand px-8 py-4 font-extrabold text-white transition-all duration-300 hover:bg-orange-600 hover:-translate-x-[2px] hover:-translate-y-[2px] cursor-pointer text-base"
             >
               Start a project
               <motion.span
@@ -293,7 +285,7 @@ function CTA() {
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <ArrowUpRight className="h-5 w-5 text-accent-brand" />
+                <ArrowUpRight className="h-5 w-5 text-white" />
               </motion.span>
             </motion.button>
           </Link>

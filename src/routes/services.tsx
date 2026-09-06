@@ -65,20 +65,19 @@ function ServicesPage() {
 
         <CapabilitiesScroll />
 
-        <section className="border-b-2 border-ink bg-ink py-20 text-cream lg:py-24">
+        <section className="border-b-2 border-ink bg-card py-20 text-foreground lg:py-24">
           <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-5 md:flex-row md:items-center lg:px-8">
             <div>
-              <h2 className="font-display text-3xl font-bold md:text-5xl">
+              <h2 className="font-display text-3xl font-bold md:text-5xl text-white">
                 Have a project in mind?
               </h2>
-              <p className="mt-3 max-w-lg text-cream/70">
+              <p className="mt-3 max-w-lg text-muted-foreground">
                 Tell us what you're building. We'll come back within 24 hours with next steps.
               </p>
             </div>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 brutal-border bg-accent-brand px-6 py-3.5 font-semibold text-cream transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px]"
-              style={{ boxShadow: "5px 5px 0 0 #F5F1EA" }}
+              className="inline-flex items-center gap-2 brutal-border brutal-shadow bg-accent-brand px-6 py-3.5 font-bold text-white transition-all hover:bg-orange-600 hover:-translate-x-[2px] hover:-translate-y-[2px]"
             >
               Start a conversation <ArrowUpRight className="h-5 w-5" />
             </Link>

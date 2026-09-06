@@ -173,7 +173,7 @@ export function ProjectVault() {
   const activeProject = SHOWCASE_PROJECTS[activeIdx];
 
   return (
-    <section className="relative overflow-hidden border-b-2 border-ink bg-neutral-950 text-cream py-20 lg:py-28 select-none">
+    <section className="relative overflow-hidden border-b-2 border-ink bg-card text-foreground py-20 lg:py-28 select-none">
       {/* Background Radial Grid */}
       <div
         className="absolute inset-0 opacity-15 pointer-events-none"

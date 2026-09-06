@@ -74,32 +74,32 @@ function WorkPage() {
                 className="grid gap-0 overflow-hidden brutal-border brutal-shadow-lg bg-card md:grid-cols-5"
               >
                 <div
-                  className={`flex items-center justify-center border-ink bg-cream p-10 md:col-span-2 ${
+                  className={`flex items-center justify-center bg-white p-8 sm:p-12 md:p-14 md:col-span-2 min-h-[200px] md:min-h-[280px] border-ink ${
                     i % 2 === 1 ? "md:order-2 md:border-l-2" : "md:border-r-2"
                   }`}
                 >
                   <img
                     src={p.logo}
                     alt={`${p.name} logo`}
-                    className="max-h-40 w-auto max-w-full object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-105"
+                    className="max-h-24 sm:max-h-32 md:max-h-36 w-auto max-w-[85%] object-contain transition-transform duration-300 hover:scale-105"
                   />
                 </div>
                 <div className="flex flex-col gap-4 p-8 md:col-span-3 md:p-12">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="brutal-border bg-background px-3 py-1 font-mono text-xs font-bold uppercase">
+                    <span className="brutal-border bg-background px-3 py-1 font-mono text-xs font-bold uppercase text-foreground">
                       {p.category}
                     </span>
                     {p.badge && (
-                      <span className="brutal-border bg-accent-brand px-3 py-1 font-mono text-xs font-bold uppercase text-cream">
+                      <span className="brutal-border bg-accent-brand px-3 py-1 font-mono text-xs font-bold uppercase text-white">
                         {p.badge}
                       </span>
                     )}
                   </div>
-                  <h2 className="font-display text-3xl font-bold leading-tight md:text-4xl">
+                  <h2 className="font-display text-3xl font-bold leading-tight md:text-4xl text-white">
                     {p.name}
                   </h2>
                   <div className="text-sm font-semibold text-muted-foreground">
-                    Client: <span className="text-ink">{p.client}</span>
+                    Client: <span className="text-white font-semibold">{p.client}</span>
                   </div>
                   <p className="text-base leading-relaxed text-muted-foreground">{p.description}</p>
                   <div>
@@ -110,7 +110,7 @@ function WorkPage() {
                       {p.technologies.map((t) => (
                         <span
                           key={t}
-                          className="brutal-border bg-background px-3 py-1 text-xs font-medium"
+                          className="brutal-border bg-background px-3 py-1 text-xs font-medium text-foreground"
                         >
                           {t}
                         </span>
@@ -123,18 +123,18 @@ function WorkPage() {
           </div>
         </section>
 
-        <section className="border-b-2 border-ink bg-ink py-20 text-cream lg:py-24">
+        <section className="border-b-2 border-ink bg-card py-20 text-foreground lg:py-24">
           <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
-            <h2 className="font-display text-4xl font-bold md:text-5xl">
+            <h2 className="font-display text-4xl font-bold md:text-5xl text-white">
               Your project could be next.
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-cream/70">
+            <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
               We take on a limited number of engagements each quarter. If your problem sounds like
               something we can help with, let's talk.
             </p>
             <Link
               to="/contact"
-              className="mt-8 inline-flex items-center gap-2 brutal-border bg-accent-brand px-6 py-3.5 font-semibold text-cream transition-transform hover:-translate-x-[2px] hover:-translate-y-[2px]"
+              className="mt-8 inline-flex items-center gap-2 brutal-border bg-accent-brand px-6 py-3.5 font-bold text-white transition-all hover:bg-orange-600 hover:-translate-x-[2px] hover:-translate-y-[2px]"
             >
               Get in touch <ArrowUpRight className="h-5 w-5" />
             </Link>
