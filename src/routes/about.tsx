@@ -326,16 +326,29 @@ function AboutPage() {
           </div>
         </section>
 
-        <section className="border-b-2 border-ink bg-ink py-20 text-cream lg:py-24">
-          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-5 md:grid-cols-4 lg:px-8">
-            {STATS.map((s) => (
-              <div key={s.label}>
-                <div className="font-display text-4xl font-bold md:text-5xl">{s.value}</div>
-                <div className="mt-2 text-xs font-semibold uppercase tracking-wider text-cream/60">
-                  {s.label}
-                </div>
+        <section className="border-b-2 border-ink bg-ink py-16 text-cream lg:py-24">
+          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+            <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-b border-neutral-800 pb-6">
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-accent-brand" />
+                <span className="font-mono text-xs font-bold uppercase tracking-widest text-neutral-400">
+                  Engineering Benchmarks
+                </span>
               </div>
-            ))}
+              <span className="font-mono text-xs text-neutral-500">
+                Lagos & London Engineering Delivery
+              </span>
+            </div>
+            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+              {STATS.map((s) => (
+                <div key={s.label}>
+                  <div className="font-display text-4xl font-bold md:text-5xl">{s.value}</div>
+                  <div className="mt-2 text-xs font-mono font-bold uppercase tracking-wider text-accent-brand">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

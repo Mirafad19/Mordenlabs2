@@ -42,14 +42,14 @@
 
 :root {
   --radius: 0px;
-  --ink: oklch(0.18 0.01 60);
-  --cream: oklch(0.96 0.012 80);
-  --bone: oklch(0.92 0.012 80);
-  --accent-brand: oklch(0.62 0.18 38);
+  --ink: oklch(0.14 0.015 255);
+  --cream: oklch(0.985 0.002 240);
+  --bone: oklch(0.95 0.004 240);
+  --accent-brand: oklch(0.62 0.19 38);
 
   --background: var(--cream);
   --foreground: var(--ink);
-  --card: oklch(0.99 0.005 80);
+  --card: oklch(1 0 0);
   --card-foreground: var(--ink);
   --popover: oklch(1 0 0);
   --popover-foreground: var(--ink);
@@ -58,7 +58,7 @@
   --secondary: var(--bone);
   --secondary-foreground: var(--ink);
   --muted: var(--bone);
-  --muted-foreground: oklch(0.45 0.01 60);
+  --muted-foreground: oklch(0.46 0.015 255);
   --accent: var(--accent-brand);
   --accent-foreground: var(--cream);
   --destructive: oklch(0.55 0.22 25);

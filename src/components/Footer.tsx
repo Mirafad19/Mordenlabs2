@@ -55,11 +55,13 @@ export function Footer() {
               needle. We're a partner, not a vendor.
             </p>
 
-            {/* Social Proof Badge */}
+            {/* Studio Engineering Badge */}
             <div className="mt-6 inline-flex flex-col gap-1.5 brutal-border bg-card p-3.5 rounded-xl">
               <div className="flex items-center gap-1.5 text-accent-brand">
                 <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                <span className="text-xs font-bold text-neutral-900">Active Live Deployments</span>
+                <span className="text-xs font-bold text-neutral-900">
+                  Production-Grade Engineering
+                </span>
               </div>
               <p className="text-xs font-medium text-muted-foreground">
                 Trusted by organizations in{" "}

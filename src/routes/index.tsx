@@ -182,33 +182,46 @@ function Hero() {
 
 function Highlights() {
   return (
-    <section className="border-b-2 border-ink bg-ink py-20 lg:py-28 text-cream relative overflow-hidden">
+    <section className="border-b-2 border-ink bg-ink py-16 lg:py-24 text-cream relative overflow-hidden">
       {/* Grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.015] pointer-events-none"
+        className="absolute inset-0 opacity-[0.02] pointer-events-none"
         style={{
           backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
       />
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-5 md:grid-cols-4 lg:px-8 relative z-10 text-left">
-        {STATS.map((s, idx) => (
-          <motion.div
-            key={s.label}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="p-4 rounded-xl bg-neutral-900/40 border border-neutral-800"
-          >
-            <div className="font-display text-4xl font-extrabold md:text-5xl text-white">
-              <AnimatedNumber value={s.value} />
-            </div>
-            <div className="mt-2 text-xs font-mono font-bold uppercase tracking-wider text-accent-brand">
-              {s.label}
-            </div>
-          </motion.div>
-        ))}
+      <div className="mx-auto max-w-7xl px-5 lg:px-8 relative z-10">
+        <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-b border-neutral-800 pb-6">
+          <div className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-accent-brand" />
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-neutral-400">
+              Studio Benchmarks & Standards
+            </span>
+          </div>
+          <span className="font-mono text-xs text-neutral-500">
+            Zero vendor lock-in · Full IP transfer
+          </span>
+        </div>
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:gap-8 text-left">
+          {STATS.map((s, idx) => (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="p-5 rounded-xl bg-neutral-900/40 border border-neutral-800"
+            >
+              <div className="font-display text-4xl font-extrabold md:text-5xl text-white">
+                <AnimatedNumber value={s.value} />
+              </div>
+              <div className="mt-2 text-xs font-mono font-bold uppercase tracking-wider text-accent-brand">
+                {s.label}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

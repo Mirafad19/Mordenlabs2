@@ -83,10 +83,10 @@ export const PROJECTS = [
 ];
 
 export const STATS = [
-  { value: "3", label: "Live deployments" },
+  { value: "99.9%", label: "Production reliability" },
+  { value: "2–6 wks", label: "Average turnaround" },
   { value: "UK & NG", label: "Active markets" },
-  { value: "100%", label: "On-time delivery" },
-  { value: "24/7", label: "Production support" },
+  { value: "100%", label: "Code & IP ownership" },
 ];
 
 export const LEADERSHIP = {
