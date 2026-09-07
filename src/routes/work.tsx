@@ -117,6 +117,19 @@ function WorkPage() {
                       ))}
                     </div>
                   </div>
+                  {p.url && (
+                    <div className="pt-3">
+                      <a
+                        href={p.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 brutal-border bg-accent-brand px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-orange-600 hover:-translate-x-[2px] hover:-translate-y-[2px]"
+                      >
+                        <span>Visit Live Project</span>
+                        <ArrowUpRight className="h-4 w-4" />
+                      </a>
+                    </div>
+                  )}
                 </div>
               </motion.article>
             ))}

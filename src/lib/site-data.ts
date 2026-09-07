@@ -46,6 +46,8 @@ export const PROJECTS = [
     name: "PSSDC AI Conversational Service Assistant",
     category: "Government AI Platform",
     client: "Lagos State Public Service Staff Development Centre (PSSDC), Nigeria",
+    url: "https://pssdc.ng",
+    displayUrl: "pssdc.ng",
     description:
       "Designed, developed, and deployed an intelligent AI conversational assistant that supports both voice and text interactions. The assistant answers user questions, intelligently navigates visitors to relevant pages, and performs website actions to improve digital service delivery. This project earned an official Letter of Recommendation from PSSDC.",
     technologies: ["Conversational AI", "Voice AI", "AI Automation", "Website Integration"],
@@ -57,6 +59,8 @@ export const PROJECTS = [
     name: "TidyScot Platform, Mobile App & AI Assistant",
     category: "Business Web, Mobile App & AI",
     client: "TidyScot, Scotland, UK",
+    url: "https://tidyscot.co.uk",
+    displayUrl: "tidyscot.co.uk",
     description:
       "Designed and developed a modern business web platform and native mobile app with an integrated AI customer assistant that provides instant quotes, booking management, and 24/7 customer engagement.",
     technologies: [
@@ -74,6 +78,8 @@ export const PROJECTS = [
     name: "Citicare Health Integrated Solutions",
     category: "Healthcare Website & CRM",
     client: "Citicare Health Integrated Solutions, Lagos, Nigeria",
+    url: "https://citicarehealth.com",
+    displayUrl: "citicarehealth.com",
     description:
       "Built a professional healthcare website and a custom CRM platform that streamlines patient enquiries, improves internal workflows, and enhances the digital experience for administrators and clients.",
     technologies: ["Custom CRM", "Web Development", "Database Design", "Business Automation"],

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
 interface RotatingEarthProps {
@@ -25,10 +25,120 @@ interface GeoJsonData {
   features: GeoJsonFeature[];
 }
 
+interface DotData {
+  lng: number;
+  lat: number;
+  visible: boolean;
+}
+
+const pointInPolygon = (point: [number, number], polygon: GeoCoordinate[]): boolean => {
+  const [x, y] = point;
+  let inside = false;
+  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+    const [xi, yi] = polygon[i];
+    const [xj, yj] = polygon[j];
+    if (yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) {
+      inside = !inside;
+    }
+  }
+  return inside;
+};
+
+const pointInFeature = (point: [number, number], feature: GeoJsonFeature): boolean => {
+  const geometry = feature.geometry;
+  if (geometry.type === "Polygon") {
+    const coordinates = geometry.coordinates as GeoPolygon;
+    if (!pointInPolygon(point, coordinates[0])) return false;
+    for (let i = 1; i < coordinates.length; i++) {
+      if (pointInPolygon(point, coordinates[i])) return false;
+    }
+    return true;
+  } else if (geometry.type === "MultiPolygon") {
+    const coordinates = geometry.coordinates as GeoMultiPolygon;
+    for (const polygon of coordinates) {
+      if (pointInPolygon(point, polygon[0])) {
+        let inHole = false;
+        for (let i = 1; i < polygon.length; i++) {
+          if (pointInPolygon(point, polygon[i])) {
+            inHole = true;
+            break;
+          }
+        }
+        if (!inHole) return true;
+      }
+    }
+    return false;
+  }
+  return false;
+};
+
+const generateDotsInPolygon = (feature: GeoJsonFeature, dotSpacing = 17) => {
+  const dots: [number, number][] = [];
+  const bounds = d3.geoBounds(feature as unknown as d3.GeoPermissibleObjects);
+  const [[minLng, minLat], [maxLng, maxLat]] = bounds;
+  const stepSize = dotSpacing * 0.11;
+
+  for (let lng = minLng; lng <= maxLng; lng += stepSize) {
+    for (let lat = minLat; lat <= maxLat; lat += stepSize) {
+      const point: [number, number] = [lng, lat];
+      if (pointInFeature(point, feature)) {
+        dots.push(point);
+      }
+    }
+  }
+  return dots;
+};
+
+// Module-level cache so map data is ready instantly across mounts and navigation
+let cachedLandFeatures: GeoJsonData | null = null;
+let cachedDots: DotData[] = [];
+let loadPromise: Promise<void> | null = null;
+
+function prefetchAndProcessWorldData(): Promise<void> {
+  if (cachedLandFeatures && cachedDots.length > 0) {
+    return Promise.resolve();
+  }
+  if (loadPromise) return loadPromise;
+
+  loadPromise = (async () => {
+    try {
+      let response = await fetch("/ne_110m_land.json").catch(() => null);
+      if (!response || !response.ok) {
+        response = await fetch(
+          "https://raw.githubusercontent.com/martynafford/natural-earth-geojson/refs/heads/master/110m/physical/ne_110m_land.json",
+        ).catch(() => null);
+      }
+      if (!response || !response.ok) return;
+
+      const data = (await response.json()) as GeoJsonData;
+      cachedLandFeatures = data;
+
+      if (data && data.features) {
+        const dots: DotData[] = [];
+        data.features.forEach((feature) => {
+          const polyDots = generateDotsInPolygon(feature, 17);
+          polyDots.forEach(([lng, lat]) => {
+            dots.push({ lng, lat, visible: true });
+          });
+        });
+        cachedDots = dots;
+      }
+    } catch (err) {
+      console.warn("World data failed to load:", err);
+    }
+  })();
+
+  return loadPromise;
+}
+
+// Prefetch immediately on client startup
+if (typeof window !== "undefined") {
+  prefetchAndProcessWorldData();
+}
+
 export default function RotatingEarth({ className = "" }: RotatingEarthProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -88,72 +198,8 @@ export default function RotatingEarth({ className = "" }: RotatingEarthProps) {
     });
     resizeObserver.observe(container);
 
-    const pointInPolygon = (point: [number, number], polygon: GeoCoordinate[]): boolean => {
-      const [x, y] = point;
-      let inside = false;
-      for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-        const [xi, yi] = polygon[i];
-        const [xj, yj] = polygon[j];
-        if (yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) {
-          inside = !inside;
-        }
-      }
-      return inside;
-    };
-
-    const pointInFeature = (point: [number, number], feature: GeoJsonFeature): boolean => {
-      const geometry = feature.geometry;
-      if (geometry.type === "Polygon") {
-        const coordinates = geometry.coordinates as GeoPolygon;
-        if (!pointInPolygon(point, coordinates[0])) return false;
-        for (let i = 1; i < coordinates.length; i++) {
-          if (pointInPolygon(point, coordinates[i])) return false;
-        }
-        return true;
-      } else if (geometry.type === "MultiPolygon") {
-        const coordinates = geometry.coordinates as GeoMultiPolygon;
-        for (const polygon of coordinates) {
-          if (pointInPolygon(point, polygon[0])) {
-            let inHole = false;
-            for (let i = 1; i < polygon.length; i++) {
-              if (pointInPolygon(point, polygon[i])) {
-                inHole = true;
-                break;
-              }
-            }
-            if (!inHole) return true;
-          }
-        }
-        return false;
-      }
-      return false;
-    };
-
-    const generateDotsInPolygon = (feature: GeoJsonFeature, dotSpacing = 16) => {
-      const dots: [number, number][] = [];
-      const bounds = d3.geoBounds(feature as unknown as d3.GeoPermissibleObjects);
-      const [[minLng, minLat], [maxLng, maxLat]] = bounds;
-      const stepSize = dotSpacing * 0.11;
-
-      for (let lng = minLng; lng <= maxLng; lng += stepSize) {
-        for (let lat = minLat; lat <= maxLat; lat += stepSize) {
-          const point: [number, number] = [lng, lat];
-          if (pointInFeature(point, feature)) {
-            dots.push(point);
-          }
-        }
-      }
-      return dots;
-    };
-
-    interface DotData {
-      lng: number;
-      lat: number;
-      visible: boolean;
-    }
-
-    const allDots: DotData[] = [];
-    let landFeatures: GeoJsonData | null = null;
+    let allDots: DotData[] = cachedDots;
+    let landFeatures: GeoJsonData | null = cachedLandFeatures;
 
     const render = () => {
       if (isDisposed) return;
@@ -171,17 +217,17 @@ export default function RotatingEarth({ className = "" }: RotatingEarthProps) {
       context.lineWidth = 1.6 * scaleFactor;
       context.stroke();
 
-      if (landFeatures) {
-        // Draw coordinate graticule grid
-        const graticule = d3.geoGraticule();
-        context.beginPath();
-        path(graticule() as unknown as d3.GeoPermissibleObjects);
-        context.strokeStyle = "#27272a";
-        context.lineWidth = 0.85 * scaleFactor;
-        context.globalAlpha = 0.45;
-        context.stroke();
-        context.globalAlpha = 1;
+      // Draw coordinate graticule grid lines immediately
+      const graticule = d3.geoGraticule();
+      context.beginPath();
+      path(graticule() as unknown as d3.GeoPermissibleObjects);
+      context.strokeStyle = "#27272a";
+      context.lineWidth = 0.85 * scaleFactor;
+      context.globalAlpha = 0.45;
+      context.stroke();
+      context.globalAlpha = 1;
 
+      if (landFeatures) {
         // Draw land boundaries with strong definition
         context.beginPath();
         landFeatures.features.forEach((feature) => {
@@ -207,71 +253,54 @@ export default function RotatingEarth({ className = "" }: RotatingEarthProps) {
             context.fill();
           }
         });
-
-        // Draw active hubs (Lagos, London) in studio flame orange with pulsing radar rings
-        activeHubs.forEach((hub) => {
-          const coords = projection(hub.coords);
-          if (
-            coords &&
-            coords[0] >= 0 &&
-            coords[0] <= containerWidth &&
-            coords[1] >= 0 &&
-            coords[1] <= containerHeight
-          ) {
-            // Glow ring
-            context.beginPath();
-            context.arc(coords[0], coords[1], 7 * scaleFactor, 0, 2 * Math.PI);
-            context.fillStyle = "rgba(255, 85, 0, 0.28)";
-            context.fill();
-
-            // Center pin
-            context.beginPath();
-            context.arc(coords[0], coords[1], 3.2 * scaleFactor, 0, 2 * Math.PI);
-            context.fillStyle = "#ff5500";
-            context.fill();
-            context.strokeStyle = "#ffffff";
-            context.lineWidth = 1.4 * scaleFactor;
-            context.stroke();
-
-            // Hub tag
-            context.font = `bold ${Math.max(10, Math.round(11 * scaleFactor))}px monospace`;
-            context.fillStyle = "#ffffff";
-            context.fillText(hub.label, coords[0] + 9, coords[1] + 4);
-          }
-        });
       }
+
+      // Draw active hubs (Lagos, London) in studio flame orange with pulsing radar rings
+      activeHubs.forEach((hub) => {
+        const coords = projection(hub.coords);
+        if (
+          coords &&
+          coords[0] >= 0 &&
+          coords[0] <= containerWidth &&
+          coords[1] >= 0 &&
+          coords[1] <= containerHeight
+        ) {
+          // Glow ring
+          context.beginPath();
+          context.arc(coords[0], coords[1], 7 * scaleFactor, 0, 2 * Math.PI);
+          context.fillStyle = "rgba(255, 85, 0, 0.28)";
+          context.fill();
+
+          // Center pin
+          context.beginPath();
+          context.arc(coords[0], coords[1], 3.2 * scaleFactor, 0, 2 * Math.PI);
+          context.fillStyle = "#ff5500";
+          context.fill();
+          context.strokeStyle = "#ffffff";
+          context.lineWidth = 1.4 * scaleFactor;
+          context.stroke();
+
+          // Hub tag
+          context.font = `bold ${Math.max(10, Math.round(11 * scaleFactor))}px monospace`;
+          context.fillStyle = "#ffffff";
+          context.fillText(hub.label, coords[0] + 9, coords[1] + 4);
+        }
+      });
     };
 
-    const loadWorldData = async () => {
-      try {
-        setIsLoading(true);
-        // Load local bundle first, fallback to CDN if necessary
-        let response = await fetch("/ne_110m_land.json").catch(() => null);
-        if (!response || !response.ok) {
-          response = await fetch(
-            "https://raw.githubusercontent.com/martynafford/natural-earth-geojson/refs/heads/master/110m/physical/ne_110m_land.json",
-          );
+    // Render immediately on mount so sphere and coordinates are active from frame 0
+    render();
+
+    // Ensure data is loaded
+    if (!landFeatures || allDots.length === 0) {
+      prefetchAndProcessWorldData().then(() => {
+        if (!isDisposed) {
+          landFeatures = cachedLandFeatures;
+          allDots = cachedDots;
+          render();
         }
-        if (!response.ok) throw new Error("Could not load map data");
-
-        landFeatures = (await response.json()) as GeoJsonData;
-
-        if (landFeatures && landFeatures.features) {
-          landFeatures.features.forEach((feature) => {
-            const dots = generateDotsInPolygon(feature, 17);
-            dots.forEach(([lng, lat]) => {
-              allDots.push({ lng, lat, visible: true });
-            });
-          });
-        }
-
-        render();
-        setIsLoading(false);
-      } catch (err: unknown) {
-        console.warn("World data failed to load:", err);
-        setIsLoading(false);
-      }
-    };
+      });
+    }
 
     // Rotation and interaction controls
     const rotation: [number, number] = [-15, -10];
@@ -366,8 +395,6 @@ export default function RotatingEarth({ className = "" }: RotatingEarthProps) {
     canvas.addEventListener("touchstart", onTouchStart, { passive: true });
     canvas.addEventListener("wheel", onWheel, { passive: false });
 
-    loadWorldData();
-
     return () => {
       isDisposed = true;
       if (rotationTimer) rotationTimer.stop();
@@ -390,13 +417,6 @@ export default function RotatingEarth({ className = "" }: RotatingEarthProps) {
           className="rounded-full select-none"
           style={{ touchAction: "none" }}
         />
-        {isLoading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-transparent rounded-full">
-            <span className="font-mono text-xs text-accent-brand animate-pulse">
-              Calibrating Map...
-            </span>
-          </div>
-        )}
       </div>
     </div>
   );

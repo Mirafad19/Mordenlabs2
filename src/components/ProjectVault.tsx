@@ -69,8 +69,8 @@ export const SHOWCASE_PROJECTS = [
     name: "PSSDC AI Conversational Service Assistant",
     tagline: "Public Sector Portal & Voice AI Assistant",
     client: "Lagos State Public Service Staff Development Centre",
-    url: "https://pssdc.gov.ng",
-    displayUrl: "pssdc.gov.ng",
+    url: "https://pssdc.ng",
+    displayUrl: "pssdc.ng",
     category: "Government & AI",
     metric: "Public Sector Voice & AI",
     description:
@@ -116,8 +116,8 @@ export const SHOWCASE_PROJECTS = [
     name: "Citicare Health",
     tagline: "Healthcare Portal & Clinical CRM",
     client: "Citicare Health Integrated Solutions, Nigeria",
-    url: "https://citicare.ng",
-    displayUrl: "citicare.ng",
+    url: "https://citicarehealth.com",
+    displayUrl: "citicarehealth.com",
     category: "Healthcare & CRM",
     metric: "Healthcare Portal & CRM",
     description:
@@ -260,15 +260,35 @@ export function ProjectVault() {
                     {proj.description}
                   </p>
 
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {proj.badges.map((b) => (
-                      <span
-                        key={b}
-                        className="text-[9px] font-mono font-semibold text-neutral-400 bg-neutral-950 border border-neutral-800 px-2 py-0.5 rounded"
+                  <div className="mt-4 pt-3.5 border-t border-neutral-800/80 flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex flex-wrap gap-1.5">
+                      {proj.badges.map((b) => (
+                        <span
+                          key={b}
+                          className="text-[9px] font-mono font-semibold text-neutral-400 bg-neutral-950 border border-neutral-800 px-2 py-0.5 rounded"
+                        >
+                          {b}
+                        </span>
+                      ))}
+                    </div>
+
+                    {proj.url && (
+                      <a
+                        href={proj.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
+                          isActive
+                            ? "bg-accent-brand text-white shadow-md hover:bg-orange-600"
+                            : "bg-neutral-800 text-neutral-300 hover:bg-accent-brand hover:text-white"
+                        }`}
+                        title={`Visit ${proj.name} live`}
                       >
-                        {b}
-                      </span>
-                    ))}
+                        <span>Visit Website</span>
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      </a>
+                    )}
                   </div>
                 </div>
               );
@@ -277,6 +297,28 @@ export function ProjectVault() {
 
           {/* Right Column: High-Impact Device Stage */}
           <div className="lg:col-span-7 bg-neutral-900/60 brutal-border border-ink rounded-3xl p-4 sm:p-6 md:p-8 flex items-center justify-center relative overflow-hidden min-h-[440px] md:min-h-[500px]">
+            {/* Top Bar with Live Client URL Button */}
+            <div className="absolute top-4 left-4 right-4 z-30 flex items-center justify-between gap-2 pointer-events-auto">
+              <div className="inline-flex items-center gap-2 bg-neutral-950/85 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-neutral-800 text-[11px] font-mono text-neutral-300 shadow-md">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-neutral-400 hidden sm:inline">Active Project:</span>
+                <span className="text-white font-bold truncate max-w-[130px] sm:max-w-none">
+                  {activeProject.name}
+                </span>
+              </div>
+              {activeProject.url && (
+                <a
+                  href={activeProject.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 bg-accent-brand hover:bg-orange-600 text-white backdrop-blur-md px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-mono font-bold transition-all shadow-lg hover:scale-105 cursor-pointer"
+                  title={`Open ${activeProject.url} in new tab`}
+                >
+                  <span>Visit {activeProject.displayUrl}</span>
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              )}
+            </div>
             {/* Ambient Backlight Glow corresponding to project theme */}
             <AnimatePresence mode="wait">
               <motion.div
