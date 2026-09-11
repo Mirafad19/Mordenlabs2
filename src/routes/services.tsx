@@ -22,6 +22,7 @@ export const Route = createFileRoute("/services")({
           "The five disciplines Morden Labs delivers for growing businesses and government partners.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://mordenlabs.com.ng/services" }],
   }),
   component: ServicesPage,
 });

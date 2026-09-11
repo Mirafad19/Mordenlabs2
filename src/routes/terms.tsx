@@ -20,6 +20,7 @@ export const Route = createFileRoute("/terms")({
           "Clear, transparent engineering terms covering intellectual property ownership, milestone delivery, and client confidentiality.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://mordenlabs.com.ng/terms" }],
   }),
   component: TermsPage,
 });

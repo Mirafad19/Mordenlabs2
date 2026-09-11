@@ -20,6 +20,7 @@ export const Route = createFileRoute("/privacy")({
           "Enterprise privacy standards, NDPR and GDPR alignment, and responsible data engineering by Morden Labs.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://mordenlabs.com.ng/privacy" }],
   }),
   component: PrivacyPage,
 });

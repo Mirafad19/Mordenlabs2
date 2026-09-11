@@ -26,6 +26,7 @@ export const Route = createFileRoute("/")({
         content: "Custom AI, Web platforms, Automation & Mobile apps.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://mordenlabs.com.ng" }],
   }),
   component: HomePage,
 });

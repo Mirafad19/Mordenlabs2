@@ -21,6 +21,7 @@ export const Route = createFileRoute("/work")({
           "Selected client work across government AI, business websites, and custom CRM platforms.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://mordenlabs.com.ng/work" }],
   }),
   component: WorkPage,
 });

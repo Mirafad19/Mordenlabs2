@@ -25,6 +25,7 @@ export const Route = createFileRoute("/about")({
           "Meet Fadahunsi Miracle, Founder & CEO at Morden Labs. Engineering digital products with taste, velocity, and real stakes.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://mordenlabs.com.ng/about" }],
   }),
   component: AboutPage,
 });

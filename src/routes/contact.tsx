@@ -16,6 +16,7 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: "Contact | Morden Labs" },
       { property: "og:description", content: "Reach out: we reply within 24 hours." },
     ],
+    links: [{ rel: "canonical", href: "https://mordenlabs.com.ng/contact" }],
   }),
   component: ContactPage,
 });
