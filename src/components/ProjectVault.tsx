@@ -21,6 +21,49 @@ import { Link } from "@tanstack/react-router";
 
 export const SHOWCASE_PROJECTS = [
   {
+    id: "dumpit",
+    name: "Dumpit",
+    tagline: "Gesture-Controlled File Transfer",
+    client: "Fadahunsi Miracle (Founder's Product)",
+    url: "https://www.dumpit.tech/",
+    displayUrl: "dumpit.tech",
+    category: "Camera-Based File Transfer",
+    metric: "FOUNDER’S PRODUCT",
+    description:
+      "A breakthrough browser app turning file sharing into visible hand gestures. Grab files with a fist, open hand to catch over local Wi-Fi with no accounts or cloud storage required.",
+    badges: ["FOUNDER'S PRODUCT", "WEBRTC", "MEDIAPIPE", "NO CLOUD"],
+    color: "#06b6d4", // Cyan
+    accentBg: "bg-cyan-500/10 border-cyan-500/30 text-cyan-400",
+    desktopMockup:
+      "https://www.image2url.com/r2/default/images/1791490168952-24535275-38fc-4f9c-b69a-a80482aafe53.png",
+    mobileMockup: null,
+    phoneScreen: {
+      title: "Dumpit P2P Room",
+      status: "GESTURE ACTIVE",
+      chat: [
+        { sender: "user", text: "Staged files ready in private room." },
+        {
+          sender: "ai",
+          text: "Fist detected ✊ — Files grabbed! Receiver opens hand to catch ✋",
+        },
+      ],
+      actionText: "Send via Hand Gesture",
+    },
+    laptopScreen: {
+      header: "Dumpit Peer-to-Peer Transfer Engine",
+      stats: [
+        { label: "P2P Data Channel", val: "WebRTC" },
+        { label: "Cloud Uploads", val: "0 bytes" },
+        { label: "Security & Privacy", val: "100% Local" },
+      ],
+      recent: [
+        { name: "Camera Hand Tracking (MediaPipe)", price: "ACTIVE", status: "TRACKING" },
+        { name: "Local Wi-Fi P2P Mesh", price: "DIRECT", status: "CONNECTED" },
+        { name: "Zero-Account Room Encryption", price: "NO LOGIN", status: "PRIVATE" },
+      ],
+    },
+  },
+  {
     id: "tidyscot",
     name: "TidyScot",
     tagline: "Commercial Web, Mobile App & AI Engine",
@@ -347,7 +390,11 @@ export function ProjectVault() {
                   <div className="w-full flex flex-row items-center justify-center gap-2 sm:gap-4 relative py-2">
                     {/* Desktop Mockup - Large & Bold */}
                     {activeProject.desktopMockup && (
-                      <div className="relative flex-1 flex items-center justify-center max-w-[75%] transition-transform duration-500 hover:scale-[1.02]">
+                      <div
+                        className={`relative flex-1 flex items-center justify-center ${
+                          activeProject.mobileMockup ? "max-w-[75%]" : "max-w-[95%] sm:max-w-[88%]"
+                        } transition-transform duration-500 hover:scale-[1.02]`}
+                      >
                         <img
                           src={activeProject.desktopMockup}
                           alt={`${activeProject.name} Desktop Showcase`}

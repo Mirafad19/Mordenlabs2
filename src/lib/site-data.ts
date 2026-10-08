@@ -42,6 +42,30 @@ export const SERVICES: {
 
 export const PROJECTS = [
   {
+    slug: "dumpit",
+    name: "Dumpit: Gesture-Controlled File Transfer",
+    category: "CAMERA-BASED FILE TRANSFER",
+    ownershipBadge: "FOUNDER’S PRODUCT",
+    badge: "FOUNDER’S PRODUCT",
+    creatorLine: "Creator: Fadahunsi Miracle, Founder of Morden Labs",
+    client: "In-House Innovation · Fadahunsi Miracle, Founder of Morden Labs",
+    url: "https://www.dumpit.tech/",
+    displayUrl: "dumpit.tech",
+    description:
+      "Designed, developed, and launched Dumpit, a browser-based application that turns file sharing into a visible hand gesture. Users stage files, create a private room, and share a code with receiving devices. The sender grabs with a fist, and receivers open their hands to catch the files. Transfers run directly between connected devices on the same Wi-Fi, with no account or cloud storage required.",
+    technologies: [
+      "Web Development",
+      "WebRTC",
+      "MediaPipe Hand Tracking",
+      "Real-Time Signaling",
+      "Responsive Design",
+    ],
+    buttonText: "VISIT LIVE PROJECT",
+    logo: "https://www.image2url.com/r2/default/images/1791490168952-24535275-38fc-4f9c-b69a-a80482aafe53.png",
+    logoBg: "bg-[#070b14]",
+    isFounderProduct: true,
+  },
+  {
     slug: "pssdc",
     name: "PSSDC AI Conversational Service Assistant",
     category: "Government AI Platform",

@@ -75,9 +75,9 @@ function WorkPage() {
                 className="grid gap-0 overflow-hidden brutal-border brutal-shadow-lg bg-[#121214] md:grid-cols-5"
               >
                 <div
-                  className={`flex items-center justify-center bg-white p-8 sm:p-12 md:p-14 md:col-span-2 min-h-[200px] md:min-h-[280px] border-ink ${
-                    i % 2 === 1 ? "md:order-2 md:border-l-2" : "md:border-r-2"
-                  }`}
+                  className={`flex items-center justify-center p-8 sm:p-12 md:p-14 md:col-span-2 min-h-[200px] md:min-h-[280px] border-ink ${
+                    (p as { logoBg?: string }).logoBg || "bg-white"
+                  } ${i % 2 === 1 ? "md:order-2 md:border-l-2" : "md:border-r-2"}`}
                 >
                   <img
                     src={p.logo}
@@ -90,9 +90,15 @@ function WorkPage() {
                     <span className="brutal-border bg-[#0b0b0c] px-3 py-1 font-mono text-xs font-bold uppercase text-neutral-300">
                       {p.category}
                     </span>
-                    {p.badge && (
-                      <span className="brutal-border bg-accent-brand px-3 py-1 font-mono text-xs font-bold uppercase text-white">
-                        {p.badge}
+                    {(p.badge || (p as { ownershipBadge?: string }).ownershipBadge) && (
+                      <span
+                        className={`brutal-border px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider ${
+                          (p as { isFounderProduct?: boolean }).isFounderProduct
+                            ? "bg-cyan-400 text-black border-cyan-300 font-extrabold shadow-[2px_2px_0px_#06b6d4]"
+                            : "bg-accent-brand text-white"
+                        }`}
+                      >
+                        {(p as { ownershipBadge?: string }).ownershipBadge || p.badge}
                       </span>
                     )}
                   </div>
@@ -100,7 +106,21 @@ function WorkPage() {
                     {p.name}
                   </h2>
                   <div className="text-sm font-semibold text-neutral-400">
-                    Client: <span className="text-white font-semibold">{p.client}</span>
+                    {(p as { creatorLine?: string }).creatorLine ? (
+                      <div>
+                        <span className="text-neutral-400">Creator: </span>
+                        <span className="text-white font-semibold">
+                          {(p as { creatorLine?: string }).creatorLine?.replace(
+                            /^Creator:\s*/i,
+                            "",
+                          )}
+                        </span>
+                      </div>
+                    ) : (
+                      <div>
+                        Client: <span className="text-white font-semibold">{p.client}</span>
+                      </div>
+                    )}
                   </div>
                   <p className="text-base leading-relaxed text-neutral-300">{p.description}</p>
                   <div>
@@ -119,15 +139,25 @@ function WorkPage() {
                     </div>
                   </div>
                   {p.url && (
-                    <div className="pt-3">
+                    <div className="pt-3 flex flex-wrap items-center gap-4">
                       <a
                         href={p.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 brutal-border bg-accent-brand px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-orange-600 hover:-translate-x-[2px] hover:-translate-y-[2px]"
                       >
-                        <span>Visit Live Project</span>
+                        <span>
+                          {(p as { buttonText?: string }).buttonText || "Visit Live Project"}
+                        </span>
                         <ArrowUpRight className="h-4 w-4" />
+                      </a>
+                      <a
+                        href={p.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-mono text-xs font-semibold text-neutral-400 hover:text-white transition-colors underline decoration-neutral-700 underline-offset-4"
+                      >
+                        {p.displayUrl}
                       </a>
                     </div>
                   )}

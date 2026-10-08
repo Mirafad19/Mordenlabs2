@@ -171,6 +171,40 @@ function RootShell({ children }: { children: ReactNode }) {
           "https://www.linkedin.com/company/mordenlabs",
           "https://www.linkedin.com/in/miracle-fadahunsi-897149295/",
         ],
+        owns: [
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://www.dumpit.tech/#app",
+            name: "Dumpit: Gesture-Controlled File Transfer",
+            url: "https://www.dumpit.tech/",
+          },
+        ],
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.dumpit.tech/#app",
+        name: "Dumpit",
+        alternateName: [
+          "Dumpit: Gesture-Controlled File Transfer",
+          "Dumpit File Transfer",
+          "dumpit.tech",
+        ],
+        url: "https://www.dumpit.tech/",
+        image:
+          "https://www.image2url.com/r2/default/images/1791490168952-24535275-38fc-4f9c-b69a-a80482aafe53.png",
+        applicationCategory: "UtilitiesApplication",
+        operatingSystem: "Web Browser (Cross-Platform Chrome, Safari, Firefox, Edge)",
+        description:
+          "A browser-based application that turns file sharing into a visible hand gesture using WebRTC and MediaPipe hand tracking. Users stage files, create a private room, grab with a fist to send, and open hands to catch over local Wi-Fi with no accounts or cloud storage required.",
+        author: {
+          "@id": "https://mordenlabs.com.ng/#founder",
+        },
+        creator: {
+          "@id": "https://mordenlabs.com.ng/#founder",
+        },
+        publisher: {
+          "@id": "https://mordenlabs.com.ng/#organization",
+        },
       },
       {
         "@type": "Person",
@@ -191,6 +225,11 @@ function RootShell({ children }: { children: ReactNode }) {
           "Full-Stack Web Development",
           "Mobile Engineering",
           "Automation & CRM",
+        ],
+        creator: [
+          {
+            "@id": "https://www.dumpit.tech/#app",
+          },
         ],
       },
       {
