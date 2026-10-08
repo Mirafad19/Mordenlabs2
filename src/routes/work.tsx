@@ -143,7 +143,7 @@ function WorkPage() {
                       <a
                         href={p.url}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener"
                         className="inline-flex items-center gap-2 brutal-border bg-accent-brand px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-orange-600 hover:-translate-x-[2px] hover:-translate-y-[2px]"
                       >
                         <span>
@@ -154,7 +154,7 @@ function WorkPage() {
                       <a
                         href={p.url}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener"
                         className="font-mono text-xs font-semibold text-neutral-400 hover:text-white transition-colors underline decoration-neutral-700 underline-offset-4"
                       >
                         {p.displayUrl}

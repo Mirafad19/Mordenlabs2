@@ -319,7 +319,7 @@ export function ProjectVault() {
                       <a
                         href={proj.url}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener"
                         onClick={(e) => e.stopPropagation()}
                         className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
                           isActive
@@ -353,7 +353,7 @@ export function ProjectVault() {
                 <a
                   href={activeProject.url}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="inline-flex items-center gap-1.5 bg-accent-brand hover:bg-orange-600 text-white backdrop-blur-md px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-mono font-bold transition-all shadow-lg hover:scale-105 cursor-pointer"
                   title={`Open ${activeProject.url} in new tab`}
                 >
