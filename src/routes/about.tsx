@@ -8,21 +8,40 @@ import { motion } from "motion/react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us | Fadahunsi Miracle, Founder & CEO | Morden Labs" },
+      { title: "About Us | Miracle Fadahunsi, Founder & CEO | Morden Labs" },
       {
         name: "description",
         content:
-          "Meet Fadahunsi Miracle, Founder & CEO at Morden Labs. Leading software engineering, enterprise AI systems, and scalable digital platforms across the UK and Nigeria.",
+          "Meet Miracle Fadahunsi (Fadahunsi Miracle), Founder & CEO at Morden Labs. Leading software engineering, enterprise AI systems, and scalable digital platforms across the UK and Nigeria.",
       },
-      { name: "author", content: "Fadahunsi Miracle, Founder & CEO at Morden Labs" },
+      {
+        name: "keywords",
+        content:
+          "Miracle Fadahunsi, Fadahunsi Miracle, Morden Labs founder, Morden Labs CEO, Dumpit creator, software engineer Nigeria, UK digital studio",
+      },
+      { name: "author", content: "Miracle Fadahunsi, Founder & CEO at Morden Labs" },
       {
         property: "og:title",
-        content: "About Us | Fadahunsi Miracle, Founder & CEO | Morden Labs",
+        content: "About Us | Miracle Fadahunsi, Founder & CEO | Morden Labs",
       },
       {
         property: "og:description",
         content:
-          "Meet Fadahunsi Miracle, Founder & CEO at Morden Labs. Engineering digital products with taste, velocity, and real stakes.",
+          "Meet Miracle Fadahunsi, Founder & CEO at Morden Labs. Engineering digital products with taste, velocity, and real stakes.",
+      },
+      { property: "og:type", content: "profile" },
+      { property: "og:image", content: "https://mordenlabs.com.ng/miracle-fadahunsi.jpg" },
+      { property: "og:image:width", content: "944" },
+      { property: "og:image:height", content: "1112" },
+      {
+        property: "og:image:alt",
+        content: "Miracle Fadahunsi - Founder & CEO at Morden Labs",
+      },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://mordenlabs.com.ng/miracle-fadahunsi.jpg" },
+      {
+        name: "twitter:image:alt",
+        content: "Miracle Fadahunsi - Founder & CEO at Morden Labs",
       },
     ],
     links: [{ rel: "canonical", href: "https://mordenlabs.com.ng/about" }],
@@ -124,11 +143,22 @@ function AboutPage() {
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "Person",
+                "@id": "https://mordenlabs.com.ng/#founder",
                 name: LEADERSHIP.name,
+                alternateName: [LEADERSHIP.fullName, "Miracle Fadahunsi Morden Labs"],
                 jobTitle: LEADERSHIP.role,
-                image: LEADERSHIP.image,
+                image: {
+                  "@type": "ImageObject",
+                  url: LEADERSHIP.fullImageUrl,
+                  contentUrl: LEADERSHIP.fullImageUrl,
+                  caption: `${LEADERSHIP.name}, Founder of Morden Labs`,
+                  width: "944",
+                  height: "1112",
+                  representativeOfPage: true,
+                },
                 worksFor: {
                   "@type": "Organization",
+                  "@id": "https://mordenlabs.com.ng/#organization",
                   name: LEADERSHIP.company,
                   url: "https://mordenlabs.com.ng",
                 },
@@ -151,14 +181,14 @@ function AboutPage() {
             >
               <div className="mb-4 inline-flex items-center gap-2 brutal-border bg-card px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-accent-brand">
                 <span className="h-2 w-2 rounded-full bg-accent-brand" />
-                LEADERSHIP
+                LEADERSHIP & ENGINEERING
               </div>
               <h2 className="font-display text-4xl font-bold leading-[1.05] md:text-5xl lg:text-6xl">
                 Built and Led by Miracle Fadahunsi.
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Direct hands-on engineering and architectural leadership across every client
-                project.
+                Direct hands-on engineering, system architecture, and technical taste across every
+                client and internal project.
               </p>
             </motion.div>
 
@@ -170,46 +200,53 @@ function AboutPage() {
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="brutal-border brutal-shadow-lg bg-card overflow-hidden grid lg:grid-cols-12"
             >
-              {/* Profile Identity Card */}
-              <div className="lg:col-span-5 border-b-2 lg:border-b-0 lg:border-r-2 border-ink p-8 lg:p-10 bg-muted/40 flex flex-col justify-between">
+              {/* Profile Identity Card with Prominent Big Founder Photo */}
+              <div className="lg:col-span-5 border-b-2 lg:border-b-0 lg:border-r-2 border-ink p-6 sm:p-8 lg:p-10 bg-muted/30 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-6">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 font-mono text-xs font-bold uppercase tracking-wider">
-                      <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                      <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                       FOUNDER & LEAD ENGINEER
                     </span>
+                    <span className="font-mono text-xs text-muted-foreground">Morden Labs</span>
                   </div>
 
-                  {/* Profile Portrait Photo */}
-                  <div className="mb-6 shrink-0">
-                    <img
-                      src={LEADERSHIP.image}
-                      alt={`${LEADERSHIP.name}, ${LEADERSHIP.role}`}
-                      className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-0 outline-none shadow-none"
-                      loading="eager"
-                    />
+                  {/* Really Big High-Resolution Founder Photo */}
+                  <div className="mb-6 w-full">
+                    <figure className="relative overflow-hidden rounded-2xl brutal-border brutal-shadow-lg bg-neutral-950 aspect-[944/1112] max-w-sm sm:max-w-md mx-auto lg:max-w-none">
+                      <img
+                        src="/miracle-fadahunsi.jpg"
+                        alt="Miracle Fadahunsi - Founder of Morden Labs and Creator of Dumpit"
+                        title="Miracle Fadahunsi | Founder of Morden Labs"
+                        width={944}
+                        height={1112}
+                        className="w-full h-full object-cover object-center"
+                        loading="eager"
+                        fetchPriority="high"
+                      />
+                    </figure>
                   </div>
 
-                  <h3 className="font-display text-3xl font-bold leading-tight">
-                    {LEADERSHIP.name}
+                  <h3 className="font-display text-3xl font-extrabold leading-tight text-foreground">
+                    Miracle Fadahunsi
                   </h3>
-                  <div className="mt-1 font-mono text-sm font-semibold text-accent-brand uppercase tracking-wider">
-                    {LEADERSHIP.role}
+                  <div className="mt-1 font-mono text-sm font-bold text-accent-brand uppercase tracking-wider">
+                    Founder & Lead Engineer
                   </div>
                   <div className="mt-2 text-xs font-medium text-muted-foreground flex items-center gap-2">
-                    <span>{LEADERSHIP.company}</span>
+                    <span>Morden Labs Studio</span>
                     <span>·</span>
-                    <span>{LEADERSHIP.location}</span>
+                    <span>Lagos, Nigeria & UK</span>
                   </div>
 
-                  <div className="mt-6 pt-6 border-t border-ink/10 space-y-2">
-                    <div className="flex items-center gap-2 text-xs font-mono text-neutral-600">
-                      <ShieldCheck className="h-4 w-4 text-emerald-600" />
-                      <span>Technical Architecture & Hands-on Delivery</span>
+                  <div className="mt-6 pt-6 border-t border-ink/10 space-y-2.5">
+                    <div className="flex items-center gap-2.5 text-xs font-mono text-neutral-700 dark:text-neutral-300">
+                      <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0" />
+                      <span>Direct Hands-on Technical Delivery</span>
                     </div>
-                    <div className="flex items-center gap-2 text-xs font-mono text-neutral-600">
-                      <Award className="h-4 w-4 text-accent-brand" />
-                      <span>Commercial & Government Project Experience</span>
+                    <div className="flex items-center gap-2.5 text-xs font-mono text-neutral-700 dark:text-neutral-300">
+                      <Award className="h-4 w-4 text-accent-brand shrink-0" />
+                      <span>Creator of Dumpit & Public Sector AI Systems</span>
                     </div>
                   </div>
                 </div>
@@ -220,17 +257,17 @@ function AboutPage() {
                     href={LEADERSHIP.socials.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 brutal-border bg-card hover:bg-muted text-xs font-mono font-semibold transition-transform hover:-translate-y-[1px]"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 brutal-border bg-card hover:bg-muted text-xs font-mono font-bold transition-transform hover:-translate-y-[1px]"
                   >
                     <Linkedin className="h-3.5 w-3.5 text-[#0A66C2]" />
                     LinkedIn
                   </a>
                   <a
                     href={`mailto:${LEADERSHIP.socials.email}`}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 brutal-border bg-card hover:bg-muted text-xs font-mono font-semibold transition-transform hover:-translate-y-[1px]"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 brutal-border bg-card hover:bg-muted text-xs font-mono font-bold transition-transform hover:-translate-y-[1px]"
                   >
                     <Mail className="h-3.5 w-3.5 text-accent-brand" />
-                    Email
+                    Direct Email
                   </a>
                 </div>
               </div>

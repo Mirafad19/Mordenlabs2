@@ -18,12 +18,32 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Morden Labs is a digital studio building web platforms, mobile apps, AI solutions, and automation for companies that move forward.",
+          "Morden Labs is a digital studio building web platforms, mobile apps, AI solutions, and automation. Led by Miracle Fadahunsi.",
       },
+      {
+        name: "keywords",
+        content:
+          "Morden Labs, MordenLabs, Miracle Fadahunsi, Fadahunsi Miracle, Dumpit, dumpit.tech, digital engineering studio, custom software, AI automation, web development, Lagos Nigeria, UK",
+      },
+      { name: "author", content: "Miracle Fadahunsi, Founder at Morden Labs" },
       { property: "og:title", content: "Morden Labs | Digital studio building modern software" },
       {
         property: "og:description",
-        content: "Custom AI, Web platforms, Automation & Mobile apps.",
+        content: "Custom AI, Web platforms, Automation & Mobile apps led by Miracle Fadahunsi.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://mordenlabs.com.ng/miracle-fadahunsi.jpg" },
+      { property: "og:image:width", content: "944" },
+      { property: "og:image:height", content: "1112" },
+      {
+        property: "og:image:alt",
+        content: "Miracle Fadahunsi - Founder & Lead Engineer at Morden Labs",
+      },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://mordenlabs.com.ng/miracle-fadahunsi.jpg" },
+      {
+        name: "twitter:image:alt",
+        content: "Miracle Fadahunsi - Founder & Lead Engineer at Morden Labs",
       },
     ],
     links: [{ rel: "canonical", href: "https://mordenlabs.com.ng" }],
@@ -41,6 +61,7 @@ function HomePage() {
         <Highlights />
         <CapabilitiesScroll />
         <ProjectVault />
+        <FounderSpotlight />
         <ProcessSection />
         <CTA />
       </main>
@@ -213,6 +234,120 @@ function Highlights() {
               </div>
             </motion.div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FounderSpotlight() {
+  return (
+    <section className="border-b-2 border-ink bg-[#0c0d10] py-20 lg:py-28 relative overflow-hidden">
+      {/* Background elegant grid pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.035] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+      <div className="mx-auto max-w-7xl px-5 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Really Big Founder Portrait Photo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex justify-center"
+          >
+            <div className="w-full max-w-[480px]">
+              <figure className="relative overflow-hidden rounded-2xl brutal-border brutal-shadow-lg bg-neutral-950 aspect-[944/1112]">
+                <img
+                  src="/miracle-fadahunsi.jpg"
+                  alt="Miracle Fadahunsi - Founder of Morden Labs and Creator of Dumpit"
+                  title="Miracle Fadahunsi | Founder of Morden Labs"
+                  width={944}
+                  height={1112}
+                  className="w-full h-full object-cover object-center"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </figure>
+            </div>
+          </motion.div>
+
+          {/* Narrative & Authority Badges */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 flex flex-col justify-center"
+          >
+            <div className="mb-4 inline-flex items-center gap-2 brutal-border bg-card px-3.5 py-1.5 text-xs font-mono font-semibold uppercase tracking-wider text-accent-brand w-fit">
+              <span className="h-2 w-2 rounded-full bg-accent-brand" />
+              LEADERSHIP & ENGINEERING
+            </div>
+
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.08] text-white">
+              Every system built with conviction. <br />
+              <span className="text-accent-brand">Led by Miracle Fadahunsi.</span>
+            </h2>
+
+            <p className="mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
+              At Morden Labs, you work directly with senior engineering leadership. Every core
+              system design, high-performance data model, and user interaction is personally
+              spearheaded by Miracle Fadahunsi — delivering production velocity with zero compromise
+              on taste.
+            </p>
+
+            {/* Achievements row */}
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="p-4 rounded-xl border border-ink bg-card/80">
+                <div className="font-mono text-xs font-bold uppercase text-accent-brand">
+                  Founder's Innovation
+                </div>
+                <div className="mt-1 font-display text-base font-bold text-white">
+                  Creator of Dumpit
+                </div>
+                <div className="mt-1 text-xs text-muted-foreground">
+                  Browser-based gesture-controlled file transfer engine powered by WebRTC &
+                  MediaPipe.
+                </div>
+              </div>
+
+              <div className="p-4 rounded-xl border border-ink bg-card/80">
+                <div className="font-mono text-xs font-bold uppercase text-emerald-400">
+                  Public Sector AI
+                </div>
+                <div className="mt-1 font-display text-base font-bold text-white">
+                  PSSDC Lagos State
+                </div>
+                <div className="mt-1 text-xs text-muted-foreground">
+                  Awarded official Letter of Recommendation for conversational AI service delivery.
+                </div>
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 brutal-border brutal-shadow bg-accent-brand px-6 py-3.5 font-bold text-white text-xs sm:text-sm uppercase tracking-wider transition-all hover:bg-orange-600 hover:-translate-x-[2px] hover:-translate-y-[2px]"
+              >
+                Meet the Founder <ArrowUpRight className="h-4 w-4" />
+              </Link>
+              <a
+                href="https://www.linkedin.com/in/miracle-fadahunsi-897149295/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 brutal-border bg-card px-5 py-3.5 font-mono text-xs font-bold text-foreground transition-all hover:bg-muted hover:-translate-x-[2px] hover:-translate-y-[2px]"
+              >
+                Connect on LinkedIn
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

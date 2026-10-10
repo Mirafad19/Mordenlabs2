@@ -61,7 +61,7 @@ export const PROJECTS = [
       "Responsive Design",
     ],
     buttonText: "VISIT LIVE PROJECT",
-    logo: "https://www.image2url.com/r2/default/images/1791490168952-24535275-38fc-4f9c-b69a-a80482aafe53.png",
+    logo: "/dumpit-showcase.png",
     logoBg: "bg-[#070b14]",
     isFounderProduct: true,
   },
@@ -120,25 +120,26 @@ export const STATS = [
 ];
 
 export const LEADERSHIP = {
-  name: "Fadahunsi Miracle",
+  name: "Miracle Fadahunsi",
+  fullName: "Fadahunsi Miracle",
   role: "Founder & Lead Engineer",
   company: "Morden Labs",
-  location: "Lagos, Nigeria",
-  image:
-    "https://www.image2url.com/r2/default/images/1788471400856-36701ac8-2925-4e9d-8462-b24257965e0a.png",
+  location: "Lagos, Nigeria & UK",
+  image: "/miracle-fadahunsi.jpg",
+  fullImageUrl: "https://mordenlabs.com.ng/miracle-fadahunsi.jpg",
   headline:
     "Engineering robust web platforms, applied AI systems, and scalable digital infrastructure.",
   bio: [
-    "At Morden Labs, our focus is simple: deliver high-quality engineering without agency bureaucracy. As founder and lead engineer, I work directly with clients to design, build, and deploy systems that solve real operational problems.",
-    "From conversational AI platforms deployed for government initiatives to custom healthcare CRMs and UK commercial booking ecosystems, we write code that works reliably under real-world conditions.",
+    "At Morden Labs, our focus is simple: deliver high-quality engineering without agency bureaucracy. As founder and lead engineer, I work directly with clients to design, build, and deploy systems that solve real operational problems with zero compromise on taste or speed.",
+    "From gesture-controlled file transfers with Dumpit to conversational voice AI for government institutions and UK commercial operations, we build software designed to stand the test of time.",
   ],
   quote:
     "We build software with taste and precision, engineered to help our clients move faster and scale with confidence.",
   expertise: [
-    "Web & Cloud Architecture",
+    "Full-Stack Web & Cloud Infrastructure",
+    "Computer Vision & WebRTC (MediaPipe)",
     "Applied AI & Workflow Automation",
-    "High-Performance Web Platforms",
-    "Mobile & Cross-Platform Systems",
+    "Cross-Platform Mobile Systems",
   ],
   socials: {
     linkedin: "https://www.linkedin.com/in/miracle-fadahunsi-897149295/",

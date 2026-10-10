@@ -83,9 +83,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "keywords",
         content:
-          "Morden Labs, MordenLabs, digital engineering studio, custom software, AI automation, web development, Fadahunsi Miracle, Nigeria, UK",
+          "Morden Labs, MordenLabs, Miracle Fadahunsi, Fadahunsi Miracle, Dumpit, dumpit.tech, digital engineering studio, custom software, AI automation, web development, Lagos Nigeria, UK",
       },
-      { name: "author", content: "Fadahunsi Miracle, Founder at Morden Labs" },
+      { name: "author", content: "Miracle Fadahunsi, Founder at Morden Labs" },
       {
         property: "og:title",
         content: "Morden Labs | We build software that moves businesses forward.",
@@ -96,7 +96,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "High-performance digital engineering studio building web platforms, mobile apps, enterprise AI systems, and automation.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://mordenlabs.com.ng/miracle-fadahunsi.jpg" },
+      { property: "og:image:width", content: "944" },
+      { property: "og:image:height", content: "1112" },
+      {
+        property: "og:image:alt",
+        content: "Miracle Fadahunsi - Founder & Lead Engineer at Morden Labs",
+      },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://mordenlabs.com.ng/miracle-fadahunsi.jpg" },
+      {
+        name: "twitter:image:alt",
+        content: "Miracle Fadahunsi - Founder & Lead Engineer at Morden Labs",
+      },
       {
         name: "robots",
         content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
@@ -159,10 +171,10 @@ function RootShell({ children }: { children: ReactNode }) {
         founder: {
           "@type": "Person",
           "@id": "https://mordenlabs.com.ng/#founder",
-          name: "Fadahunsi Miracle",
+          name: "Miracle Fadahunsi",
+          alternateName: ["Fadahunsi Miracle", "Miracle Fadahunsi Morden Labs"],
           jobTitle: "Founder & Lead Engineer",
-          image:
-            "https://www.image2url.com/r2/default/images/1788471400856-36701ac8-2925-4e9d-8462-b24257965e0a.png",
+          image: "https://mordenlabs.com.ng/miracle-fadahunsi.jpg",
           worksFor: {
             "@id": "https://mordenlabs.com.ng/#organization",
           },
@@ -190,8 +202,7 @@ function RootShell({ children }: { children: ReactNode }) {
           "dumpit.tech",
         ],
         url: "https://www.dumpit.tech/",
-        image:
-          "https://www.image2url.com/r2/default/images/1791490168952-24535275-38fc-4f9c-b69a-a80482aafe53.png",
+        image: "https://mordenlabs.com.ng/dumpit-showcase.png",
         applicationCategory: "UtilitiesApplication",
         operatingSystem: "Web Browser (Cross-Platform Chrome, Safari, Firefox, Edge)",
         description:
@@ -209,10 +220,19 @@ function RootShell({ children }: { children: ReactNode }) {
       {
         "@type": "Person",
         "@id": "https://mordenlabs.com.ng/#founder",
-        name: "Fadahunsi Miracle",
+        name: "Miracle Fadahunsi",
+        alternateName: ["Fadahunsi Miracle", "Miracle Fadahunsi Morden Labs"],
         jobTitle: "Founder & Lead Engineer",
-        image:
-          "https://www.image2url.com/r2/default/images/1788471400856-36701ac8-2925-4e9d-8462-b24257965e0a.png",
+        image: {
+          "@type": "ImageObject",
+          "@id": "https://mordenlabs.com.ng/#founder-photo",
+          url: "https://mordenlabs.com.ng/miracle-fadahunsi.jpg",
+          contentUrl: "https://mordenlabs.com.ng/miracle-fadahunsi.jpg",
+          caption: "Miracle Fadahunsi, Founder of Morden Labs and Creator of Dumpit",
+          width: "944",
+          height: "1112",
+          representativeOfPage: true,
+        },
         worksFor: {
           "@id": "https://mordenlabs.com.ng/#organization",
         },
@@ -223,6 +243,8 @@ function RootShell({ children }: { children: ReactNode }) {
           "Software Architecture",
           "Artificial Intelligence",
           "Full-Stack Web Development",
+          "MediaPipe & Computer Vision",
+          "WebRTC & P2P Protocols",
           "Mobile Engineering",
           "Automation & CRM",
         ],

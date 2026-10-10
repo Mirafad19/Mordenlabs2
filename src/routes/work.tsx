@@ -8,18 +8,29 @@ import { motion } from "motion/react";
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
-      { title: "Featured Projects | Morden Labs" },
+      { title: "Featured Projects | Dumpit, PSSDC AI, TidyScot | Morden Labs" },
       {
         name: "description",
         content:
-          "Featured projects from Morden Labs: real AI, web, and CRM solutions delivered for government agencies and growing businesses.",
+          "Featured software systems and products from Morden Labs and founder Miracle Fadahunsi: Dumpit gesture file transfer, Lagos State PSSDC AI assistant, TidyScot UK, and Citicare.",
       },
-      { property: "og:title", content: "Featured Projects | Morden Labs" },
+      {
+        name: "keywords",
+        content:
+          "Dumpit, Dumpit gesture file transfer, dumpit.tech, Miracle Fadahunsi, Fadahunsi Miracle, Morden Labs projects, PSSDC AI, TidyScot, Citicare, software engineer Nigeria UK",
+      },
+      {
+        property: "og:title",
+        content: "Featured Projects | Dumpit, PSSDC AI, TidyScot | Morden Labs",
+      },
       {
         property: "og:description",
         content:
-          "Selected client work across government AI, business websites, and custom CRM platforms.",
+          "Featured systems from Morden Labs: Dumpit gesture-controlled file transfer, government AI platforms, and commercial apps.",
       },
+      { property: "og:image", content: "https://mordenlabs.com.ng/dumpit-showcase.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://mordenlabs.com.ng/dumpit-showcase.png" },
     ],
     links: [{ rel: "canonical", href: "https://mordenlabs.com.ng/work" }],
   }),

@@ -34,8 +34,7 @@ export const SHOWCASE_PROJECTS = [
     badges: ["FOUNDER'S PRODUCT", "WEBRTC", "MEDIAPIPE", "NO CLOUD"],
     color: "#06b6d4", // Cyan
     accentBg: "bg-cyan-500/10 border-cyan-500/30 text-cyan-400",
-    desktopMockup:
-      "https://www.image2url.com/r2/default/images/1791490168952-24535275-38fc-4f9c-b69a-a80482aafe53.png",
+    desktopMockup: "/dumpit-showcase.png",
     mobileMockup: null,
     phoneScreen: {
       title: "Dumpit P2P Room",
